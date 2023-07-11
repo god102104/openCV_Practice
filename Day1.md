@@ -93,3 +93,6 @@ openCV function 관련
 	</code>
 </pre>
 ![image](https://github.com/god102104/openCV_Practice/assets/43011129/2ce6069a-1317-4e2b-976b-2f3083146c81)
+
+> 외부 메모리 공간을 **참조**하여 Mat Object 를 생성하는 경우, Object의 원소 값과 외부 **메모리 값이 공유**된다는 사실은 몹시 중요하다. 둘 중 한 쪽을 수정하더라도 양 쪽 모두에 적용됨.
+> 
