@@ -80,4 +80,16 @@ openCV function 관련
 
 ![image](https://github.com/god102104/openCV_Practice/assets/43011129/f8080d0a-5031-4ea4-bc87-2d60e3ca38b5)
 
+> Mat::zeros(int rows, int cols, int type)
+> Mat::ones(int rows, int cols, int type)
+> Mat::eye(int rows, int cols, int type)
 
+### 외부 배열을 행렬의 원소값으로 사용해보기
+<pre>
+	<code>
+		float data[] = { 1, 2, 3, 4, 5, 6 };
+		Mat mat(2, 3, CV_32FC1, data);
+		cout << "mat"<< endl << mat << endl;
+	</code>
+</pre>
+![image](https://github.com/god102104/openCV_Practice/assets/43011129/2ce6069a-1317-4e2b-976b-2f3083146c81)
