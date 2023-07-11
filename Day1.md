@@ -248,5 +248,9 @@ openCV function 관련
 	</code>
 </pre>
 ![image](https://github.com/god102104/openCV_Practice/assets/43011129/21bb6a46-a2c8-475d-9688-f0d45abca9be)
-> mat1.resize(5,100)을 하면 3x4 크기에서 5x4 크기로 변경되고, 새로 추가된 행의 원소는 모두 100으로 설정된다.
+> mat1.resize(5,100)을 하면 3x4 크기에서 5x4 크기로 변경되고, 새로 추가된 행의 원소는 모두 100으로 설정된다.<br>
 > ![image](https://github.com/god102104/openCV_Practice/assets/43011129/021a67ef-b73d-46c2-9b23-8f6d2997c99b)
+
+
+## Scalar Class
+> 4채널 이하의 영상에서 pixel 값을 표현하는 용도
