@@ -94,5 +94,19 @@ openCV function 관련
 </pre>
 ![image](https://github.com/god102104/openCV_Practice/assets/43011129/2ce6069a-1317-4e2b-976b-2f3083146c81)
 
-> 외부 메모리 공간을 **참조**하여 Mat Object 를 생성하는 경우, Object의 원소 값과 외부 **메모리 값이 공유**된다는 사실은 몹시 중요하다. 둘 중 한 쪽을 수정하더라도 양 쪽 모두에 적용됨.
-> 
+> 외부 메모리 공간을 **참조**하여 Mat Object 를 생성하는 경우, Object의 원소 값과 외부 **메모리 값이 공유**된다는 사실은 몹시 중요하다.<br>
+> 둘 중 한 쪽을 수정하더라도 양 쪽 모두에 적용됨.<br>
+> 동적 할당 된 Memory의 경우 Mat Object가 소멸될 때 까지 남으므로, 직접 메모리 해제 해주는 것을 잊지 말자.<br>
+
+### Mat_ Class
+> Mat_ Class와 Mat Object는 간단하게 상호 변환이 가능
+> Mat_ 은 **<<**와 **,** Operator 를 이용해서 간단히 행렬 원소 값을 설정 가능함.
+<pre>
+	<code>
+		Mat_<float>mat5_(2,3);
+		mat5_ << 1, 2, 3, 4, 5, 6;
+		Mat mat5 = mat5_;
+		cout << "mat5" << endl << mat5 << endl;
+	</code>
+</pre> 
+![image](https://github.com/god102104/openCV_Practice/assets/43011129/a266ba9f-0bd6-4238-98e3-d206830a451f)
