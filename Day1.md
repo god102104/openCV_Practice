@@ -44,13 +44,23 @@ openCV function 관련
 
 ### Size_ Class
 > template class
-> width와 height 라는 member variable 을 갖고 있음.
+> **width**와 **height** 라는 member variable 을 갖고 있음.
 > int 쓰고 싶다면 Size2i, float 쓰고 싶다면 Size2f 쓰면 된다.
 > Size Object 끼리 덧셈 연산을 하면 가로 세로를 더한 새로운 Object를 생성한다.
 
 ### Rect_ Class
 > 사각형의 위치와 크기 정보
 > template class
-> Rect_ Object 끼리 & 와 | 를 이용한 연산이 가능하다.
+> Rect_ Object 끼리 **&** 와 **|** 를 이용한 연산이 가능하다.
 
 ![Rect_example](https://postfiles.pstatic.net/MjAyMTA1MDlfMjgx/MDAxNjIwNTUwODE5NjU5.sHiYnIJZ0NA6iP4l6xQALluU8NyVVTt9-Dm5dEieT7sg.OekYqTLPwnJdYHNz2G1uGqJ3iipr6ARN_FmsOorIm-Yg.JPEG.sees111/%EC%BA%A1%EC%B2%98.JPG?type=w966)
+
+### String class
+> std::string 이랑 똑같음
+
+
+## Mat Class ★
+> **Mat::dims** 라는 member variable 은 행렬의 차원
+> **Mat::rows** 와 **Mat::cols** 라는 member variable 은 Mat object가 2차원인 경우에만 의미있는 값을 가진다. (3차원 이상인 경우 -1이 저장됨)
+> 3차원 이상의 행렬 크기 정보는 Mat::size 이용해서 **참조** 가능.
+> **Mat::data**는 행렬의 원소 data가 저장되어 있는 **메모리 공간**을 가리키는 **포인터형** 변수
