@@ -128,3 +128,4 @@ openCV function 관련
 </pre>
 > 이렇게 코드를 돌리면, **mat5에서 오류** 발생한다.<br>
 > imshow 는 unsigned char를 쓰기 때문인데, 이를 해결하기 위해서는 **cv2.normalize()** 함수로 Scaling 해줘야만 한다.<br>
+> **normalize(mat5, mat5, 0, 255, NORM_MINMAX, CV_8U);**
