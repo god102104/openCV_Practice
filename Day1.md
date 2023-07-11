@@ -153,3 +153,31 @@ openCV function 관련
 </pre>
 > 깊은 복사의 경우 메모리 공간을 새로 할당하여 복사하는 방식
 > 
+
+### 이미지 반전
+> img = ~img;
+
+### 행 또는 열 추출
+> Mat::rowRange()
+> Mat::colRange()
+
+## 원소 접근 방법
+> 1. Mat::at()
+> 2. MAt::ptr()
+
+## Mat::at(int y, int x)
+> **참조 형식**으로 반환.
+<pre>
+	<code>
+		Mat mat1 = Mat::zeros(3, 4, CV_8UC1);
+		for (int j = 0; j < mat1.rows; j++)
+		{
+			for (int i = 0; i < mat1.cols; i++)
+			{
+				mat1.at<uchar>(j, i)++;
+			}
+		}
+	</code>
+</pre>
+> 행과 열 번호를 0- 기반으로 표현한다는 점을 기억하자.
+> ![image](https://github.com/god102104/openCV_Practice/assets/43011129/85bc598f-e293-4295-9680-d8e4afd0670a)
