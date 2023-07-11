@@ -129,3 +129,27 @@ openCV function 관련
 > 이렇게 코드를 돌리면, **mat5에서 오류** 발생한다.<br>
 > imshow 는 unsigned char를 쓰기 때문인데, 이를 해결하기 위해서는 **cv2.normalize()** 함수로 Scaling 해줘야만 한다.<br>
 > **normalize(mat5, mat5, 0, 255, NORM_MINMAX, CV_8U);**
+
+
+## Shallow Copy, Deep Copy
+### 얕은 복사
+
+<pre>
+	<code>
+		Mat img1 = imread("lena.jpg"); 
+		Mat img2 = img1; //복사 생성자
+		Mait img3; 
+		img3 = img1;	//대입 연산자
+	</code>
+</pre>
+> 얕은 복사의 경우 동일한 메모리의 픽셀 데이터를 공유하는 방식
+### 깊은 복사
+<pre>
+	<code>
+		Mat img4 = img1.clone(); 
+		Mat img5;
+		img1.copyTo(img5)
+	</code>
+</pre>
+> 깊은 복사의 경우 메모리 공간을 새로 할당하여 복사하는 방식
+> 
