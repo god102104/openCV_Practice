@@ -101,17 +101,9 @@ openCV function 관련
 ### Mat_ Class
 > Mat_ Class와 Mat Object는 간단하게 상호 변환이 가능
 > Mat_ 은 **<<**와 **,** Operator 를 이용해서 간단히 행렬 원소 값을 설정 가능함.
-<pre>
-	<code>
-		//Mat_mat5_(2, 3);
-		//mat5_ << 1, 2, 3, 4, 5, 6;
-		//Mat mat5 = mat5_;
-		Mat mat5 = (Mat_\<float>(2, 3) << 1, 2, 3, 4, 5, 6);
-		cout << "mat5" << endl << mat5 << endl;
-		Mat mat6 = Mat_\<float>({ 2, 3 }, { 1, 2, 3, 4, 5, 6 });
-		cout << "mat6" << endl << mat6 << endl;	
-	</code>
-</pre> 
-![image](https://github.com/god102104/openCV_Practice/assets/43011129/a266ba9f-0bd6-4238-98e3-d206830a451f)
+![image](https://github.com/god102104/openCV_Practice/assets/43011129/3c5832a0-0e24-4d92-b68c-add82b31d00c)
+
+![image](https://github.com/god102104/openCV_Practice/assets/43011129/0f57e1ca-674e-44cd-a201-987776e60496)
+
 
 
