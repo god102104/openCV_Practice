@@ -70,11 +70,11 @@ openCV function 관련
 > 가로- 세로 크기 순이 아니라, 세로-가로 크기 순서
 <pre>
   <code>
-    Mat img(480, 640, CV_8UC1); //unsigned char, 1-channel
-    Mat img2(480, 640, CV_8CU3); //unsigned char, 3-channels
-    Mat img3(Size(640,480), CV_8CU3); //Size(width, height)
-    Mat img4(480, 640, CV_8CU1, Scalar(128)); //initial values, 128
-    Mat img5(480, 640, CV_8CU3, Scalar(0, 0, 255); //initial values, red
+	Mat img(480, 640, CV_8UC1); //unsigned char, 1-channel
+	Mat img2(480, 640, CV_8UC3); //unsigned char, 3-channels
+	Mat img3(Size(640, 480), CV_8UC3); //Size(width, height)
+	Mat img4(480, 640, CV_8UC1, Scalar(128)); //initial values, 128
+	Mat img5(480, 640, CV_8UC3, Scalar(0, 0, 255)); //initial values, red
   </code>
 </pre>
 
