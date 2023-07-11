@@ -108,6 +108,10 @@ openCV function 관련
 		//Mat mat5 = mat5_;
 		Mat mat5 = (Mat_<float>(2, 3) << 1, 2, 3, 4, 5, 6);
 		cout << "mat5" << endl << mat5 << endl;
+		Mat mat6 = Mat_<float>({2, 3}, {1, 2, 3, 4, 5, 6});
+		cout << "mat6" << endl << mat6 << endl;	
 	</code>
 </pre> 
 ![image](https://github.com/god102104/openCV_Practice/assets/43011129/a266ba9f-0bd6-4238-98e3-d206830a451f)
+
+
