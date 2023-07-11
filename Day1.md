@@ -26,3 +26,25 @@ openCV function 관련
 
 > IMWRITE_JPEG_QUALITY 플래그가 JPEG 압축률을 나타내는 옵션 플래그임.
 > 상세한 내용은 OpenCV 문서 사이트 참조
+
+### Point_ Class
+> Template class 이므로, 어떤 자료형으로 좌표를 표현할지를 명시해야 한다.
+> int 자료형 쓰고 싶다면 Point2i, float 쓰고 싶다면 Point2f 를 쓰면 된다.
+
+<pre>
+  <code>
+    Point pt1;
+    pt1.x = 5;
+    pt1.y = 10;
+    Point pt2(10, 30);
+  </code>
+</pre>
+
+> 위의 코드에서 pt1은 기본 생성자를 사용하여 생성되었으므로 처음에는 pt1.x, pt1.y 는 둘 다 0으로 만들어진다.
+
+### Size_ Class
+> template class
+> width와 height 라는 member variable 을 갖고 있음.
+> int 쓰고 싶다면 Size2i, float 쓰고 싶다면 Size2f 쓰면 된다.
+> Size Object 끼리 덧셈 연산을 하면 가로 세로를 더한 새로운 Object를 생성한다.
+
