@@ -115,10 +115,16 @@ openCV function 관련
 > 주로 **=** 연산자 또는 **setTo**(InputAraay value, InputArray masek = noArray()); 를 이용한다.<br>
 <pre>
 	<code>
+		Mat mat4, mat5;
 		mat4.create(256, 256, CV_8UC3);
 		mat5.create(4, 4, CV_32FC1);
-
+	
 		mat4 = Scalar(255, 0, 0);
 		mat5.setTo(1.f);
+	
+		imshow("mat4", mat4);
+		imshow("mat5", mat5);
 	</code>
 </pre>
+> 이렇게 코드를 돌리면, **mat5에서 오류** 발생한다.<br>
+> imshow 는 unsigned char를 쓰기 때문인데, 이를 해결하기 위해서는 **cv2.normalize()** 함수로 Scaling 해줘야만 한다.<br>
