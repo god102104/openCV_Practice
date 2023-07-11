@@ -243,7 +243,6 @@ openCV function 관련
 
 		mat1.resize(5, 100);
 		cout<< "mat 1:\n" << mat1 << endl;
-		
 	</code>
 	</code>
 </pre>
