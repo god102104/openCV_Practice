@@ -204,3 +204,15 @@ openCV function 관련
 >  8. Size Mat::size() const;	//행렬 크기를 Size type으로 반환
 >  9. size_t Mat::total() const;	//전체 원소 갯수 반환
 >  10. int Mat::type() const;	// 행렬의 type 반환 (CV_32FC1, CV_8UC3 등)
+
+## 행렬의 연산
+### 역행렬 
+> MatExpr Mat::inv(int method = DECOMP_LU) const; <br>
+> 역행렬 존재하는 일반적 행렬이라면 가우스 소거법을 사용하는 Decomposition LU 를 사용 가능. defalt 이므로 생략 가능 <br>
+> 역행렬 존재하지 않는 경우 DECOMP_SVD를 지정하면 특잇값 분해 (singular value decomposition) 방법을 이용해서 의사 역행렬 (pseudo-inverse matrix)을 구할 수 있음. <br>
+> DECOMP_EIG 는 고윳값 분해, DECOMP_CHOLESKY는 촐레스키 분해를 이용한 역행렬 계산.<br>
+
+### 전치 행렬
+> MatExpr Mat::t() const;
+> 정방 행렬이라면 원소의 행과 열 위치만 서로 바꾼다. <br>
+> M x N 이고, M ≠ N 이라면 Mat::t() 함수에 의해 구해지는 전치 행렬의 크기는 N x M 이 된다.
