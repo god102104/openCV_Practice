@@ -65,3 +65,16 @@ openCV function 관련
 > 3차원 이상의 행렬 크기 정보는 Mat::size 이용해서 **참조** 가능.<br>
 > **Mat::data**는 행렬의 원소 data가 저장되어 있는 **메모리 공간**을 가리키는 **포인터형** 변수<br>
 > Mat class의 모든 member variable 은 **public**
+
+### Mat Class 생성 시 주의 점
+> 가로- 세로 크기 순이 아니라, 세로-가로 크기 순서
+<pre>
+  <code>
+    Mat img(480, 640, CV_8UC1); //unsigned char, 1-channel
+    Mat img2(480, 640, CV_8CU3); //unsigned char, 3-channels
+    Mat img3(Size(640,480), CV_8CU3); //Size(width, height)
+    Mat img4(480, 640, CV_8CU1, Scalar(128)); //initial values, 128
+    Mat img5(480, 640, CV_8CU3, Scalar(0, 0, 255); //initial values, red
+  </code>
+</pre>
+
