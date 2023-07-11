@@ -10,3 +10,19 @@ openCV function 관련
 > filename 파일을 불러와서 Mat object 로 변환하여 반환
 > 파일이 존재하지 않거나 잘못된 형식의 경우, Return empty Mat object
 > imread()를 사용하려고 하는 경우 Mat::empty()를 이용하여 Object 생성 여부를 확인하자.
+
+### Mat imwrite(const String& filename, InputArray img, const std::vector<int>& params = std::vector<int>());
+> img 를 filename 이름으로 저장
+> filename 문자열에 포함된 확장자로 결정
+
+<pre>
+  <code>
+    vector<int> params;
+      params.push_back(IMWRITE_JPEG_QUALITY);
+      params.push_back(95);
+      imwrite("lena.jpg", img, params);
+  </code>
+</pre>
+
+> IMWRITE_JPEG_QUALITY 플래그가 JPEG 압축률을 나타내는 옵션 플래그임.
+> 상세한 내용은 OpenCV 문서 사이트 참조
