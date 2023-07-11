@@ -62,5 +62,6 @@ openCV function 관련
 ## Mat Class ★
 > **Mat::dims** 라는 member variable 은 행렬의 차원 <br>
 > **Mat::rows** 와 **Mat::cols** 라는 member variable 은 Mat object가 2차원인 경우에만 의미있는 값을 가진다. (3차원 이상인 경우 -1이 저장됨)<br>
-> 3차원 이상의 행렬 크기 정보는 Mat::size 이용해서 **참조** 가능.
-> **Mat::data**는 행렬의 원소 data가 저장되어 있는 **메모리 공간**을 가리키는 **포인터형** 변수
+> 3차원 이상의 행렬 크기 정보는 Mat::size 이용해서 **참조** 가능.<br>
+> **Mat::data**는 행렬의 원소 data가 저장되어 있는 **메모리 공간**을 가리키는 **포인터형** 변수<br>
+> Mat class의 모든 member variable 은 **public**
