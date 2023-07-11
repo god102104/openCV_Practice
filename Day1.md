@@ -54,4 +54,4 @@ openCV function 관련
 > Rect_ Object 끼리 & 와 | 를 이용한 연산이 가능하다.
 
 ![ex_screenshot]([./img/screenshot.png](https://postfiles.pstatic.net/MjAyMTA1MDlfMjgx/MDAxNjIwNTUwODE5NjU5.sHiYnIJZ0NA6iP4l6xQALluU8NyVVTt9-Dm5dEieT7sg.OekYqTLPwnJdYHNz2G1uGqJ3iipr6ARN_FmsOorIm-Yg.JPEG.sees111/%EC%BA%A1%EC%B2%98.JPG?type=w966)https://postfiles.pstatic.net/MjAyMTA1MDlfMjgx/MDAxNjIwNTUwODE5NjU5.sHiYnIJZ0NA6iP4l6xQALluU8NyVVTt9-Dm5dEieT7sg.OekYqTLPwnJdYHNz2G1uGqJ3iipr6ARN_FmsOorIm-Yg.JPEG.sees111/%EC%BA%A1%EC%B2%98.JPG?type=w966)
-https://postfiles.pstatic.net/MjAyMTA1MDlfMjgx/MDAxNjIwNTUwODE5NjU5.sHiYnIJZ0NA6iP4l6xQALluU8NyVVTt9-Dm5dEieT7sg.OekYqTLPwnJdYHNz2G1uGqJ3iipr6ARN_FmsOorIm-Yg.JPEG.sees111/%EC%BA%A1%EC%B2%98.JPG?type=w966
+
