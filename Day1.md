@@ -217,4 +217,30 @@ openCV function 관련
 ### 전치 행렬
 > MatExpr Mat::t() const;
 > 정방 행렬이라면 원소의 행과 열 위치만 서로 바꾼다. <br>
-> M x N 이고, M ≠ N 이라면 Mat::t() 함수에 의해 구해지는 전치 행렬의 크기는 N x M 이 된다.
+> M x N 이고, M ≠ N 이라면 Mat::t() 함수에 의해 구해지는 전치 행렬의 크기는 N x M 이 된다.<br>
+
+
+### 크기 및 type 변환 함수
+> void Mat::converTo(OutputArray m, int rtype, double alpha = 1, double beta = 0) const;<br>
+> type을 변경하고, 추가적으로 모든 원소에 일정 값을 더하거나 곱할 수 있음. <br>
+<pre>
+	<code>
+		Mat img1 = imread("lena.jpg", IMREAD_GRAYSCALE);
+		Mat img1f;
+		img1.convertTo(img1f, CV_32FC1);
+	</code>
+</pre>
+
+> Mat Mat::reshape(int cn, int rows = 0) const; <br>
+> 행렬 원소데이터를 같이 **참조**하는 행렬을 반환.
+<pre>
+	<code>
+		ucahr data1[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12};
+		Mat mat1(3, 4, CV_8UC1, data1);
+  		Mat mat2 = mat.reshape(0, 1);
+		cout<< "mat 1:\n" << mat1 << endl;
+		cout<< "mat 2:\n" << mat2 << endl;**
+	</code>
+	</code>
+</pre>
+![image](https://github.com/god102104/openCV_Practice/assets/43011129/21bb6a46-a2c8-475d-9688-f0d45abca9be)
