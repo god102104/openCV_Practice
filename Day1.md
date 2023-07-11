@@ -110,5 +110,15 @@ openCV function 관련
 > 비어 있는 Mat obejct 또는 이미 생성된 Mat object에 새로운 행렬을 할당 하려면, Mat::create()<br>
 > 이미 행렬 데이터가 있을 때, Mat::create()를 호출하면 <br>
 > 1. 행렬 크기와 타입이 같다면 -> 아무것도 하지 않고 함수 종료. <br>
-> 2. 행렬 크기 또는 타입이 다르다면 -> 기존 메모리 공간 해제 후 새로운 행렬 데이터 저장을 위한 메모리 공간 할당.<br>
+> 2. 행렬 크기 또는 타입이 다르다면 -> 기존 **메모리 공간 해제 후** 새로운 행렬 데이터 저장을 위한 **메모리 공간 할당.** <br>
+> Mat::create() 는 새로 만든 행렬의 원소 값을 **초기화 하는 기능이 없다.** 그래서 별도의 함수를 이용해줘야 함<br>
+> 주로 **=** 연산자 또는 **setTo**(InputAraay value, InputArray masek = noArray()); 를 이용한다.<br>
+<pre>
+	<code>
+		mat4.create(256, 256, CV_8UC3);
+		mat5.create(4, 4, CV_32FC1);
 
+		mat4 = Scalar(255, 0, 0);
+		mat5.setTo(1.f);
+	</code>
+</pre>
