@@ -181,3 +181,26 @@ openCV function 관련
 </pre>
 > 행과 열 번호를 0- 기반으로 표현한다는 점을 기억하자.
 > ![image](https://github.com/god102104/openCV_Practice/assets/43011129/85bc598f-e293-4295-9680-d8e4afd0670a)
+
+
+## Mat::ptr(int y)
+> 특정 행의 **첫 번째 원소 주소를 반환**
+> ![image](https://github.com/god102104/openCV_Practice/assets/43011129/cf84c628-bba6-4e5f-bac0-ae8611d2df6b)
+> for 문을 통해 행렬 **모든 원소**를 참조하는 경우, **Mat::ptr**이 Mat::at 보다 **빠르게 동작.**
+
+
+### MatIterator_ 반복자
+> Mat::begin()
+> Mat::end()
+
+ ### Mat Class의 member function
+ > 1. int Mat::channels() const; //채널 수 반환
+>  2. int Mat::depth() const;	// 행렬의 깊이 반환
+>  3. size_t Mat::elemSize() const;	// 한 개의 원소가 차지하는 메모리 크기를 byte 단위로 반환 (CV_32SC3 type의 경우 4x3 = 12)
+>  4. size_t Mat::elemSize1() const;	// 하나의 채널에서 한 개의 원소가 차지하는 메모리 크기를 byte단위로 반환 (CV_32SC3 type 의 경우 4)
+>  5. bool Mat::empty() const;	// 비어 있는 행렬이면 true
+>  6. bool Mat::isContinuous() const;	// 각 행의 원소가 연속적으로 저장되어 있으면 true 반환
+>  7. bool Mat::isSubmatrix() const;	// 행렬이 다른 행렬의 부분 행렬이면 true 반환
+>  8. Size Mat::size() const;	//행렬 크기를 Size type으로 반환
+>  9. size_t Mat::total() const;	//전체 원소 갯수 반환
+>  10. int Mat::type() const;	// 행렬의 type 반환 (CV_32FC1, CV_8UC3 등)
