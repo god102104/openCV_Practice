@@ -192,7 +192,8 @@ openCV function 관련
 ### MatIterator_ 반복자
 > Mat::begin()
 > Mat::end()
-> 동작 속도 측면에서 Mat::ptr() 접근 방법보다 느림.(포인터는 항상 메모리에 직접 접근하는 반면, 다른 방식들은 첫 번째 주소로 가서 위치를 찾기 때문)
+> 동작 속도 측면에서 Mat::ptr() 접근 방법보다 느림.<br>
+> (포인터는 항상 메모리에 직접 접근하는 반면, 다른 방식들은 첫 번째 주소로 가서 위치를 찾기 때문)
 
  ### Mat Class의 member function
  > 1. int Mat::channels() const; //채널 수 반환
