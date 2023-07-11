@@ -99,11 +99,10 @@ openCV function 관련
 > 동적 할당 된 Memory의 경우 Mat Object가 소멸될 때 까지 남으므로, 직접 메모리 해제 해주는 것을 잊지 말자.<br>
 
 ### Mat_ Class
-> Mat_ Class와 Mat Object는 간단하게 상호 변환이 가능
-> Mat_ 은 **<<**와 **,** Operator 를 이용해서 간단히 행렬 원소 값을 설정 가능함.
+> Mat_ Class와 Mat Object는 간단하게 상호 변환이 가능<br>
+> Mat_ 은 **<<**와 **,** Operator 를 이용해서 간단히 행렬 원소 값을 설정 가능함.<br>
 ![image](https://github.com/god102104/openCV_Practice/assets/43011129/3c5832a0-0e24-4d92-b68c-add82b31d00c)
-
-![image](https://github.com/god102104/openCV_Practice/assets/43011129/0f57e1ca-674e-44cd-a201-987776e60496)
+> ![image](https://github.com/god102104/openCV_Practice/assets/43011129/0f57e1ca-674e-44cd-a201-987776e60496)
 
 
 
