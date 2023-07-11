@@ -235,12 +235,18 @@ openCV function 관련
 > 행렬 원소데이터를 같이 **참조**하는 행렬을 반환.
 <pre>
 	<code>
-		ucahr data1[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12};
+		uchar data1[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12};
 		Mat mat1(3, 4, CV_8UC1, data1);
-  		Mat mat2 = mat.reshape(0, 1);
+  		Mat mat2 = mat1.reshape(0, 1);
 		cout<< "mat 1:\n" << mat1 << endl;
-		cout<< "mat 2:\n" << mat2 << endl;**
+		cout<< "mat 2:\n" << mat2 << endl;
+
+		mat1.resize(5, 100);
+		cout<< "mat 1:\n" << mat1 << endl;
+		
 	</code>
 	</code>
 </pre>
 ![image](https://github.com/god102104/openCV_Practice/assets/43011129/21bb6a46-a2c8-475d-9688-f0d45abca9be)
+> mat1.resize(5,100)을 하면 3x4 크기에서 5x4 크기로 변경되고, 새로 추가된 행의 원소는 모두 100으로 설정된다.
+> ![image](https://github.com/god102104/openCV_Practice/assets/43011129/021a67ef-b73d-46c2-9b23-8f6d2997c99b)
