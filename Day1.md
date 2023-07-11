@@ -5,5 +5,6 @@ unsigned char는 1byte 크기를 가지며 부호 없는 8bit int 값을 저장�
 그러므로 Grayscale 값을 표현하기 가장 적절한 자료형이다.
 
 openCV function 관련
-1. Mat  imread(const String& filename, int flags = IMREAD_COLOR);
-여기서 
+---
+Mat  imread(const String& filename, int flags = IMREAD_COLOR);
+> filename 파일을 불러와서 Mat object 로 변환하여 반환
