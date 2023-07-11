@@ -108,7 +108,7 @@ openCV function 관련
 		//Mat mat5 = mat5_;
 		Mat mat5 = (Mat_<float>(2, 3) << 1, 2, 3, 4, 5, 6);
 		cout << "mat5" << endl << mat5 << endl;
-		Mat mat6 = Mat_<float>({2, 3}, {1, 2, 3, 4, 5, 6});
+		Mat mat6 = Mat_<float>({ 2, 3 }, { 1, 2, 3, 4, 5, 6 });
 		cout << "mat6" << endl << mat6 << endl;	
 	</code>
 </pre> 
