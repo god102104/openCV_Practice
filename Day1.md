@@ -6,7 +6,7 @@ unsigned char는 1byte 크기를 가지며 부호 없는 8bit int 값을 저장�
 
 openCV function 관련
 ---
-# Mat  imread(const String& filename, int flags = IMREAD_COLOR);
+### Mat  imread(const String& filename, int flags = IMREAD_COLOR);
 > filename 파일을 불러와서 Mat object 로 변환하여 반환
 > 파일이 존재하지 않거나 잘못된 형식의 경우, Return empty Mat object
 > imread()를 사용하려고 하는 경우 Mat::empty()를 이용하여 Object 생성 여부를 확인하자.
