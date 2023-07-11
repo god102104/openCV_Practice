@@ -100,7 +100,7 @@ openCV function 관련
 
 ### Mat_ Class
 > Mat_ Class와 Mat Object는 간단하게 상호 변환이 가능<br>
-> Mat_ 은 **<<**와 **,** Operator 를 이용해서 간단히 행렬 원소 값을 설정 가능함.<br>
+> Mat_ 은 **<<와 ,** Operator 를 이용해서 간단히 행렬 원소 값을 설정 가능함.<br>
 ![image](https://github.com/god102104/openCV_Practice/assets/43011129/3c5832a0-0e24-4d92-b68c-add82b31d00c)<br>
 > ![image](https://github.com/god102104/openCV_Practice/assets/43011129/0f57e1ca-674e-44cd-a201-987776e60496)<br>
 
