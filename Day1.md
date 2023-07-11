@@ -103,9 +103,10 @@ openCV function 관련
 > Mat_ 은 **<<**와 **,** Operator 를 이용해서 간단히 행렬 원소 값을 설정 가능함.
 <pre>
 	<code>
-		Mat_<float>mat5_(2,3);
-		mat5_ << 1, 2, 3, 4, 5, 6;
-		Mat mat5 = mat5_;
+		//Mat_<float>mat5_(2, 3);
+		//mat5_ << 1, 2, 3, 4, 5, 6;
+		//Mat mat5 = mat5_;
+     		Mat mat 5 = (Mat_<float>(2, 3) << 1, 2, 3, 4, 5, 6);
 		cout << "mat5" << endl << mat5 << endl;
 	</code>
 </pre> 
