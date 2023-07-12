@@ -367,3 +367,17 @@ void readData()
 > 행렬의 최대값, 최소값 찾는 함수 <br>
 > mask 연산을 지원하므로 일부 영역에서의 최소, 최대 구하기 가능 <br>
 > 가장 큰 원소만 알고 싶다면, maxVal 인자만 설정하고, 나머지 인자에는 0
+
+### normalize()
+> **정규화 함수**
+> 아래와 같은 경우에 유용하게 사용 가능
+<pre>
+	<code>
+		Mat src = Mat_<float>({1,5},{-1.f, -0.5f, 0.f, 0.5f, 1.f});
+		Mat dst;
+		normalize(src, dst, 0, 255, NORM_MINMAX, CV_8UC1);
+		cout << "src:" << src << endl;
+		cout << "dst:" << dst << endl;
+	</code>
+</pre>
+> 최솟값은 0, 최대값은 255가 되도록 크기 조정
