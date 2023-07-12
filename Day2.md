@@ -83,3 +83,16 @@ Day 2
     virtual bool cv::VideoWriter::open(const String &filename, int fourcc, double fps, Size frameSize, bool isColor = true)	
   </code>
 </pre>
+> fourcc는 4-문자 코드 (four character code)의 약자 <br>
+> 파일 코덱, 압축 방식, 색상 혹은 픽셀 포맷 등을 정의하는 정수 값 <br>
+> fourcc 에 해당하는 정수 값은 VideoWriter::fourcc() 함수를 사용하여 생성할 수 있다. 아래 참조 <br>
+> static int VideoWriter::fourcc(char c1, char c2, char c3, char c4); <br>
+> c1, c2, c3, c4 : 코덱을 표현하는 1byte 문자 네 개 <br>
+> return : 정수형 4-문자 코드 <br>
+
+### VideoWriter::write()
+> 열려 있는 동영상 파일에 **새로운 프레임을 추가**할 때 사용 <br>
+> **VideoWriter::operator << (const Mat& image)** 와 같은 기능 <br>
+> 프레임 크기는 동영상 파일을 생성할 때 지정했던 **프레임 크기와 같아야** 한다. <br>
+> 컬러 동영상에 Grayscale 영상 추가 시 정상 저장되지 않으므로 주의
+> 프레임 저장 완료 시 VideoWriter::release() 호출할 것 
