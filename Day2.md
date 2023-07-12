@@ -186,9 +186,148 @@ void readData()
 </pre>
 ![image](https://github.com/god102104/openCV_Practice/assets/43011129/0ea223ae-f49f-4612-863f-b90070b50aaf)
 
-> 파일 이름과 열기 모드를 지정하는 생성자를 이용해서 한 번에 작업할 수 있음
+> 파일 이름과 열기 모드를 지정하는 생성자를 이용해서 한 번에 작업할 수 있음 <br>
 <pre>
 	<code>
 		FileStorage fs("mydata", FileStorage::READ);
+	</code>
+</pre>
+
+> FileStorage Object가 XML/YAML/JSON 파일을 읽기 모드로 열면 FileStorage Object는 파일 전체를 분석하여 계층적 구조를 갖는 Node 집합을 구성한다. <br>
+> OpenCV 에서는 이러한 node를 FileNode Class 를 이용해서 표현. <br>
+> FileNode Object에 접근하려면 FileStorage::operator[]() 연산자 재정의 함수를 이용해야 한다. 위 코드 참조 <br>
+
+# 유용한 OpenCV 기능
+
+## 마스크 연산
+### Mat::setTo()
+<pre>
+	<code>
+		Mat& cv::Mat::setTo(InputArray value,InputArray mask = noArray())	
+	</code>
+</pre>
+
+> 두 번째 인자 mask에 마스크 영상을 지정할 수 있음.
+> 마스크 영상은 setTo()를 호출하는 대상 행렬과 **크기가 같아야** 함.
+
+<pre>
+	<code>
+		#include "opencv2/opencv.hpp"
+#include <iostream>
+
+using namespace cv;
+using namespace std;
+
+void mask_setTo();
+void mask_copyTo();
+void time_inverse();
+void useful_func();
+
+int main(void)
+{
+	mask_setTo();
+	mask_copyTo();
+	time_inverse();
+	useful_func();
+
+	return 0;
+}
+
+void mask_setTo()
+{
+	Mat src = imread("lenna.bmp", IMREAD_COLOR);
+	Mat mask = imread("mask_smile.bmp", IMREAD_GRAYSCALE);
+
+	if (src.empty() || mask.empty()) {
+		cerr << "Image load failed!" << endl;
+		return;
+	}
+
+	src.setTo(Scalar(0, 255, 255), mask);
+
+	imshow("src", src);
+	imshow("mask", mask);
+
+	waitKey();
+	destroyAllWindows();
+}
+
+void mask_copyTo()
+{
+	Mat src = imread("airplane.bmp", IMREAD_COLOR);
+	Mat mask = imread("mask_plane.bmp", IMREAD_GRAYSCALE);
+	Mat dst = imread("field.bmp", IMREAD_COLOR);
+
+	if (src.empty() || mask.empty() || dst.empty()) {
+		cerr << "Image load failed!" << endl;
+		return;
+	}
+
+	src.copyTo(dst, mask);
+
+	imshow("src", src);
+	imshow("dst", dst);
+	imshow("mask", mask);
+
+	waitKey();
+	destroyAllWindows();
+}
+
+void time_inverse()
+{
+	Mat src = imread("lenna.bmp", IMREAD_GRAYSCALE);
+
+	if (src.empty()) {
+		cerr << "Image load failed!" << endl;
+		return;
+	}
+
+	Mat dst(src.rows, src.cols, src.type());
+
+	TickMeter tm;
+	tm.start();
+
+	for (int j = 0; j < src.rows; j++) {
+		for (int i = 0; i < src.cols; i++) {
+			dst.at<uchar>(j, i) = 255 - src.at<uchar>(j, i);
+		}
+	}
+
+	tm.stop();
+	cout << "Image inverse took " << tm.getTimeMilli() << "ms." << endl;
+}
+
+void useful_func()
+{
+	Mat img = imread("lenna.bmp", IMREAD_GRAYSCALE);
+
+	if (img.empty()) {
+		cerr << "Image load failed!" << endl;
+		return;
+	}
+
+	cout << "Sum: " << (int)sum(img)[0] << endl;
+	cout << "Mean: " << (int)mean(img)[0] << endl;
+
+	double minVal, maxVal;
+	Point minPos, maxPos;
+	minMaxLoc(img, &minVal, &maxVal, &minPos, &maxPos);
+
+	cout << "minVal: " << minVal << " at " << minPos << endl;
+	cout << "maxVal: " << maxVal << " at " << maxPos << endl;
+
+	Mat src = Mat_<float>({ 1, 5 }, { -1.f, -0.5f, 0.f, 0.5f, 1.f });
+
+	Mat dst;
+	normalize(src, dst, 0, 255, NORM_MINMAX, CV_8UC1);
+
+	cout << "src: " << src << endl;
+	cout << "dst: " << dst << endl;
+
+	cout << "cvRound(2.5): " << cvRound(2.5) << endl;
+	cout << "cvRound(2.51): " << cvRound(2.51) << endl;
+	cout << "cvRound(3.4999): " << cvRound(3.4999) << endl;
+	cout << "cvRound(3.5): " << cvRound(3.5) << endl;
+}
 	</code>
 </pre>
