@@ -337,7 +337,7 @@ void readData()
 
 <pre>
 	<code>
-		void cv::Mat::copyTo(OutputArray m,InputArray 	mask)	const
+		void cv::Mat::copyTo(OutputArray m,InputArray mask) const
 	</code>
 </pre>
 
