@@ -41,7 +41,7 @@ Day 2
 ### VideoCapture::get()
 <pre>
   <code>
-      virtual double cv::VideoCapture::get	(	int 	propId	)	const
+      virtual double cv::VideoCapture::get	(int propId) const
   </code>
 </pre>
 > 인자로 지정한 속성 ID에 해당하는 속성 값 반환
