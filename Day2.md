@@ -31,7 +31,8 @@ Day 2
     cap.read(frame2);
   </code>
 </pre>
-![image](https://github.com/god102104/openCV_Practice/assets/43011129/dd200932-9b14-475d-af48-30553517a4ff)
+![image](https://github.com/god102104/openCV_Practice/assets/43011129/3f1e2e2a-aaa0-4576-a0d8-c416fb425c4e)
+
 > VideoCapture::grab() 함수는 카메라 장치에 다음 프레임을 획득 하라는 명령을 내리는 함수 <br>
 > VideoCaputre::retrieve()는 획득한 프레임을 실제로 받아 오는 함수 <br>
 > VieoCapture::read() 와 VideoCaputre::operator >>() 함수는 grab()와 retrieve()를 합쳐 놓은 것 <br>
