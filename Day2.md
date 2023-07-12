@@ -20,7 +20,7 @@ Day 2
 > 카메라 장치 또는 동영상 파일의 사용이 끝나면 VideoCapture::release() 함수 호출하여 자원 해제해줘야 한다. <br>
 > VideoCaputre class의 소멸자에도 자원 해제하는 부분이 있긴 함.<br>
 
-###VideoCaputre::read()
+### VideoCaputre::read()
 > 한 프레임을 받아오기 위한 방법 <br>
 > VideoCaputre::operator >>() 연산자 재정의 함수와 기능이 같다. <br>
 <pre>
@@ -37,3 +37,11 @@ Day 2
 > VideoCaputre::retrieve()는 획득한 프레임을 실제로 받아 오는 함수 <br>
 > VieoCapture::read() 와 VideoCaputre::operator >>() 함수는 grab()와 retrieve()를 합쳐 놓은 것 <br>
 > 만약 여러 대의 카메라로부터 동시에 영상을 획득하고 싶다면, read() 보다 grab()와 retrieve()를 따로 호출 하는 것이 유리 <br>
+
+### VideoCapture::get()
+<pre>
+  <code>
+      virtual double cv::VideoCapture::get	(	int 	propId	)	const
+  </code>
+</pre>
+> 인자로 지정한 속성 ID에 해당하는 속성 값 반환
