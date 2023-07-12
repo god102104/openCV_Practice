@@ -58,3 +58,19 @@ Day 2
 
 
 ## 카메라 입력 처리하기
+
+### 동영상 파일 처리하기
+> 동영상 파일의 경우 **FPS** 값을 신경 써야한다. <br>
+<pre>
+  <code>
+    //동영상 FPS 값을 확인하는 코드
+    double fps = cap.get(CAP_PROP_FPS);
+  </code>
+</pre>
+> FPS 값을 이용하면 매 프레임 사이의 시간 간격을 계산 가능. <br>
+<pre>
+  <code>
+    int delay = cvRound(1000/ fps);
+  </code>
+</pre>
+> delay 값은 동영상 프레임을 받아와서 화면에 출력하는 반복문 안에서 waitKey() 함수의 인자로 사용됨. <br>
