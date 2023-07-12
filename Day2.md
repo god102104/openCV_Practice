@@ -36,3 +36,4 @@ Day 2
 > VideoCapture::grab() 함수는 카메라 장치에 다음 프레임을 획득 하라는 명령을 내리는 함수 <br>
 > VideoCaputre::retrieve()는 획득한 프레임을 실제로 받아 오는 함수 <br>
 > VieoCapture::read() 와 VideoCaputre::operator >>() 함수는 grab()와 retrieve()를 합쳐 놓은 것 <br>
+> 만약 여러 대의 카메라로부터 동시에 영상을 획득하고 싶다면, read() 보다 grab()와 retrieve()를 따로 호출 하는 것이 유리 <br>
