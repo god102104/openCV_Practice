@@ -94,5 +94,93 @@ Day 2
 > 열려 있는 동영상 파일에 **새로운 프레임을 추가**할 때 사용 <br>
 > **VideoWriter::operator << (const Mat& image)** 와 같은 기능 <br>
 > 프레임 크기는 동영상 파일을 생성할 때 지정했던 **프레임 크기와 같아야** 한다. <br>
-> 컬러 동영상에 Grayscale 영상 추가 시 정상 저장되지 않으므로 주의
-> 프레임 저장 완료 시 VideoWriter::release() 호출할 것 
+> 컬러 동영상에 Grayscale 영상 추가 시 정상 저장되지 않으므로 주의 <br>
+> 프레임 저장 완료 시 VideoWriter::release() 호출할 것 <br>
+
+# OpenCV 데이터 파일 입출력
+
+## FileStorage Class
+> OpenCV에서 데이터 파일 입출력을 담당하는 Class <br>
+> XML, YAML, JSON 형식의 파일 입출력 지원. <br>
+> 사용할 파일 형식은 filename의 확장자에 의해 자동 결정 (.xml 확장자일 시 XML형식 사용) <br>
+> 파일에 데이터를 저장 할 때에는 << 연산자, 읽어 올 때는 >> 연산자
+> 작업 후 FileStorage::release() 호출할 것.
+<pre>
+  <code>
+    #include "opencv2/opencv.hpp"
+#include <iostream>
+
+using namespace cv;
+using namespace std;
+
+void writeData();
+void readData();
+
+// String filename = "mydata.xml";
+// String filename = "mydata.yml";
+String filename = "mydata.json";
+
+int main(void)
+{
+	writeData();
+	readData();
+
+	return 0;
+}
+
+void writeData()
+{
+	String name = "Jane";
+	int age = 10;
+	Point pt1(100, 200);
+	vector<int> scores = { 80, 90, 50 };
+	Mat mat1 = (Mat_<float>(2, 2) << 1.0f, 1.5f, 2.0f, 3.2f);
+
+	FileStorage fs;
+	fs.open(filename, FileStorage::WRITE);
+
+	if (!fs.isOpened()) {
+		cerr << "File open failed!" << endl;
+		return;
+	}
+
+	fs << "name" << name;
+	fs << "age" << age;
+	fs << "point" << pt1;
+	fs << "scores" << scores;
+	fs << "data" << mat1;
+
+	fs.release();
+}
+
+void readData()
+{
+	String name;
+	int age;
+	Point pt1;
+	vector<int> scores;
+	Mat mat1;
+
+	FileStorage fs(filename, FileStorage::READ);
+
+	if (!fs.isOpened()) {
+		cerr << "File open failed!" << endl;
+		return;
+	}
+
+	fs["name"] >> name;
+	fs["age"] >> age;
+	fs["point"] >> pt1;
+	fs["scores"] >> scores;
+	fs["data"] >> mat1;
+
+	fs.release();
+
+	cout << "name: " << name << endl;
+	cout << "age: " << age << endl;
+	cout << "point: " << pt1 << endl;
+	cout << "scores: " << Mat(scores).t() << endl;
+	cout << "data:\n" << mat1 << endl;
+}
+  </code>
+</pre>
