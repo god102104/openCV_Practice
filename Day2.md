@@ -381,3 +381,4 @@ void readData()
 	</code>
 </pre>
 > 최솟값은 0, 최대값은 255가 되도록 크기 조정
+![image](https://github.com/god102104/openCV_Practice/assets/43011129/9db51a22-b759-4f98-9bc1-2211acb276c8)
