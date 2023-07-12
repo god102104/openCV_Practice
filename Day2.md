@@ -195,7 +195,8 @@ void readData()
 	</code>
 </pre>
 
-> FileStorage Object가 XML/YAML/JSON 파일을 읽기 모드로 열면 FileStorage Object는 파일 전체를 분석하여 계층적 구조를 갖는 Node 집합을 구성한다. <br>
+> FileStorage Object가 XML/YAML/JSON 파일을 읽기 모드로 열면 <br>
+> FileStorage Object는 파일 전체를 분석하여 계층적 구조를 갖는 Node 집합을 구성한다. <br>
 > OpenCV 에서는 이러한 node를 FileNode Class 를 이용해서 표현. <br>
 > FileNode Object에 접근하려면 FileStorage::operator[]() 연산자 재정의 함수를 이용해야 한다. 위 코드 참조 <br>
 
