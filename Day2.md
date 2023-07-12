@@ -350,5 +350,20 @@ void readData()
 <pre>
 	<code>
 		TickMeter tm;
-		
+		tm.start();
+
+		my_func();
+		tm.stop();
+		double ms = tm.getTimeMilli();
+	</code>
 </pre>
+
+### minMaxLoc() 
+<pre>
+	<code>
+		void cv::minMaxLoc(InputArray src,double * minVal, double * maxVal = 0, Point* minLoc = 0, Point* maxLoc = 0,InputArray mask = noArray())	
+	</code>
+</pre>
+> 행렬의 최대값, 최소값 찾는 함수 <br>
+> mask 연산을 지원하므로 일부 영역에서의 최소, 최대 구하기 가능 <br>
+> 가장 큰 원소만 알고 싶다면, maxVal 인자만 설정하고, 나머지 인자에는 0
