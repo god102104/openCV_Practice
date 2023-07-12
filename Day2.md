@@ -80,6 +80,6 @@ Day 2
 > VideoWriter::open() 를 쓰기 모드로 열어야 함. <br>
 <pre>
   <code>
-    virtual bool cv::VideoWriter::open(const String &filename, int 	fourcc, double 	fps, Size 	frameSize, bool 	isColor = true)	
+    virtual bool cv::VideoWriter::open(const String &filename, int 	fourcc, double 	fps, Size frameSize, bool isColor = true)	
   </code>
 </pre>
