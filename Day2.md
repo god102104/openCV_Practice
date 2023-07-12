@@ -74,3 +74,12 @@ Day 2
   </code>
 </pre>
 > delay 값은 동영상 프레임을 받아와서 화면에 출력하는 반복문 안에서 waitKey() 함수의 인자로 사용됨. <br>
+
+### 동영상 파일 저장하기
+> 동영상 파일 생성하고 프레임을 저장하기 위해서는 **VideoWriter Class** 를 사용해야 한다. <br>
+> VideoWriter::open() 를 쓰기 모드로 열어야 함. <br>
+<pre>
+  <code>
+    virtual bool cv::VideoWriter::open(const String &filename, int 	fourcc, double 	fps, Size 	frameSize, bool 	isColor = true)	
+  </code>
+</pre>
