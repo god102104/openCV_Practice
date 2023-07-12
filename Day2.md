@@ -44,4 +44,17 @@ Day 2
       virtual double cv::VideoCapture::get(int propId) const
   </code>
 </pre>
-> 인자로 지정한 속성 ID에 해당하는 속성 값 반환
+> 인자로 지정한 속성 ID에 해당하는 속성 값 반환. 상세 내용은 ref 참조 <br>
+> 카메라 또는 동영상 파일 속성을 dobule 자료형으로 반환 <br>
+> 그러므로, 실제 코드에 정수형 변수에 프레임 크기를 저장하려면 **반올림** 해주는 것이 좋음. **cvRound()** <br>
+
+### VideoCaputre::set()
+<pre>
+  <code>
+    virtual bool cv::VideoCapture::set(int propId,double 	value)		
+  </code>
+</pre>
+> get()과 반대로, 현재 **열려 있는** 카메라 또는 비디오 파일 재생과 관련된 속성 값을 설정할 때 쓰는 함수. <br>
+
+
+## 카메라 입력 처리하기
