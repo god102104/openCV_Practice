@@ -210,6 +210,8 @@ void readData()
 > 두 번째 인자 mask에 마스크 영상을 지정할 수 있음.
 > 마스크 영상은 setTo()를 호출하는 대상 행렬과 **크기가 같아야** 함.
 
+
+
 <pre>
 	<code>
 		#include "opencv2/opencv.hpp"
@@ -331,3 +333,4 @@ void useful_func()
 }
 	</code>
 </pre>
+
