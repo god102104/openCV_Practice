@@ -21,3 +21,20 @@ Day 3
 > 막대 하나를 **bin**이라 부름. <br>
 > 히스토그램의 bin 갯수가 항상 픽셀 값 범위와 같아야 하는 것은 아님.
 > calcHist() 함수를 이용하면 히스토그램을 구할 수 있지만, 복잡하다.
+
+<pre>
+  <code>
+    
+      void cv::calcHist(const Mat* images,
+      int nimages, 
+      const int* channels, 
+      InputArray mask, 
+      OutputArray hist, 
+      int dims, 
+      const int*	histSize,
+      const float ** 	ranges,
+      bool 	uniform = true,
+      bool 	accumulate = false 
+      )	
+  </code>
+</pre>
