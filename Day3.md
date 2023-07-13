@@ -20,7 +20,7 @@ Day 3
 > **Grayscale** 히스토그램은 위와 같이 **0~255** 까지의 값을 갖는다. <br>
 > 막대 하나를 **bin**이라 부름. <br>
 > 히스토그램의 bin 갯수가 항상 픽셀 값 범위와 같아야 하는 것은 아님.
-> calcHist() 함수를 이용하면 히스토그램을 구할 수 있지만, 복잡하다.
+> **calcHist()** 함수를 이용하면 히스토그램을 구할 수 있지만, 복잡하다.
 
 <pre>
   <code>
@@ -37,3 +37,11 @@ Day 3
       bool 	accumulate = false)	
   </code>
 </pre>
+
+> uniform 과 accumulate 는 default parameter가 있다. (각각 true, false) <br>
+> 이 경우 hist 배열을 0으로 초기화 한 후 등간격 히스토그램을 계산. <br>
+> calcGrayHist()는 Grayscale 영상 히스토그램.
+
+
+![image](https://github.com/god102104/openCV_Practice/assets/43011129/8daba3c1-eab6-4dba-b22b-6bcb6accf297)
+
