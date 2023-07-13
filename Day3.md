@@ -78,14 +78,13 @@ Day 3
 
 
 ### 히스토그램 평활화 (Histogram equalization)
-> 영상의 픽셀 값 분포가 Grayscale 전체 영역에서 골고루 나타나도록.
-> equalizeHist()
+> 영상의 픽셀 값 분포가 Grayscale 전체 영역에서 골고루 나타나도록. <br>
+> equalizeHist() <br>
 <pre>
   <code>
-    void cv::equalizeHist	(InputArray src, OutputArray dst)	
+    void cv::equalizeHist(InputArray src, OutputArray dst)	
   </code>
 </pre>
-
-
+> CV_8CU1 (Grayscale 영상만 input으로 넣을 수 있다.) <br>
 ![image](https://github.com/god102104/openCV_Practice/assets/43011129/8daba3c1-eab6-4dba-b22b-6bcb6accf297)
 
