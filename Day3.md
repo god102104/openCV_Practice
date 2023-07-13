@@ -40,7 +40,44 @@ Day 3
 
 > uniform 과 accumulate 는 default parameter가 있다. (각각 true, false) <br>
 > 이 경우 hist 배열을 0으로 초기화 한 후 등간격 히스토그램을 계산. <br>
-> calcGrayHist()는 Grayscale 영상 히스토그램.
+> calcGrayHist()는 Grayscale 영상 히스토그램. <br>
+> 히스토그램의 픽셀 분포 그래프를 통해 영상의 밝기와 명암비를 가늠할 수 있다. <br>
+
+
+### 히스토그램 스트레칭
+> 영상의 히스토그램이 전 구간에 걸쳐 나타나도록 변경하는 선형 변환 기법 <br>
+> 명암비가 높아지므로 대체로 보기 좋은 사진이 됨. <br>
+> **OpenCV에서 따로 제공하는 함수가 없음**
+<pre>
+  <code>
+        void histogram_stretching()
+    {
+    	Mat src = imread("hawkes.bmp", IMREAD_GRAYSCALE);
+    
+    	if (src.empty()) {
+    		cerr << "Image load failed!" << endl;
+    		return;
+    	}
+    
+    	double gmin, gmax;
+    	minMaxLoc(src, &gmin, &gmax);
+    
+    	Mat dst = (src - gmin) * 255 / (gmax - gmin);
+    
+    	imshow("src", src);
+    	imshow("srcHist", getGrayHistImage(calcGrayHist(src)));
+    
+    	imshow("dst", dst);
+    	imshow("dstHist", getGrayHistImage(calcGrayHist(dst)));
+    
+    	waitKey();
+    	destroyAllWindows();
+    }
+  </code>
+</pre>
+
+
+
 
 
 ![image](https://github.com/god102104/openCV_Practice/assets/43011129/8daba3c1-eab6-4dba-b22b-6bcb6accf297)
