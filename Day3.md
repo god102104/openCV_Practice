@@ -34,7 +34,6 @@ Day 3
       const int*	histSize,
       const float ** 	ranges,
       bool 	uniform = true,
-      bool 	accumulate = false 
-      )	
+      bool 	accumulate = false)	
   </code>
 </pre>
