@@ -44,7 +44,7 @@ Day 3
 > 히스토그램의 픽셀 분포 그래프를 통해 영상의 밝기와 명암비를 가늠할 수 있다. <br>
 
 
-### 히스토그램 스트레칭
+### 히스토그램 스트레칭 (Histogram stretching)
 > 영상의 히스토그램이 전 구간에 걸쳐 나타나도록 변경하는 선형 변환 기법 <br>
 > 명암비가 높아지므로 대체로 보기 좋은 사진이 됨. <br>
 > **OpenCV에서 따로 제공하는 함수가 없음**
@@ -77,7 +77,14 @@ Day 3
 </pre>
 
 
-
+### 히스토그램 평활화 (Histogram equalization)
+> 영상의 픽셀 값 분포가 Grayscale 전체 영역에서 골고루 나타나도록.
+> equalizeHist()
+<pre>
+  <code>
+    void cv::equalizeHist	(InputArray src, OutputArray dst)	
+  </code>
+</pre>
 
 
 ![image](https://github.com/god102104/openCV_Practice/assets/43011129/8daba3c1-eab6-4dba-b22b-6bcb6accf297)
