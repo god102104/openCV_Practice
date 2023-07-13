@@ -86,5 +86,6 @@ Day 3
   </code>
 </pre>
 > CV_8CU1 (Grayscale 영상만 input으로 넣을 수 있다.) <br>
+
 ![image](https://github.com/god102104/openCV_Practice/assets/43011129/8daba3c1-eab6-4dba-b22b-6bcb6accf297)
 
