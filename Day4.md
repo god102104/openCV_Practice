@@ -75,3 +75,4 @@ int main(void)
 }
   </code>
 </pre>
+![image](https://github.com/god102104/openCV_Practice/assets/43011129/550c5d57-73a6-4fc5-ab16-4a21ebe04ad3)
