@@ -217,3 +217,10 @@ void affine_flip()
 </pre>
 
 ![image](https://github.com/god102104/openCV_Practice/assets/43011129/fa1fd91f-fb37-48ca-9c1f-9a06be859bd8)
+
+
+# 이동 변환 (translation transformation)
+![image](https://github.com/god102104/openCV_Practice/assets/43011129/0c47a231-e345-4149-b785-b3bb48b6a21d)
+![Uploading image.png…]()
+> 위와 같은 2x3 affine 행렬을 만들어서 쓰면 됨. **함수는 따로 있지 않고** warpAffine() 쓰면 됨. <br>
+
