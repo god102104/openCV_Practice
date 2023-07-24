@@ -345,6 +345,7 @@ void warpPerspective(InputArray src, OutputArray dst,
 > 이전 행과 다음 행에 대해서도 중앙 차분 연산을 1회 <br>
 > (현재 행과 이웃 행에서의 픽셀 값 변화가 유사하다는 점을 이용하여 잡음의 영향을 줄이기 위함) <br>
 > (현재 행에서 두 번의 중앙 차분 연산을 수행하는 것은 현재 행의 중앙 차분 근사에 더 큰 가중치를 주기 위함) <br>
+> (b)는 y축 방향 미분 계산 <br>
 
 ### Sobel filter 를 이용한 Edge 검출 예제
 <pre>
