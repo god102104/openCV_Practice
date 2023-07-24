@@ -241,5 +241,5 @@ void affine_flip()
 	</code>
 </pre>
 
->  **interpolation **: 보간법 지정.
+> **interpolation**: 보간법 지정.
 > INTER_NEAREST, INTER_LINEAR, INTER_CUBIC, INTER_AREA, INTER_LANCZOS4 중 하나를 지정.
