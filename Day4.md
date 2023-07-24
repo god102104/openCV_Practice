@@ -331,3 +331,14 @@ void blurring_gaussian()
 ![image](https://github.com/god102104/openCV_Practice/assets/43011129/835790cf-d642-47bb-9ce7-73b4baa4e472)
 > GaussianBlur() 내부에는 x축 방향, y축 방향 각각 1차원 가우시안 필터 마스크 생성하여 필터링 수행.
 > 그래서 내부에는 **getGaussianKernel()** 함수가 들어 있음.
+### getGaussianKernel() 함수 원형
+<pre>
+	<code>
+		Mat getGaussianKernel(int ksize, double sigma, int ktype = CV_64F);
+	</code>
+</pre>
+> • ksize : 커널 크기. ksize는 0보다 큰 홀수이어야 합니다. <br>
+> • sigma : 가우시안 표준 편차.<br>
+> 만약 0 또는 음수를 지정하면 sigma = 0.3*((ksize-1)*0.5 - 1) + 0.8 형태로 sigma를 계산합니다.<br>
+> • ktype : 필터의 타입. CV_32F 또는 CV_64F<br>
+> • 반환값 : ksize×1 크기의 가우시안 필터 커널<br>
