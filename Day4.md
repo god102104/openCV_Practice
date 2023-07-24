@@ -247,12 +247,12 @@ void filter_embossing()
 >• src : 입력 영상. 다채널 영상은 각 채널별로 블러링을 수행 <br>
 >• dst : 출력 영상. src와 같은 크기, 같은 타입을 가짐 <br>
 >• ksize : 가우시안 커널 크기. <br>
->ksize.width와 ksize.height는 0보다 큰 홀수여야. <br>
->ksize에 Size()를 지정하면 표준 편차로부터 커널 크기를 자동으로 결정. <br>
+>	ksize.width와 ksize.height는 0보다 큰 홀수여야. <br>
+>	ksize에 Size()를 지정하면 표준 편차로부터 커널 크기를 자동으로 결정. <br>
 >• sigmaX : x 방향으로의 가우시안 커널 표준 편차. <br>
 >• sigmaY : y 방향으로의 가우시안 커널 표준 편차. <br>
->만약 sigmaY = 0이면 sigmaX와 같은 값을 사용. <br>
->만약 sigmaX와 simgaY가 모두 0이면 ksize의 width와 height 값으로부터 표준 편차를 계산하여 사용. <br>
+>	만약 sigmaY = 0이면 sigmaX와 같은 값을 사용. <br>
+>	만약 sigmaX와 simgaY가 모두 0이면 ksize의 width와 height 값으로부터 표준 편차를 계산하여 사용. <br>
 >• borderType : 가장자리 픽셀 확장 방식. <br>
 
 ### bluring 예시 코드
@@ -403,3 +403,9 @@ void unsharp_mask()
 </pre>
 ![image](https://github.com/god102104/openCV_Practice/assets/43011129/d30a3423-08a9-42bd-8b75-edf8e95428c5)
 > **sigma 값**이 커짐에 따라 다소 과장된 느낌의 샤프닝 결과 영상이 만들어질 수도 있으니 주의 <br>
+
+# Noise 제거 필터링
+> 디지털 카메라  광학적 신호를 전기적 신호로 변환하는 **센서(sensor)에서 주로 잡음이 추가** <br>
+> 보통 가우시안 필터 이용해서 Noise 제거 <br>
+> 그러나 픽셀 값이 급격하게 변경되는 에지 근방에 <br>
+> 동일한 가우시안 필터가 적용되면 잡음뿐만 아니라 에지 성분까지 함께 감소
