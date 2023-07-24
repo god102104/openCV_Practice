@@ -39,40 +39,40 @@ Day 4
 ### 산술 연산 예시 코드
 <pre>
   <code>
-    #include "opencv2/opencv.hpp"
-#include <iostream>
-
-using namespace cv;
-using namespace std;
-
-int main(void)
-{
-	Mat src1 = imread("lenna256.bmp", IMREAD_GRAYSCALE);
-	Mat src2 = imread("square.bmp", IMREAD_GRAYSCALE);
-
-	if (src1.empty() || src2.empty()) {
-		cerr << "Image load failed!" << endl;
-		return -1;
+    	#include "opencv2/opencv.hpp"
+	#include <iostream>
+	
+	using namespace cv;
+	using namespace std;
+	
+	int main(void)
+	{
+		Mat src1 = imread("lenna256.bmp", IMREAD_GRAYSCALE);
+		Mat src2 = imread("square.bmp", IMREAD_GRAYSCALE);
+	
+		if (src1.empty() || src2.empty()) {
+			cerr << "Image load failed!" << endl;
+			return -1;
+		}
+	
+		imshow("src1", src1);
+		imshow("src2", src2);
+	
+		Mat dst1, dst2, dst3, dst4;
+	
+		add(src1, src2, dst1);
+		addWeighted(src1, 0.5, src2, 0.5, 0, dst2);
+		subtract(src1, src2, dst3);
+		absdiff(src1, src2, dst4);
+	
+		imshow("dst1", dst1);
+		imshow("dst2", dst2);
+		imshow("dst3", dst3);
+		imshow("dst4", dst4);
+		waitKey();
+	
+		return 0;
 	}
-
-	imshow("src1", src1);
-	imshow("src2", src2);
-
-	Mat dst1, dst2, dst3, dst4;
-
-	add(src1, src2, dst1);
-	addWeighted(src1, 0.5, src2, 0.5, 0, dst2);
-	subtract(src1, src2, dst3);
-	absdiff(src1, src2, dst4);
-
-	imshow("dst1", dst1);
-	imshow("dst2", dst2);
-	imshow("dst3", dst3);
-	imshow("dst4", dst4);
-	waitKey();
-
-	return 0;
-}
   </code>
 </pre>
 ![image](https://github.com/god102104/openCV_Practice/assets/43011129/550c5d57-73a6-4fc5-ab16-4a21ebe04ad3)
@@ -86,39 +86,39 @@ int main(void)
 <pre>
 	<code>
 		#include "opencv2/opencv.hpp"
-#include <iostream>
-
-using namespace cv;
-using namespace std;
-
-int main(void)
-{
-	Mat src1 = imread("lenna256.bmp", IMREAD_GRAYSCALE);
-	Mat src2 = imread("square.bmp", IMREAD_GRAYSCALE);
-
-	if (src1.empty() || src2.empty()) {
-		cerr << "Image load failed!" << endl;
-		return -1;
-	}
-
-	imshow("src1", src1);
-	imshow("src2", src2);
-
-	Mat dst1, dst2, dst3, dst4;
-
-	bitwise_and(src1, src2, dst1);
-	bitwise_or(src1, src2, dst2);
-	bitwise_xor(src1, src2, dst3);
-	bitwise_not(src1, dst4);
-
-	imshow("dst1", dst1);
-	imshow("dst2", dst2);
-	imshow("dst3", dst3);
-	imshow("dst4", dst4);
-	waitKey();
-
-	return 0;
-}
+		#include <iostream>
+		
+		using namespace cv;
+		using namespace std;
+		
+		int main(void)
+		{
+			Mat src1 = imread("lenna256.bmp", IMREAD_GRAYSCALE);
+			Mat src2 = imread("square.bmp", IMREAD_GRAYSCALE);
+		
+			if (src1.empty() || src2.empty()) {
+				cerr << "Image load failed!" << endl;
+				return -1;
+			}
+		
+			imshow("src1", src1);
+			imshow("src2", src2);
+		
+			Mat dst1, dst2, dst3, dst4;
+		
+			bitwise_and(src1, src2, dst1);
+			bitwise_or(src1, src2, dst2);
+			bitwise_xor(src1, src2, dst3);
+			bitwise_not(src1, dst4);
+		
+			imshow("dst1", dst1);
+			imshow("dst2", dst2);
+			imshow("dst3", dst3);
+			imshow("dst4", dst4);
+			waitKey();
+		
+			return 0;
+		}
 	</code>
 </pre>
 ![image](https://github.com/god102104/openCV_Practice/assets/43011129/39c82128-a0d6-4556-8b42-0457a3652798)
@@ -144,9 +144,9 @@ int main(void)
 <pre>
 	<code>
 		
-void filter2D(InputArray src, OutputArray dst, int ddepth,
-              InputArray kernel, Point anchor = Point(-1,-1),
-              double delta = 0, int borderType = BORDER_DEFAULT);
+		void filter2D(InputArray src, OutputArray dst, int ddepth,
+		              InputArray kernel, Point anchor = Point(-1,-1),
+		              double delta = 0, int borderType = BORDER_DEFAULT);
 	</code>
 </pre>
 > • src : 입력 영상 <br>
@@ -165,41 +165,41 @@ void filter2D(InputArray src, OutputArray dst, int ddepth,
 <pre>
 	<code>
 		#include "opencv2/opencv.hpp"
-#include <iostream>
-
-using namespace cv;
-using namespace std;
-
-void filter_embossing();
-
-int main(void)
-{
-	filter_embossing();
-
-	return 0;
-}
-
-void filter_embossing()
-{
-	Mat src = imread("rose.bmp", IMREAD_GRAYSCALE);
-
-	if (src.empty()) {
-		cerr << "Image load failed!" << endl;
-		return;
-	}
-
-	float data[] = { -1, -1, 0, -1, 0, 1, 0, 1, 1 };
-	Mat emboss(3, 3, CV_32FC1, data);
-
-	Mat dst;
-	filter2D(src, dst, -1, emboss, Point(-1, -1), 128);
-
-	imshow("src", src);
-	imshow("dst", dst);
-
-	waitKey();
-	destroyAllWindows();
-}
+		#include <iostream>
+		
+		using namespace cv;
+		using namespace std;
+		
+		void filter_embossing();
+		
+		int main(void)
+		{
+			filter_embossing();
+		
+			return 0;
+		}
+		
+		void filter_embossing()
+		{
+			Mat src = imread("rose.bmp", IMREAD_GRAYSCALE);
+		
+			if (src.empty()) {
+				cerr << "Image load failed!" << endl;
+				return;
+			}
+		
+			float data[] = { -1, -1, 0, -1, 0, 1, 0, 1, 1 };
+			Mat emboss(3, 3, CV_32FC1, data);
+		
+			Mat dst;
+			filter2D(src, dst, -1, emboss, Point(-1, -1), 128);
+		
+			imshow("src", src);
+			imshow("dst", dst);
+		
+			waitKey();
+			destroyAllWindows();
+		}
 	</code>
 </pre>
 
@@ -259,73 +259,73 @@ void filter_embossing()
 <pre>
 	<code>
 		#include "opencv2/opencv.hpp"
-#include <iostream>
-
-using namespace cv;
-using namespace std;
-
-void blurring_mean();
-void blurring_gaussian();
-
-int main(void)
-{
-	blurring_mean();
-	blurring_gaussian();
-
-	return 0;
-}
-
-void blurring_mean()
-{
-	Mat src = imread("rose.bmp", IMREAD_GRAYSCALE);
-
-	if (src.empty()) {
-		cerr << "Image load failed!" << endl;
-		return;
-	}
-
-	imshow("src", src);
-
-	Mat dst;
-	for (int ksize = 3; ksize <= 7; ksize += 2) {
-		blur(src, dst, Size(ksize, ksize));
-
-		String desc = format("Mean: %dx%d", ksize, ksize);
-		putText(dst, desc, Point(10, 30), FONT_HERSHEY_SIMPLEX, 1.0, 
-				Scalar(255), 1, LINE_AA);
-
-		imshow("dst", dst);
-		waitKey();
-	}	
-
-	destroyAllWindows();
-}
-
-void blurring_gaussian()
-{
-	Mat src = imread("rose.bmp", IMREAD_GRAYSCALE);
-
-	if (src.empty()) {
-		cerr << "Image load failed!" << endl;
-		return;
-	}
-
-	imshow("src", src);
-
-	Mat dst;
-	for (int sigma = 1; sigma <= 5; sigma++) {
-		GaussianBlur(src, dst, Size(0, 0), (double)sigma);
-
-		String desc = format("Gaussian: sigma = %d", sigma);
-		putText(dst, desc, Point(10, 30), FONT_HERSHEY_SIMPLEX, 1.0, 
-				Scalar(255), 1, LINE_AA);
-
-		imshow("dst", dst);
-		waitKey();
-	}
-
-	destroyAllWindows();
-}
+		#include <iostream>
+		
+		using namespace cv;
+		using namespace std;
+		
+		void blurring_mean();
+		void blurring_gaussian();
+		
+		int main(void)
+		{
+			blurring_mean();
+			blurring_gaussian();
+		
+			return 0;
+		}
+		
+		void blurring_mean()
+		{
+			Mat src = imread("rose.bmp", IMREAD_GRAYSCALE);
+		
+			if (src.empty()) {
+				cerr << "Image load failed!" << endl;
+				return;
+			}
+		
+			imshow("src", src);
+		
+			Mat dst;
+			for (int ksize = 3; ksize <= 7; ksize += 2) {
+				blur(src, dst, Size(ksize, ksize));
+		
+				String desc = format("Mean: %dx%d", ksize, ksize);
+				putText(dst, desc, Point(10, 30), FONT_HERSHEY_SIMPLEX, 1.0, 
+						Scalar(255), 1, LINE_AA);
+		
+				imshow("dst", dst);
+				waitKey();
+			}	
+		
+			destroyAllWindows();
+		}
+		
+		void blurring_gaussian()
+		{
+			Mat src = imread("rose.bmp", IMREAD_GRAYSCALE);
+		
+			if (src.empty()) {
+				cerr << "Image load failed!" << endl;
+				return;
+			}
+		
+			imshow("src", src);
+		
+			Mat dst;
+			for (int sigma = 1; sigma <= 5; sigma++) {
+				GaussianBlur(src, dst, Size(0, 0), (double)sigma);
+		
+				String desc = format("Gaussian: sigma = %d", sigma);
+				putText(dst, desc, Point(10, 30), FONT_HERSHEY_SIMPLEX, 1.0, 
+						Scalar(255), 1, LINE_AA);
+		
+				imshow("dst", dst);
+				waitKey();
+			}
+		
+			destroyAllWindows();
+		}
 	</code>
 </pre>
 ![image](https://github.com/god102104/openCV_Practice/assets/43011129/835790cf-d642-47bb-9ce7-73b4baa4e472)
@@ -357,48 +357,48 @@ void blurring_gaussian()
 <pre>
 	<code>
 		#include "opencv2/opencv.hpp"
-#include <iostream>
-
-using namespace cv;
-using namespace std;
-
-void unsharp_mask();
-
-int main(void)
-{
-	unsharp_mask();
-
-	return 0;
-}
-
-void unsharp_mask()
-{
-	Mat src = imread("rose.bmp", IMREAD_GRAYSCALE);
-
-	if (src.empty()) {
-		cerr << "Image load failed!" << endl;
-		return;
-	}
-
-	imshow("src", src);
-
-	for (int sigma = 1; sigma <= 5; sigma++) {
-		Mat blurred;
-		GaussianBlur(src, blurred, Size(), sigma);
-
-		float alpha = 1.f;
-		Mat dst = (1 + alpha) * src - alpha * blurred;
-
-		String desc = format("sigma: %d", sigma);
-		putText(dst, desc, Point(10, 30), FONT_HERSHEY_SIMPLEX, 1.0, 
-				Scalar(255), 1, LINE_AA);
-
-		imshow("dst", dst);
-		waitKey();
-	}
-
-	destroyAllWindows();
-}
+		#include <iostream>
+		
+		using namespace cv;
+		using namespace std;
+		
+		void unsharp_mask();
+		
+		int main(void)
+		{
+			unsharp_mask();
+		
+			return 0;
+		}
+		
+		void unsharp_mask()
+		{
+			Mat src = imread("rose.bmp", IMREAD_GRAYSCALE);
+		
+			if (src.empty()) {
+				cerr << "Image load failed!" << endl;
+				return;
+			}
+		
+			imshow("src", src);
+		
+			for (int sigma = 1; sigma <= 5; sigma++) {
+				Mat blurred;
+				GaussianBlur(src, blurred, Size(), sigma);
+		
+				float alpha = 1.f;
+				Mat dst = (1 + alpha) * src - alpha * blurred;
+		
+				String desc = format("sigma: %d", sigma);
+				putText(dst, desc, Point(10, 30), FONT_HERSHEY_SIMPLEX, 1.0, 
+						Scalar(255), 1, LINE_AA);
+		
+				imshow("dst", dst);
+				waitKey();
+			}
+		
+			destroyAllWindows();
+		}
 	</code>
 </pre>
 ![image](https://github.com/god102104/openCV_Practice/assets/43011129/d30a3423-08a9-42bd-8b75-edf8e95428c5)
