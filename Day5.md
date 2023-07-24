@@ -301,4 +301,11 @@ void warpPerspective(InputArray src, OutputArray dst,
 ![image](https://github.com/god102104/openCV_Practice/assets/43011129/6aaf64d9-0b6b-4969-adeb-0d97b5b21ae6)
 ![image](https://github.com/god102104/openCV_Practice/assets/43011129/9770c095-ee93-4c49-b79d-dc1f780d2714)
 ![image](https://github.com/god102104/openCV_Practice/assets/43011129/b025ccd5-4835-4f2d-8b81-34825a2acfea)
+
 > 위의 세 방식 (전진, 후진, 중앙 차분) 중에서 **중앙 차분**이 근사오류가 가장 적다. <br>
+![image](https://github.com/god102104/openCV_Practice/assets/43011129/efba92a8-50b4-4cf4-b279-ce18230f5c17)
+
+> 위는 중앙 차분에 의한 미분 근사 Mask
+![image](https://github.com/god102104/openCV_Practice/assets/43011129/22d1b71e-25c8-4d6f-8e28-8f9b20ae5bbd)
+
+
