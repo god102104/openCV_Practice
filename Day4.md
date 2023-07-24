@@ -408,4 +408,12 @@ void unsharp_mask()
 > 디지털 카메라  광학적 신호를 전기적 신호로 변환하는 **센서(sensor)에서 주로 잡음이 추가** <br>
 > 보통 가우시안 필터 이용해서 Noise 제거 <br>
 > 그러나 픽셀 값이 급격하게 변경되는 에지 근방에 <br>
-> 동일한 가우시안 필터가 적용되면 잡음뿐만 아니라 에지 성분까지 함께 감소
+> 동일한 가우시안 필터가 적용되면 잡음뿐만 아니라 에지 성분까지 함께 감소 <br>
+> → 엣지가 무뎌지므로 윤곽이 흐릿하게 됨. <br>
+> 즉, 엣지 정보는 유지하면서 Noise 만 제거하는 에지 보전 잡음 제거 필터(edge-preserving noise removal filter) 필요 <br>
+> 양방향 필터(bilateral filter) 가 효과적이다. <br>
+> **bilateralFilter()** 함수 <br>
+![image](https://github.com/god102104/openCV_Practice/assets/43011129/9fbcab17-8a05-4d94-8a69-59bf42bdc529)
+
+> 균이 0이고 표준 편차가 5인 가우시안 잡음이 추가 → 표준 편차가 5인 가우시안 필터링을 수행한 결과 <br>
+> 
