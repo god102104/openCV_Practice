@@ -221,6 +221,25 @@ void affine_flip()
 
 # 이동 변환 (translation transformation)
 ![image](https://github.com/god102104/openCV_Practice/assets/43011129/0c47a231-e345-4149-b785-b3bb48b6a21d)
-![Uploading image.png…]()
+![image](https://github.com/god102104/openCV_Practice/assets/43011129/2e7f547d-8e23-4f4b-9f7f-efb3bcac5ade)
 > 위와 같은 2x3 affine 행렬을 만들어서 쓰면 됨. **함수는 따로 있지 않고** warpAffine() 쓰면 됨. <br>
 
+# 전단 변환 (shear transformation)
+> 직사각형 형태의 영상을 한쪽 방향으로 밀어서 **평행사변형 모양으로** 변형되는 변환 **(층밀림 변환)** <br>
+![image](https://github.com/god102104/openCV_Practice/assets/43011129/4476569e-d69b-4989-8c15-6356f717cce2)
+> 따로 함수 없음, warpAffine() 쓰면 됨
+
+ 
+# 크기 변환 (scale transformation)
+![Uploading image.png…]()
+> **resize()** 함수 사용
+<pre>
+	<code>
+		void resize(InputArray src, OutputArray dst,
+            Size dsize, double fx = 0, double fy = 0,
+            int interpolation = INTER_LINEAR);
+	</code>
+</pre>
+
+>  **interpolation **: 보간법 지정.
+> INTER_NEAREST, INTER_LINEAR, INTER_CUBIC, INTER_AREA, INTER_LANCZOS4 중 하나를 지정.
