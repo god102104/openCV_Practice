@@ -299,4 +299,6 @@ void warpPerspective(InputArray src, OutputArray dst,
 ![image](https://github.com/god102104/openCV_Practice/assets/43011129/06f5109d-b89e-4d5c-a064-d7ba69330a4c)
 > 픽셀 값이 급격하게 변하는 지점 찾기 (f′(x) 값이 0보다 훨씬 크거나 또는 훨씬 작은 위치를 찾아야) <br>
 ![image](https://github.com/god102104/openCV_Practice/assets/43011129/6aaf64d9-0b6b-4969-adeb-0d97b5b21ae6)
-
+![image](https://github.com/god102104/openCV_Practice/assets/43011129/9770c095-ee93-4c49-b79d-dc1f780d2714)
+![image](https://github.com/god102104/openCV_Practice/assets/43011129/b025ccd5-4835-4f2d-8b81-34825a2acfea)
+> 위의 세 방식 (전진, 후진, 중앙 차분) 중에서 **중앙 차분**이 근사오류가 가장 적다. <br>
