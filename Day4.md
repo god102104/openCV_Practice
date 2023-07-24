@@ -208,3 +208,50 @@ void filter_embossing()
 > 픽셀 값이 크게 바뀌지 않는 영역에서는 0에 가까운 값을 가지게 된다. <br>
 > 이렇게 나온 결과 영상을 그대로 쓰면 음수 값은 포화연산에 의해 0이 되어버리므로, <br>
 > 엠보싱 필터 이용 시에는 주로 128을 더한다. (보기에 좋음) <br>
+
+
+# 블러링 (Bluring)
+> 영상을 부드럽게, 노이즈 제거
+
+## 1. 평균값 필터
+> Mask 크기가 커질수록 부드러운 느낌의 결과 <br>
+> 대신 연산량이 늘어난다는 것을 인지할 것. <br>
+> blur() 함수로 간단하게 이용 가능. <br>
+![image](https://github.com/god102104/openCV_Practice/assets/43011129/4cf0e4f1-9cd5-4200-90f3-f1d45db258bd)
+
+## 2. 가우시안 필터
+> 평균값 필터보다 자연스러운 블러링 결과 생성 <br>
+> 정규 분포 형태 <br>
+![image](https://github.com/god102104/openCV_Practice/assets/43011129/a1aecc97-2c5d-408c-9b2b-12b4da2b5d24)
+
+### 2차원 가우시안 분포 함수 그래프 
+![image](https://github.com/god102104/openCV_Practice/assets/43011129/4a5acebf-0e0f-49ec-83c1-66f61498edc3)
+> x={-4, -3, -2, -1, 0, 1, 2, 3, 4}, y={-4, -3, -2, -1, 0, 1, 2, 3, 4}인 경우에만 <br>
+> 가우시안 분포 함수 값을 추출하여 필터 마스크를 생성 <br>
+> (연속 함수이지만 이산형의 마스크를 만들기 위해서) <br>
+![image](https://github.com/god102104/openCV_Practice/assets/43011129/e32d85db-a348-465a-8707-b00f961d723c)
+
+> 중앙부에서 비교적 큰 값을 가지고, 주변부로 갈수록 행렬 원소 값이 0에 가까운 작은 값 <br>
+> 9x9 이므로 연산량이 크지만, 2차원 가우시안 분포 함수를 1차원 행렬 곱으로 분리 가능 <br>
+> x 축 함수와 y축 함수 각각으로 분리 <br>
+![image](https://github.com/god102104/openCV_Practice/assets/43011129/d1a2f666-8312-45ca-80be-f187a6c15a15)
+> 행렬 g를 이용해 필터링 수행 후 전치 행렬인 gT 를 이용하면 2차원으로 한 것이랑 같음 <br>
+> 함수로는 **GaussianBlur()**
+<pre>
+	<code>
+		void GaussianBlur(InputArray src, OutputArray dst, Size ksize,
+                  double sigmaX, double sigmaY = 0,
+                  int borderType = BORDER_DEFAULT);
+	</code>
+</pre>
+>• src : 입력 영상. 다채널 영상은 각 채널별로 블러링을 수행 <br>
+>• dst : 출력 영상. src와 같은 크기, 같은 타입을 가짐 <br>
+>• ksize : 가우시안 커널 크기. <br>
+>ksize.width와 ksize.height는 0보다 큰 홀수여야. <br>
+>ksize에 Size()를 지정하면 표준 편차로부터 커널 크기를 자동으로 결정. <br>
+>• sigmaX : x 방향으로의 가우시안 커널 표준 편차. <br>
+>• sigmaY : y 방향으로의 가우시안 커널 표준 편차. <br>
+>만약 sigmaY = 0이면 sigmaX와 같은 값을 사용. <br>
+>만약 sigmaX와 simgaY가 모두 0이면 ksize의 width와 height 값으로부터 표준 편차를 계산하여 사용. <br>
+>• borderType : 가장자리 픽셀 확장 방식. <br>
+>
