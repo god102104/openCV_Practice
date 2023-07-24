@@ -156,3 +156,55 @@ void filter2D(InputArray src, OutputArray dst, int ddepth,
 > • anchor : 고정점 좌표. Point(-1, -1)을 지정하면 커널 중심을 고정점으로 사용합니다. <br>
 > • delta : 필터링 연산 후 추가적으로 더할 값 <br>
 > • borderType : 가장자리 픽셀 확장 방식 <br>
+
+## 엠보싱 필터링
+> 올록볼록한 느낌이 나게 처리하는 것. <br>
+> 픽셀 값 변화가 적은 부분은 평탄하게, 객체 경계 부분은 밝거나 어둡게 <br>
+
+### 엠보싱 필터 예시
+<pre>
+	<code>
+		#include "opencv2/opencv.hpp"
+#include <iostream>
+
+using namespace cv;
+using namespace std;
+
+void filter_embossing();
+
+int main(void)
+{
+	filter_embossing();
+
+	return 0;
+}
+
+void filter_embossing()
+{
+	Mat src = imread("rose.bmp", IMREAD_GRAYSCALE);
+
+	if (src.empty()) {
+		cerr << "Image load failed!" << endl;
+		return;
+	}
+
+	float data[] = { -1, -1, 0, -1, 0, 1, 0, 1, 1 };
+	Mat emboss(3, 3, CV_32FC1, data);
+
+	Mat dst;
+	filter2D(src, dst, -1, emboss, Point(-1, -1), 128);
+
+	imshow("src", src);
+	imshow("dst", dst);
+
+	waitKey();
+	destroyAllWindows();
+}
+	</code>
+</pre>
+
+> 예시의 엠보싱 필터를 적용할 경우, 대각선 방향으로 필셀 값이 급격하게 변하는 부분에서 <br>
+> 픽셀값이 0보다 훨씬 크거나 훨씬 작은 값을 갖게된다. <br>
+> 픽셀 값이 크게 바뀌지 않는 영역에서는 0에 가까운 값을 가지게 된다. <br>
+> 이렇게 나온 결과 영상을 그대로 쓰면 음수 값은 포화연산에 의해 0이 되어버리므로, <br>
+> 엠보싱 필터 이용 시에는 주로 128을 더한다. (보기에 좋음) <br>
