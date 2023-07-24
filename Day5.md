@@ -605,3 +605,52 @@ void warpPerspective(InputArray src, OutputArray dst,
 </pre>
 ![image](https://github.com/god102104/openCV_Practice/assets/43011129/722984bd-f731-43c4-b43f-0fe45553eea3)
 
+## 허프 변환 원 검출
+![image](https://github.com/god102104/openCV_Practice/assets/43011129/dd77d147-bb00-4801-99b1-fee4156694b8)
+
+> 원의 방정식은 세 개의 파라미터 <br>
+> 허프 변환을 그대로 적용하려면 3차원 파라미터 공간에서 축적 배열을 정의하고 <br>
+> 가장 누적이 많은 위치를 찾아야... → 너무 많은 메모리와 연산 시간 필요 <br>
+> 그래서, OpenCV에서는 일반 허프 변환 대신 **허프 그래디언트 방법(Hough gradient method)** 사용 **원 검출** <br>
+
+### 허프 그래디언트 방법의 순서
+> 1. 영상에 존재하는 모든 원의 중심 좌표 찾기 (축적 배열 이용) <br>
+> 2. 검출된 원의 중심으로부터 원에 적합한 반지름을 구함 <br>
+> 원의 중심을 찾기 위해 허프 그래디언트 방법 : 입력 영상의 모든 에지 픽셀에서 그래디언트를 구하고, <br>
+> 그래디언트 방향을 따르는 직선상의 축적 배열 값을 1씩 증가 <br>
+
+![image](https://github.com/god102104/openCV_Practice/assets/43011129/2585e4bc-d42b-4ea8-b10c-fc1776ffccc7)
+
+> 단점 1 : 여러 개의 동심원을 검출하지 못함 <br>
+> 단점 2 : 가장 작은 원 하나만 검출 <br>
+
+<pre>
+	<code>
+		cv2.HoughCircles(image, method, dp, minDist, circles=None, param1=None, param2=None, minRadius=None, maxRadius=None) -> circles
+	</code>
+</pre>
+
+### 허프 변환 원 검출 예제
+<pre>
+	<code>
+		src = cv2.imread('dial.jpg')
+		gray = cv2.cvtColor(src, cv2.COLOR_BGR2GRAY)
+		blr = cv2.GaussianBlur(gray, (0, 0), 1.0)
+		
+		def on_trackbar(pos):
+		    rmin = cv2.getTrackbarPos('minRadius', 'img')
+		    rmax = cv2.getTrackbarPos('maxRadius', 'img')
+		    th = cv2.getTrackbarPos('threshold', 'img')
+		    
+		    circles = cv2.HoughCircles(blr, cv2.HOUGH_GRADIENT, 1, 50, param1=120, param2=th, minRadius=rmin, maxRadius=rmax)
+		    dst = src.copy()
+		    
+		    if circles is not None:
+		        for i in  range(circles.shape[1]):
+		            cx, cy, radius = circles[0][i]
+		            cv2.circle(dst, (int(cx), int(cy)), int(radius), (0, 0, 255), 2, cv2.LINE_AA)
+	</code>
+</pre>
+
+
+![image](https://github.com/god102104/openCV_Practice/assets/43011129/77774d5e-5c57-432f-a201-c80c392f399c)
