@@ -231,7 +231,7 @@ void affine_flip()
 
  
 # 크기 변환 (scale transformation)
-![Uploading image.png…]()
+![image](https://github.com/god102104/openCV_Practice/assets/43011129/c8315544-20a7-4f1b-bc5a-3d1135b66bc6)
 > **resize()** 함수 사용
 <pre>
 	<code>
@@ -241,5 +241,24 @@ void affine_flip()
 	</code>
 </pre>
 
-> **interpolation**: 보간법 지정.
-> INTER_NEAREST, INTER_LINEAR, INTER_CUBIC, INTER_AREA, INTER_LANCZOS4 중 하나를 지정.
+> **interpolation**: 보간법 지정. <br> 
+> INTER_NEAREST, INTER_LINEAR, INTER_CUBIC, INTER_AREA, INTER_LANCZOS4 중 하나를 지정. <br> 
+![image](https://github.com/god102104/openCV_Practice/assets/43011129/9c1974d2-94d3-45ae-873d-6b250056cff8)
+
+
+# 회전 변환 (rotation transformation)
+![image](https://github.com/god102104/openCV_Practice/assets/43011129/b61375f7-d6a1-4efe-8a5b-887b312b7667)
+
+# 대칭 변환 
+![image](https://github.com/god102104/openCV_Practice/assets/43011129/0b051342-7929-40c3-82bb-f7f09bf0bdd3)
+> 위 수식은 **좌우 대칭** 변환 <br>
+![image](https://github.com/god102104/openCV_Practice/assets/43011129/3d457e68-36ff-4b73-a2c9-72e628cac1e5)
+> 위 식은 **상하 대칭** 변환 <br>
+
+> 함수로는 **flip()** 함수가 있다.
+<pre>
+	<code>
+		void flip(InputArray src, OutputArray dst, int flipCode);
+	</code>
+</pre>
+>  flipCode : flipCode가 양수이면 좌우 대칭, 0이면 상하 대칭, 음수이면 상하 대칭과 좌우 대칭
