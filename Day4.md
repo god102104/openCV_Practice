@@ -20,3 +20,10 @@ Day 4
   </code>
 </pre>
 > 두 입력 영상의 평균 영상을 생성하는 코드
+![image](https://github.com/god102104/openCV_Practice/assets/43011129/26ec52fe-f194-4439-a118-ac536dc6e5b7)
+
+### 뺄셈도 마찬가지지만, 두 입력 영상 type이 다르다면 -가 아니라 subtract() 를 써야한다.
+> 덧셈 연산과 달리 뺄셈 연산은 뺄셈의 대상이 되는 영상 순서에 따라 결과가 달라진다.
+![image](https://github.com/god102104/openCV_Practice/assets/43011129/433f5f58-09e1-46c7-94f0-d3b7fd60ca1b)
+![image](https://github.com/god102104/openCV_Practice/assets/43011129/526e1f0d-560e-43e9-bb48-3dca4010b484)
+> 위와 같은 예시를 통해 연산 순서의 중요성을 알 수 있음.
