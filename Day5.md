@@ -362,3 +362,26 @@ dst = np.zeros(src.shape[:2], np.uint8)
 dst[mag > 120] = 255 # threshold(120) 역할
 	</code>
 </pre>
+
+### 샤르 필터 (Scharr filter)
+![image](https://github.com/god102104/openCV_Practice/assets/43011129/a4dd2782-2eb0-4fa9-a3e4-38d9c25a46d2)
+
+> **Sobel 보다 더 정확함**
+
+
+### Edge 검출 결과 (Sobel)
+![image](https://github.com/god102104/openCV_Practice/assets/43011129/fa8c9d99-de71-4bfa-b8c6-046b391aca64)
+
+### 캐니 에지 검출기 (canny edge detector)
+
+![image](https://github.com/god102104/openCV_Practice/assets/43011129/dd52a5fe-b866-4fd9-b9e2-28206fbab508)
+
+> 위는 캐니 에지 검출기 수행 과정
+
+> 1. 가우시안 필터링 <br>
+> 2. 그래디언트 계산 : 3x3 Sobel mask 주로 사용. Canny 에서는 정확한 Edge 검출을 위해 **Gradient 방향도 고려**. <br>
+> 3. 비최대 억제 : 단순히 그래디언트 크기가 특정 임계값보다 큰 픽셀을 선택할 경우, <br>
+>    에지 근방의 여러 픽셀이 한꺼번에 에지로 선택될 수도 있음. <br>
+>    **에지가 두껍게 표현되는 현상을 방지**하기 위해 캐니 에지 검출기에서는 비최대 억제(non-maximum suppression) 과정을 사용 <br>
+>    그래디언트 크기가 국**지적 최대(local maximum)인 픽셀만을 에지 픽셀로** 설정 <br>
+>    **가장 변화율이 큰 위치**의 픽셀만 에지로 <br>
