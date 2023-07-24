@@ -429,3 +429,6 @@ void Canny(InputArray dx, InputArray dy, OutputArray edges,
     }
 	</code>
 </pre>
+![image](https://github.com/god102104/openCV_Practice/assets/43011129/b46216b2-b9f1-4cc3-928a-98f035b470a3)
+
+> 각각 임계값 100, 150 인 경우. 
