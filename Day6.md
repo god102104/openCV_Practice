@@ -172,3 +172,14 @@ Day6
 > 분리된 각 채널은 CV_8UC1 타입의 Grayscale 임. (즉, imshow()로 볼 수 있다.) <br>
 
 ![image](https://github.com/god102104/openCV_Practice/assets/43011129/202c438b-6b92-493b-9dff-120a7b44dbd4)
+
+
+## 컬러 히스토그램 평활화
+> 이전에 학습한 히스토그램 정보를 이용하여 명암비를 증가시키는 히스토그램 평활화 기법 <br>
+![image](https://github.com/god102104/openCV_Practice/assets/43011129/bdce803f-6dcd-456a-a3e8-b52e70e57e7b)
+![image](https://github.com/god102104/openCV_Practice/assets/43011129/def311e7-de08-432d-8343-aa04b95c286d)
+![image](https://github.com/god102104/openCV_Practice/assets/43011129/87184e72-b74b-4241-92a1-496842e6efd4)
+
+> 위는 잘못된 사용 방법 <br>
+> 원본 영상과 다른 색상의 결과 영상이 만들어진다. <br>
+
