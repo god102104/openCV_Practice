@@ -13,5 +13,7 @@ Day5
 ![image](https://github.com/god102104/openCV_Practice/assets/43011129/981768bd-b8b4-4eaf-83ad-709316e561e5)
 
 
-> **getAffineTransform()** 함수 <br>
-> 입력 영상에서 세 점의 좌표와 이 점들이 이동한 결과 영상의 좌표 세 개를 입력으로 받아 2×3 어파인 변환 행렬을 계산 <br>
+> **getAffineTransform()** 함수 <br> 
+> 입력 영상에서 세 점의 좌표와 <br>
+> 이 점들이 이동한 결과 영상의 좌표 세 개를 입력으로 받아 <br>
+> 2×3 어파인 변환 행렬을 계산 <br>
