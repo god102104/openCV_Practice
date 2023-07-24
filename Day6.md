@@ -227,3 +227,43 @@ Day6
 </pre>
 
 > backProject : 출력 히스토그램 역투영 영상. 입력 영상과 같은 크기, 같은 깊이를 갖는 1채널 행렬 <br>
+
+
+# 영상의 이진화
+>  **threshold()** 함수
+<pre>
+  <code>
+    double threshold
+    (InputArray src, 
+    OutputArray dst,
+    double thresh, 
+    double maxval, 
+    int type);
+  </code>
+</pre>
+![image](https://github.com/god102104/openCV_Practice/assets/43011129/09e11b09-7261-4f9f-a8b6-9453b877b90c)
+
+## 적응형 이진화 (adaptive binarization)
+> 모든 영역에 임계값 적용하여 이진화 하는 것 = 전역 이진화 (global binarization) <br>
+> 영상에 따라 문제가 발생할 수 있으므로, 각 픽셀마다 다른 임계값을 적용하는 **적응형 이진화** 기법 <br>
+> **adaptiveThreshold()** 함수
+
+<pre>
+  <code>
+      void adaptiveThreshold
+      (InputArray src, 
+      OutputArray dst,
+      double maxValue, 
+      int adaptiveMethod,
+      int thresholdType, 
+      int blockSize, double C);
+  </code>
+</pre>
+
+>  픽셀 주변의 blockSize×blockSize 영역에서 평균을 구하고, 평균에서 상수 C를 뺀 값을 해당 픽셀의 임계값으로.
+
+
+## 모폴로지 연산
+> 영상 내부 객체의 형태와 구조를 분석하고 처리하는 기법.
+> 주로 이진 영상에서 객체 모양 변형하는 용도로 사용
+> 
