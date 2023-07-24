@@ -23,11 +23,11 @@ Day5
 <pre>
   <code>
     
-void warpAffine(InputArray src, OutputArray dst,
-                InputArray M, Size dsize,
-                int flags = INTER_LINEAR,
-                int borderMode = BORDER_CONSTANT,
-                const Scalar& borderValue = Scalar());
+	void warpAffine(InputArray src, OutputArray dst,
+	                InputArray M, Size dsize,
+	                int flags = INTER_LINEAR,
+	                int borderMode = BORDER_CONSTANT,
+	                const Scalar& borderValue = Scalar());
   </code>
 </pre>
 
@@ -44,175 +44,175 @@ void warpAffine(InputArray src, OutputArray dst,
 ### 어파인 변환 예시 코드
 <pre>
   <code>
-    #include "opencv2/opencv.hpp"
-#include <iostream>
-
-using namespace cv;
-using namespace std;
-
-void affine_transform();
-void affine_translation();
-void affine_shear();
-void affine_scale();
-void affine_rotation();
-void affine_flip();
-
-int main(void)
-{
-	affine_transform();
-	affine_translation();
-	affine_shear();
-	affine_scale();
-	affine_rotation();
-	affine_flip();
-
-	return 0;
-}
-
-void affine_transform()
-{
-	Mat src = imread("tekapo.bmp");
-
-	if (src.empty()) {
-		cerr << "Image load failed!" << endl;
-		return;
+    	#include "opencv2/opencv.hpp"
+	#include <iostream>
+	
+	using namespace cv;
+	using namespace std;
+	
+	void affine_transform();
+	void affine_translation();
+	void affine_shear();
+	void affine_scale();
+	void affine_rotation();
+	void affine_flip();
+	
+	int main(void)
+	{
+		affine_transform();
+		affine_translation();
+		affine_shear();
+		affine_scale();
+		affine_rotation();
+		affine_flip();
+	
+		return 0;
 	}
-
-	Point2f srcPts[3], dstPts[3];
-	srcPts[0] = Point2f(0, 0);
-	srcPts[1] = Point2f(src.cols - 1, 0);
-	srcPts[2] = Point2f(src.cols - 1, src.rows - 1);
-	dstPts[0] = Point2f(50, 50);
-	dstPts[1] = Point2f(src.cols - 100, 100);
-	dstPts[2] = Point2f(src.cols - 50, src.rows - 50);
-
-	Mat M = getAffineTransform(srcPts, dstPts);
-
-	Mat dst;
-	warpAffine(src, dst, M, Size());
-
-	imshow("src", src);
-	imshow("dst", dst);
-
-	waitKey();
-	destroyAllWindows();
-}
-
-void affine_translation()
-{
-	Mat src = imread("tekapo.bmp");
-
-	if (src.empty()) {
-		cerr << "Image load failed!" << endl;
-		return;
-	}
-
-	Mat M = Mat_<double>({ 2, 3 }, { 1, 0, 150, 0, 1, 100 });
-
-	Mat dst;
-	warpAffine(src, dst, M, Size());
-
-	imshow("src", src);
-	imshow("dst", dst);
-
-	waitKey();
-	destroyAllWindows();
-}
-
-void affine_shear()
-{
-	Mat src = imread("tekapo.bmp");
-
-	if (src.empty()) {
-		cerr << "Image load failed!" << endl;
-		return;
-	}
-
-	double mx = 0.3;
-	Mat M = Mat_<double>({ 2, 3 }, { 1, mx, 0, 0, 1, 0 });
-
-	Mat dst;
-	warpAffine(src, dst, M, Size(cvRound(src.cols + src.rows * mx), src.rows));
-
-	imshow("src", src);
-	imshow("dst", dst);
-
-	waitKey();
-	destroyAllWindows();
-}
-
-void affine_scale()
-{
-	Mat src = imread("rose.bmp");
-
-	if (src.empty()) {
-		cerr << "Image load failed!" << endl;
-		return;
-	}
-
-	Mat dst1, dst2, dst3, dst4;
-	resize(src, dst1, Size(), 4, 4, INTER_NEAREST);
-	resize(src, dst2, Size(1920, 1280));
-	resize(src, dst3, Size(1920, 1280), 0, 0, INTER_CUBIC);
-	resize(src, dst4, Size(1920, 1280), 0, 0, INTER_LANCZOS4);
-
-	imshow("src", src);
-	imshow("dst1", dst1(Rect(400, 500, 400, 400)));
-	imshow("dst2", dst2(Rect(400, 500, 400, 400)));
-	imshow("dst3", dst3(Rect(400, 500, 400, 400)));
-	imshow("dst4", dst4(Rect(400, 500, 400, 400)));
-
-	waitKey();
-	destroyAllWindows();
-}
-
-void affine_rotation()
-{
-	Mat src = imread("tekapo.bmp");
-
-	if (src.empty()) {
-		cerr << "Image load failed!" << endl;
-		return;
-	}
-
-	Point2f cp(src.cols / 2.f, src.rows / 2.f);
-	Mat M = getRotationMatrix2D(cp, 20, 1);
-
-	Mat dst;
-	warpAffine(src, dst, M, Size());
-
-	imshow("src", src);
-	imshow("dst", dst);
-
-	waitKey();
-	destroyAllWindows();
-}
-
-void affine_flip()
-{
-	Mat src = imread("eastsea.bmp");
-
-	if (src.empty()) {
-		cerr << "Image load failed!" << endl;
-		return;
-	}
-
-	imshow("src", src);
-
-	Mat dst;
-	int flipCode[] = { 1, 0, -1 };
-	for (int i = 0; i < 3; i++) {
-		flip(src, dst, flipCode[i]);
-
-		String desc = format("flipCode: %d", flipCode[i]);
-		putText(dst, desc, Point(10, 30), FONT_HERSHEY_SIMPLEX, 1.0, Scalar(255, 0, 0), 1, LINE_AA);
-
+	
+	void affine_transform()
+	{
+		Mat src = imread("tekapo.bmp");
+	
+		if (src.empty()) {
+			cerr << "Image load failed!" << endl;
+			return;
+		}
+	
+		Point2f srcPts[3], dstPts[3];
+		srcPts[0] = Point2f(0, 0);
+		srcPts[1] = Point2f(src.cols - 1, 0);
+		srcPts[2] = Point2f(src.cols - 1, src.rows - 1);
+		dstPts[0] = Point2f(50, 50);
+		dstPts[1] = Point2f(src.cols - 100, 100);
+		dstPts[2] = Point2f(src.cols - 50, src.rows - 50);
+	
+		Mat M = getAffineTransform(srcPts, dstPts);
+	
+		Mat dst;
+		warpAffine(src, dst, M, Size());
+	
+		imshow("src", src);
 		imshow("dst", dst);
+	
 		waitKey();
+		destroyAllWindows();
 	}
-
-	destroyAllWindows();
-}
+	
+	void affine_translation()
+	{
+		Mat src = imread("tekapo.bmp");
+	
+		if (src.empty()) {
+			cerr << "Image load failed!" << endl;
+			return;
+		}
+	
+		Mat M = Mat_<double>({ 2, 3 }, { 1, 0, 150, 0, 1, 100 });
+	
+		Mat dst;
+		warpAffine(src, dst, M, Size());
+	
+		imshow("src", src);
+		imshow("dst", dst);
+	
+		waitKey();
+		destroyAllWindows();
+	}
+	
+	void affine_shear()
+	{
+		Mat src = imread("tekapo.bmp");
+	
+		if (src.empty()) {
+			cerr << "Image load failed!" << endl;
+			return;
+		}
+	
+		double mx = 0.3;
+		Mat M = Mat_<double>({ 2, 3 }, { 1, mx, 0, 0, 1, 0 });
+	
+		Mat dst;
+		warpAffine(src, dst, M, Size(cvRound(src.cols + src.rows * mx), src.rows));
+	
+		imshow("src", src);
+		imshow("dst", dst);
+	
+		waitKey();
+		destroyAllWindows();
+	}
+	
+	void affine_scale()
+	{
+		Mat src = imread("rose.bmp");
+	
+		if (src.empty()) {
+			cerr << "Image load failed!" << endl;
+			return;
+		}
+	
+		Mat dst1, dst2, dst3, dst4;
+		resize(src, dst1, Size(), 4, 4, INTER_NEAREST);
+		resize(src, dst2, Size(1920, 1280));
+		resize(src, dst3, Size(1920, 1280), 0, 0, INTER_CUBIC);
+		resize(src, dst4, Size(1920, 1280), 0, 0, INTER_LANCZOS4);
+	
+		imshow("src", src);
+		imshow("dst1", dst1(Rect(400, 500, 400, 400)));
+		imshow("dst2", dst2(Rect(400, 500, 400, 400)));
+		imshow("dst3", dst3(Rect(400, 500, 400, 400)));
+		imshow("dst4", dst4(Rect(400, 500, 400, 400)));
+	
+		waitKey();
+		destroyAllWindows();
+	}
+	
+	void affine_rotation()
+	{
+		Mat src = imread("tekapo.bmp");
+	
+		if (src.empty()) {
+			cerr << "Image load failed!" << endl;
+			return;
+		}
+	
+		Point2f cp(src.cols / 2.f, src.rows / 2.f);
+		Mat M = getRotationMatrix2D(cp, 20, 1);
+	
+		Mat dst;
+		warpAffine(src, dst, M, Size());
+	
+		imshow("src", src);
+		imshow("dst", dst);
+	
+		waitKey();
+		destroyAllWindows();
+	}
+	
+	void affine_flip()
+	{
+		Mat src = imread("eastsea.bmp");
+	
+		if (src.empty()) {
+			cerr << "Image load failed!" << endl;
+			return;
+		}
+	
+		imshow("src", src);
+	
+		Mat dst;
+		int flipCode[] = { 1, 0, -1 };
+		for (int i = 0; i < 3; i++) {
+			flip(src, dst, flipCode[i]);
+	
+			String desc = format("flipCode: %d", flipCode[i]);
+			putText(dst, desc, Point(10, 30), FONT_HERSHEY_SIMPLEX, 1.0, Scalar(255, 0, 0), 1, LINE_AA);
+	
+			imshow("dst", dst);
+			waitKey();
+		}
+	
+		destroyAllWindows();
+	}
   </code>
 </pre>
 
@@ -236,8 +236,8 @@ void affine_flip()
 <pre>
 	<code>
 		void resize(InputArray src, OutputArray dst,
-            Size dsize, double fx = 0, double fy = 0,
-            int interpolation = INTER_LINEAR);
+		            Size dsize, double fx = 0, double fy = 0,
+		            int interpolation = INTER_LINEAR);
 	</code>
 </pre>
 
@@ -352,14 +352,14 @@ void warpPerspective(InputArray src, OutputArray dst,
 	<code>
 		src = cv2.imread('lenna.bmp', cv2.IMREAD_GRAYSCALE)
 
-dx = cv2.Sobel(src, cv2.CV_32F, 1, 0)
-dy = cv2.Sobel(src, cv2.CV_32F, 0, 1)
-
-mag = cv2.magnitude(dx, dy)
-mag = np.clip(mag, 0, 255).astype(np.uint8)
-
-dst = np.zeros(src.shape[:2], np.uint8)
-dst[mag > 120] = 255 # threshold(120) 역할
+		dx = cv2.Sobel(src, cv2.CV_32F, 1, 0)
+		dy = cv2.Sobel(src, cv2.CV_32F, 0, 1)
+		
+		mag = cv2.magnitude(dx, dy)
+		mag = np.clip(mag, 0, 255).astype(np.uint8)
+		
+		dst = np.zeros(src.shape[:2], np.uint8)
+		dst[mag > 120] = 255 # threshold(120) 역할
 	</code>
 </pre>
 
@@ -396,11 +396,11 @@ dst[mag > 120] = 255 # threshold(120) 역할
 <pre>
 	<code>
 		void Canny(InputArray image, OutputArray edges,
-           double threshold1, double threshold2,
-           int apertureSize = 3, bool L2gradient = false);
-void Canny(InputArray dx, InputArray dy, OutputArray edges,
-           double threshold1, double threshold2,
-           bool L2gradient = false);
+		           double threshold1, double threshold2,
+		           int apertureSize = 3, bool L2gradient = false);
+		void Canny(InputArray dx, InputArray dy, OutputArray edges,
+		           double threshold1, double threshold2,
+		           bool L2gradient = false);
 	</code>
 </pre>
 
@@ -408,25 +408,25 @@ void Canny(InputArray dx, InputArray dy, OutputArray edges,
 <pre>
 	<code>
 		 void canny_edge()
-    {
-        Mat src = imread("lenna.bmp", IMREAD_GRAYSCALE);
-     
-        if (src.empty()) {
-            cerr << "Image load failed!" << endl;
-            return;
-        }
-     
-        Mat dst1, dst2;
-        Canny(src, dst1, 50, 100);
-        Canny(src, dst2, 50, 150);
-     
-        imshow("src", src);
-        imshow("dst1", dst1);
-        imshow("dst2", dst2);
-     
-        waitKey();
-        destroyAllWindows();
-    }
+		    {
+		        Mat src = imread("lenna.bmp", IMREAD_GRAYSCALE);
+		     
+		        if (src.empty()) {
+		            cerr << "Image load failed!" << endl;
+		            return;
+		        }
+		     
+		        Mat dst1, dst2;
+		        Canny(src, dst1, 50, 100);
+		        Canny(src, dst2, 50, 150);
+		     
+		        imshow("src", src);
+		        imshow("dst1", dst1);
+		        imshow("dst2", dst2);
+		     
+		        waitKey();
+		        destroyAllWindows();
+		    }
 	</code>
 </pre>
 ![image](https://github.com/god102104/openCV_Practice/assets/43011129/b46216b2-b9f1-4cc3-928a-98f035b470a3)
@@ -488,119 +488,119 @@ void Canny(InputArray dx, InputArray dy, OutputArray edges,
 <pre>
 	<code>
 		#include "opencv2/opencv.hpp"
-#include <iostream>
-
-using namespace cv;
-using namespace std;
-
-void hough_lines();
-void hough_line_segments();
-void hough_circles();
-
-int main(void)
-{
-	hough_lines();
-	hough_line_segments();
-	hough_circles();
-
-	return 0;
-}
-
-void hough_lines()
-{
-	Mat src = imread("building.jpg", IMREAD_GRAYSCALE);
-
-	if (src.empty()) {
-		cerr << "Image load failed!" << endl;
-		return;
-	}
-
-	Mat edge;
-	Canny(src, edge, 50, 150);
-
-	vector<Vec2f> lines;
-	HoughLines(edge, lines, 1, CV_PI / 180, 250);
-
-	Mat dst;
-	cvtColor(edge, dst, COLOR_GRAY2BGR);
-
-	for (size_t i = 0; i < lines.size(); i++) {
-		float rho = lines[i][0], theta = lines[i][1];
-		float cos_t = cos(theta), sin_t = sin(theta);
-		float x0 = rho * cos_t, y0 = rho * sin_t;
-		float alpha = 1000;
-
-		Point pt1(cvRound(x0 - alpha * sin_t), cvRound(y0 + alpha * cos_t));
-		Point pt2(cvRound(x0 + alpha * sin_t), cvRound(y0 - alpha * cos_t));
-		line(dst, pt1, pt2, Scalar(0, 0, 255), 2, LINE_AA);
-	}
-
-	imshow("src", src);
-	imshow("dst", dst);
-
-	waitKey();
-	destroyAllWindows();
-}
-
-void hough_line_segments()
-{
-	Mat src = imread("building.jpg", IMREAD_GRAYSCALE);
-
-	if (src.empty()) {
-		cerr << "Image load failed!" << endl;
-		return;
-	}
-
-	Mat edge;
-	Canny(src, edge, 50, 150);
-
-	vector<Vec4i> lines;
-	HoughLinesP(edge, lines, 1, CV_PI / 180, 160, 50, 5);
-
-	Mat dst;
-	cvtColor(edge, dst, COLOR_GRAY2BGR);
-
-	for (Vec4i l : lines) {
-		line(dst, Point(l[0], l[1]), Point(l[2], l[3]), Scalar(0, 0, 255), 2, LINE_AA);
-	}
-
-	imshow("src", src);
-	imshow("dst", dst);
-
-	waitKey();
-	destroyAllWindows();
-}
-
-void hough_circles()
-{
-	Mat src = imread("coins.png", IMREAD_GRAYSCALE);
-
-	if (src.empty()) {
-		cerr << "Image load failed!" << endl;
-		return;
-	}
-
-	Mat blurred;
-	blur(src, blurred, Size(3, 3));
-
-	vector<Vec3f> circles;
-	HoughCircles(blurred, circles, HOUGH_GRADIENT, 1, 50, 150, 30);
-
-	Mat dst;
-	cvtColor(src, dst, COLOR_GRAY2BGR);
-
-	for (Vec3f c : circles) {
-		Point center(cvRound(c[0]), cvRound(c[1]));
-		int radius = cvRound(c[2]);
-		circle(dst, center, radius, Scalar(0, 0, 255), 2, LINE_AA);
-	}
-
-	imshow("src", src);
-	imshow("dst", dst);
-
-	waitKey();
-	destroyAllWindows();
-}
+		#include <iostream>
+		
+		using namespace cv;
+		using namespace std;
+		
+		void hough_lines();
+		void hough_line_segments();
+		void hough_circles();
+		
+		int main(void)
+		{
+			hough_lines();
+			hough_line_segments();
+			hough_circles();
+		
+			return 0;
+		}
+		
+		void hough_lines()
+		{
+			Mat src = imread("building.jpg", IMREAD_GRAYSCALE);
+		
+			if (src.empty()) {
+				cerr << "Image load failed!" << endl;
+				return;
+			}
+		
+			Mat edge;
+			Canny(src, edge, 50, 150);
+		
+			vector<Vec2f> lines;
+			HoughLines(edge, lines, 1, CV_PI / 180, 250);
+		
+			Mat dst;
+			cvtColor(edge, dst, COLOR_GRAY2BGR);
+		
+			for (size_t i = 0; i < lines.size(); i++) {
+				float rho = lines[i][0], theta = lines[i][1];
+				float cos_t = cos(theta), sin_t = sin(theta);
+				float x0 = rho * cos_t, y0 = rho * sin_t;
+				float alpha = 1000;
+		
+				Point pt1(cvRound(x0 - alpha * sin_t), cvRound(y0 + alpha * cos_t));
+				Point pt2(cvRound(x0 + alpha * sin_t), cvRound(y0 - alpha * cos_t));
+				line(dst, pt1, pt2, Scalar(0, 0, 255), 2, LINE_AA);
+			}
+		
+			imshow("src", src);
+			imshow("dst", dst);
+		
+			waitKey();
+			destroyAllWindows();
+		}
+		
+		void hough_line_segments()
+		{
+			Mat src = imread("building.jpg", IMREAD_GRAYSCALE);
+		
+			if (src.empty()) {
+				cerr << "Image load failed!" << endl;
+				return;
+			}
+		
+			Mat edge;
+			Canny(src, edge, 50, 150);
+		
+			vector<Vec4i> lines;
+			HoughLinesP(edge, lines, 1, CV_PI / 180, 160, 50, 5);
+		
+			Mat dst;
+			cvtColor(edge, dst, COLOR_GRAY2BGR);
+		
+			for (Vec4i l : lines) {
+				line(dst, Point(l[0], l[1]), Point(l[2], l[3]), Scalar(0, 0, 255), 2, LINE_AA);
+			}
+		
+			imshow("src", src);
+			imshow("dst", dst);
+		
+			waitKey();
+			destroyAllWindows();
+		}
+		
+		void hough_circles()
+		{
+			Mat src = imread("coins.png", IMREAD_GRAYSCALE);
+		
+			if (src.empty()) {
+				cerr << "Image load failed!" << endl;
+				return;
+			}
+		
+			Mat blurred;
+			blur(src, blurred, Size(3, 3));
+		
+			vector<Vec3f> circles;
+			HoughCircles(blurred, circles, HOUGH_GRADIENT, 1, 50, 150, 30);
+		
+			Mat dst;
+			cvtColor(src, dst, COLOR_GRAY2BGR);
+		
+			for (Vec3f c : circles) {
+				Point center(cvRound(c[0]), cvRound(c[1]));
+				int radius = cvRound(c[2]);
+				circle(dst, center, radius, Scalar(0, 0, 255), 2, LINE_AA);
+			}
+		
+			imshow("src", src);
+			imshow("dst", dst);
+		
+			waitKey();
+			destroyAllWindows();
+		}
 	</code>
 </pre>
 
