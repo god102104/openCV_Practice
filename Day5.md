@@ -337,6 +337,15 @@ void warpPerspective(InputArray src, OutputArray dst,
 	</code>
 </pre>
 
+## Mask 기반 Edge 검출 
+### Sobel filter 
+![image](https://github.com/god102104/openCV_Practice/assets/43011129/576867b4-eb81-49e2-93d7-5d3b3c88a754)
+
+> 축 방향 미분 마스크는 현재 행에 대한 중앙 차분 연산을 2회 <br>
+> 이전 행과 다음 행에 대해서도 중앙 차분 연산을 1회 <br>
+> (현재 행과 이웃 행에서의 픽셀 값 변화가 유사하다는 점을 이용하여 잡음의 영향을 줄이기 위함) <br>
+> (현재 행에서 두 번의 중앙 차분 연산을 수행하는 것은 현재 행의 중앙 차분 근사에 더 큰 가중치를 주기 위함) <Br.
+
 ### Sobel filter 를 이용한 Edge 검출 예제
 <pre>
 	<code>
