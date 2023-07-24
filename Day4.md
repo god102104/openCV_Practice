@@ -342,3 +342,7 @@ void blurring_gaussian()
 > 만약 0 또는 음수를 지정하면 sigma = 0.3*((ksize-1)*0.5 - 1) + 0.8 형태로 sigma를 계산합니다.<br>
 > • ktype : 필터의 타입. CV_32F 또는 CV_64F<br>
 > • 반환값 : ksize×1 크기의 가우시안 필터 커널<br>
+
+# 샤프닝 (Sharpening)
+> 영상을 날카로운 느낌이 나게끔 <br>
+> 객체의 윤곽이 뚜렷하게 구분되게 <br>
