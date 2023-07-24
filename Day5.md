@@ -277,7 +277,7 @@ void affine_flip()
 	</code>
 </pre>
 
-> 위의 투시 행렬을 가지고 있을 때, 결과를 보려면 **warpPerspective()** 함수 사용.
+> 위의 투시 행렬을 가지고 있을 때, 결과를 보려면 **warpPerspective()** 함수 사용. <br>
 <pre>
 	<code>
 		
@@ -288,3 +288,6 @@ void warpPerspective(InputArray src, OutputArray dst,
                      const Scalar& borderValue = Scalar());
 	</code>
 </pre>
+
+> 투시 변환 행렬 M은 CV_32FC1 또는 CV_64FC1 타입이어야. <br>
+![image](https://github.com/god102104/openCV_Practice/assets/43011129/835576b9-4cea-4e79-b059-56ea852c2753)
