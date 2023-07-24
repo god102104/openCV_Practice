@@ -3,8 +3,8 @@ Day6
 
 # 컬러 영상의 픽셀 값 참조
 
-> 컬러 영상에서 하나의 픽셀은 **세 개의 색상 성분**
-> Vec3b 자료형을 사용해야 한다. (크기가 3인 uchar 자료형 배열을 member variable로 갖고 있음)
+> 컬러 영상에서 하나의 픽셀은 **세 개의 색상 성분** <br>
+> Vec3b 자료형을 사용해야 한다. (크기가 3인 uchar 자료형 배열을 member variable로 갖고 있음) <br>
 
 <pre>
   <code>
@@ -122,3 +122,14 @@ Day6
 
 ![image](https://github.com/god102104/openCV_Practice/assets/43011129/226a3ce6-46c3-478c-b696-49a45e4fa4e9)
 
+<pre>
+  <code>
+    for (int j = 0; j < src.rows; j++) {
+      for (int i = 0; i < src.cols; i++) {
+          dst.at<Vec3b>(j, i) = Vec3b(255, 255, 255) - src.at<Vec3b>(j, i);
+      }
+    }
+  </code>
+</pre>
+
+> 위 처럼 간단하게 고치기도 가능.
