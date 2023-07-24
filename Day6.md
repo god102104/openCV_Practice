@@ -1,4 +1,4 @@
-![image](https://github.com/god102104/openCV_Practice/assets/43011129/6b5c43e6-2829-4ab4-9dc4-a2e11a833fa9)Day6
+Day6
 ===
 
 # 컬러 영상의 픽셀 값 참조
