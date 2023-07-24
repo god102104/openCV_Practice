@@ -183,3 +183,10 @@ Day6
 > 위는 잘못된 사용 방법 <br>
 > 원본 영상과 다른 색상의 결과 영상이 만들어진다. <br>
 
+![image](https://github.com/god102104/openCV_Practice/assets/43011129/3a883234-36b9-40d1-a289-564d8ecbffe5)
+![image](https://github.com/god102104/openCV_Practice/assets/43011129/7f27aead-d783-4c41-a790-915599d1ce41)
+
+> 제대로 된 사용 방법 <br>
+> 색감은 변경하지 않고 명암비만 높힘 (영상의 밝기 정보만을 이용)
+> 입력 영상을 밝기와 색상으로 분리 후 히스토그램 평활화
+
