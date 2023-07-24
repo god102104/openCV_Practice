@@ -276,3 +276,15 @@ void affine_flip()
                             int solveMethod = DECOMP_LU);
 	</code>
 </pre>
+
+> 위의 투시 행렬을 가지고 있을 때, 결과를 보려면 **warpPerspective()** 함수 사용.
+<pre>
+	<code>
+		
+void warpPerspective(InputArray src, OutputArray dst,
+                     InputArray M, Size dsize,
+                     int flags = INTER_LINEAR,
+                     int borderMode = BORDER_CONSTANT,
+                     const Scalar& borderValue = Scalar());
+	</code>
+</pre>
