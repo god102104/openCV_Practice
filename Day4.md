@@ -128,7 +128,9 @@ int main(void)
 ## 필터링 연산 방법
 ![image](https://github.com/god102104/openCV_Practice/assets/43011129/812a640d-f7f8-484c-8498-be24a65f33e8)
 > 진한 색으로 표시된 지점 : **고정점 (anchor point)** <br>
-> 대부분의 경우 마스크 행렬 정중앙이 고정점 <br>
+> 대부분의 경우 마스크 행렬 정중앙이 고정점. <br>
+
 ![image](https://github.com/god102104/openCV_Practice/assets/43011129/9d7f3c23-43ea-4bcf-adf0-d2e0ee2963c0)
 ![image](https://github.com/god102104/openCV_Practice/assets/43011129/0dc4b88d-dfa1-4e94-86f9-39e801b14c8d)
+
 > 가장자리 픽셀에서는 수식을 그대로 적용하기 어려움. -> **padding** 을 이용 <br>
