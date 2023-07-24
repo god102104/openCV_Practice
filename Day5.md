@@ -318,6 +318,37 @@ void warpPerspective(InputArray src, OutputArray dst,
 ![image](https://github.com/god102104/openCV_Practice/assets/43011129/350aae51-612e-454b-a128-d8951f22e408)
 
 > 위의 그림에서 경계상의 세 점 a, b, c를 선택하고, 각 점에서의 그래디언트 벡터를 빨간색 화살표로 표현 <br>
-> 노란색으로 표시된 화살표는 **그래디언트 벡터와 수직인 방향**을 표시, **'에지의 방향'**
+> 노란색으로 표시된 화살표는 **그래디언트 벡터와 수직인 방향**을 표시, **'에지의 방향'** <br>
 > 2차원 영상에서 에지를 찾는 기본적인 방법은 **그래디언트 크기가 특정 값보다 큰 위치를 찾는 것** <br>
+> 임계값을 높게 설정하면 밝기 차이가 급격하게 변하는 에지 픽셀만 검출 <br>
+> 임계값을 낮게 설정하면 약한 에지 성분도 검출 <br>
 
+### 2D 벡터의 크기 계산 함수
+<pre>
+	<code>
+		cv2.magnitude(x, y, magnitude=None) -> magnitude
+	</code>
+</pre>
+
+### 2D 벡터의 방향 계산 함수
+<pre>
+	<code>
+		cv2.phase(x, y, angle=None, angleInDegrees=None) -> angle
+	</code>
+</pre>
+
+### Sobel filter 를 이용한 Edge 검출 예제
+<pre>
+	<code>
+		src = cv2.imread('lenna.bmp', cv2.IMREAD_GRAYSCALE)
+
+dx = cv2.Sobel(src, cv2.CV_32F, 1, 0)
+dy = cv2.Sobel(src, cv2.CV_32F, 0, 1)
+
+mag = cv2.magnitude(dx, dy)
+mag = np.clip(mag, 0, 255).astype(np.uint8)
+
+dst = np.zeros(src.shape[:2], np.uint8)
+dst[mag > 120] = 255 # threshold(120) 역할
+	</code>
+</pre>
