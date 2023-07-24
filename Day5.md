@@ -432,3 +432,54 @@ void Canny(InputArray dx, InputArray dy, OutputArray edges,
 ![image](https://github.com/god102104/openCV_Practice/assets/43011129/b46216b2-b9f1-4cc3-928a-98f035b470a3)
 
 > 각각 임계값 100, 150 인 경우. 
+
+
+# 직선 검출과 원 검출
+
+## 허프 변환 직선 검출
+> 영상에서 직선 성분을 찾기 위해서는 우선 에지를 찾아내고, 에지 픽셀들이 일직선상에 배열되어 있는지를 확인 <br>
+> 영상에서 **직선을 찾기 위한** 용도로 **허프 변환(hough transform)** 기법이 널리 사용 <br>
+![image](https://github.com/god102104/openCV_Practice/assets/43011129/6e788ff7-85d1-41b4-970e-1cc95ef46e11)
+![image](https://github.com/god102104/openCV_Practice/assets/43011129/ecfcc734-ccd4-4b47-a969-7f07990f47ef)
+
+> xy 공간에서 직선의 방정식을 ab 공간으로 변경
+
+![image](https://github.com/god102104/openCV_Practice/assets/43011129/41184a67-605f-433f-aa7e-c16e4959f9e9)
+
+> 허프 변환을 이용하여 직선의 방정식을 찾으려면 <br>
+> xy 공간에서 **에지로 판별된 모든 점을 이용**하여 ab **파라미터 공간에 직선을 표현**하고, <br>
+> **직선이 많이 교차되는 좌표를 모두 찾아야** <br>
+> 직선이 많이 교차하는 점을 찾기 위해서 보통 **축적 배열(accumulation array)을 사용** <br>
+> 축적 배열은 0으로 초기화된 2차원 배열에서 직선이 지나가는 위치의 배열 원소 값을 1씩 증가시켜 생성 <br>
+
+![image](https://github.com/god102104/openCV_Practice/assets/43011129/1c5164a2-bb6a-4a77-8565-86c4522b8745)
+
+> 그러나 y=ax+b 형태의 직선의 방정식을 사용할 경우 **모든 형태의 직선을 표현하기 어렵다** 는 단점 <br>
+
+![image](https://github.com/god102104/openCV_Practice/assets/43011129/01757e63-f555-4995-b8e7-6b171a67d48d)
+
+> **극좌표계 형식**으로 표현된 직선의 방정식을 쓰면 된다. <br>
+
+![image](https://github.com/god102104/openCV_Practice/assets/43011129/7326c0db-97a2-4cf1-99a3-f9c1f1c2f4ca)
+
+> **HoughLines()** 함수로 허프 변환 직선 검출 
+<pre>
+	<code>
+		void HoughLines(InputArray image, OutputArray lines,
+                double rho, double theta, int threshold,
+                double srn = 0, double stn = 0,
+                double min_theta = 0, double max_theta = CV_PI);
+	</code>
+</pre>
+>• image : 8비트 단일 채널 입력 영상. 주로 에지 영상을 지정. <br>
+>• lines : 직선 정보(rho, theta)를 저장할 출력 벡터 <br>
+>• rho : 축적 배열에서 ρ 값의 해상도(픽셀 단위) <br>
+>• theta : 축적 배열에서 θ 값의 해상도(라디안 단위) <br>
+>• threshold : 축적 배열에서 직선으로 판단할 임계값 <br>
+>• srn : 멀티스케일 허프 변환에서 rho 해상도를 나누는 값. <br>
+>	srn에 양의 실수를 지정하면 rho 해상도와 rho/srn 해상도를 각각 이용하여 멀티스케일 허프 변환을 수행. <br>
+>	srn과 stn이 모두 0이면 일반 허프 변환을 수행. <br>
+>• stn : 멀티스케일 허프 변환에서 theta 해상도를 나누는 값 <br>
+>• min_theta : 검출할 직선의 최소 theta 값 <br>
+>• max_theta : 검출할 직선의 최대 theta 값
+
