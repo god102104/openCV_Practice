@@ -416,4 +416,12 @@ void unsharp_mask()
 ![image](https://github.com/god102104/openCV_Practice/assets/43011129/9fbcab17-8a05-4d94-8a69-59bf42bdc529)
 
 > 균이 0이고 표준 편차가 5인 가우시안 잡음이 추가 → 표준 편차가 5인 가우시안 필터링을 수행한 결과 <br>
+
+
+# 미디언 필터 (Median filter)
+> 중간값 필터 <br>
+> noise 픽셀 값이 주변 픽셀 값과 큰 차이가 있는 경우에 사용. <br>
+![image](https://github.com/god102104/openCV_Practice/assets/43011129/67fa76b9-876a-43bd-bb47-76b506269dc4)
+
+> **medianBlur()** 함수 이용
 > 
