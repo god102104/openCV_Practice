@@ -348,6 +348,7 @@ void blurring_gaussian()
 > 객체의 **윤곽이 뚜렷하게** 구분되게 <br>
 > **Bluring 이 선행**되어야 좋음 <br>
 ![image](https://github.com/god102104/openCV_Practice/assets/43011129/c44c1af8-9673-4245-ae54-99e576e20e91)
+
 > 7-12(b)에서 파란색 실선 그래프는 f(x, y)에 블러링을 적용한 결과 <br>
 > 7-12(c)는 입력 영상 f(x, y)에서 블러링된 영상 를 뺀 결과 <br>
 > 7-12(d)에서 h(x, y)=f(x, y)+g(x, y)가 샤프닝이 적용된 결과 <br>
