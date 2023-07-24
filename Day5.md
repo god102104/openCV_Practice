@@ -293,4 +293,10 @@ void warpPerspective(InputArray src, OutputArray dst,
 ![image](https://github.com/god102104/openCV_Practice/assets/43011129/835576b9-4cea-4e79-b059-56ea852c2753)
 
 
-# 
+# 에지 검출과 응용
+
+## 미분과 그래디언트를 이용한 방법
+![image](https://github.com/god102104/openCV_Practice/assets/43011129/06f5109d-b89e-4d5c-a064-d7ba69330a4c)
+> 픽셀 값이 급격하게 변하는 지점 찾기 (f′(x) 값이 0보다 훨씬 크거나 또는 훨씬 작은 위치를 찾아야) <br>
+![image](https://github.com/god102104/openCV_Practice/assets/43011129/6aaf64d9-0b6b-4969-adeb-0d97b5b21ae6)
+
