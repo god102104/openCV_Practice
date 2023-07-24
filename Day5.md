@@ -386,3 +386,46 @@ dst[mag > 120] = 255 # threshold(120) 역할
 >    비최대 억제(non-maximum suppression) 과정을 사용 <br>
 >    그래디언트 크기가 국**지적 최대(local maximum)인 픽셀만을 에지 픽셀로** 설정 <br>
 >    **가장 변화율이 큰 위치**의 픽셀만 에지로 <br>
+> ### Canny - 이중 임계값을 이용한 히스테리시스 에지 트래킹
+> 소벨 에지 검출 방법에서는 그래디언트 크기가 특정 임계값보다 크면 에지 픽셀로, <br>
+> 작으면 에지가 아닌 픽셀로 판단. <br>
+> 이 경우 **조명**이 조금 바뀌거나 또는 **임계값**을 조금만 조절해도 **에지 픽셀 판단 결과가 크게 달라질 수**도. <br>
+> 캐니 에지 검출기에서는 **두 개의 임계값**
+> Canny() 함수
+
+<pre>
+	<code>
+		void Canny(InputArray image, OutputArray edges,
+           double threshold1, double threshold2,
+           int apertureSize = 3, bool L2gradient = false);
+void Canny(InputArray dx, InputArray dy, OutputArray edges,
+           double threshold1, double threshold2,
+           bool L2gradient = false);
+	</code>
+</pre>
+
+### Canny Edge 검출 예제
+<pre>
+	<code>
+		 void canny_edge()
+    {
+        Mat src = imread("lenna.bmp", IMREAD_GRAYSCALE);
+     
+        if (src.empty()) {
+            cerr << "Image load failed!" << endl;
+            return;
+        }
+     
+        Mat dst1, dst2;
+        Canny(src, dst1, 50, 100);
+        Canny(src, dst2, 50, 150);
+     
+        imshow("src", src);
+        imshow("dst1", dst1);
+        imshow("dst2", dst2);
+     
+        waitKey();
+        destroyAllWindows();
+    }
+	</code>
+</pre>
