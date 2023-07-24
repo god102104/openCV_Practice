@@ -6,6 +6,7 @@ Day6
 > 컬러 영상에서 하나의 픽셀은 **세 개의 색상 성분** <br>
 > Vec3b 자료형을 사용해야 한다. (크기가 3인 uchar 자료형 배열을 member variable로 갖고 있음) <br>
 
+### 색상 반전 예시 코드
 <pre>
   <code>
     #include "opencv2/opencv.hpp"
@@ -132,4 +133,16 @@ Day6
   </code>
 </pre>
 
-> 위 처럼 간단하게 고치기도 가능.
+> 위 처럼 간단하게 고치기도 가능. <br>
+
+## 색 공간 변환
+> OpenCV에서는 컬러 영상을 Mat 객체 저장할 때 BGR 표현 <br>
+> 컬러 영상 처리에서는 색상 구분이 용이한 **HSV, HSL** 색 공간을 주로 이용. <br>
+> OpenCV에서의 영상의 색 공간을 다른 색 공간으로 변환할 때에는 **cvtColor()** 함수를 사용. <br>
+
+> **색상 정보의 활용도가 높지 않은 경우**에는 **Grayscale 로 변환하여 처리**하는 것이 효율적 <br>
+> Color → grayscale 변환할 경우 아래의 공식 이용하는 것이 좋다. <br>
+![image](https://github.com/god102104/openCV_Practice/assets/43011129/07905832-2104-45e0-a4ba-a5d7dafd1040)
+
+![image](https://github.com/god102104/openCV_Practice/assets/43011129/be1989a8-3583-4bfd-a62f-437528c8bd82)
+
