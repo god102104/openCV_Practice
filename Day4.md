@@ -10,3 +10,13 @@ Day 4
 > α+β=1이면 결과 영상에서 포화되는 픽셀이 발생하지 않습니다. <br>
 > 만약 α=0.1, β=0.9로 설정하면 src1 영상의 윤곽은 조금만 나타나고 <br>
 > src2 영상의 윤곽은 많이 나타나는 결과 영상이 생성됩니다. <br>
+<pre>
+  <code>
+    Mat src1 = imread("aero2.bmp", IMREAD_GRAYSCALE);
+    Mat src2 = imread("camera.bmp", IMREAD_GRAYSCALE);
+    
+    Mat dst;
+    addWeighted(src1, 0.5, src2, 0.5, 0, dst);
+  </code>
+</pre>
+> 두 입력 영상의 평균 영상을 생성하는 코드
