@@ -219,18 +219,18 @@ void affine_flip()
 ![image](https://github.com/god102104/openCV_Practice/assets/43011129/fa1fd91f-fb37-48ca-9c1f-9a06be859bd8)
 
 
-# 이동 변환 (translation transformation)
+## 이동 변환 (translation transformation)
 ![image](https://github.com/god102104/openCV_Practice/assets/43011129/0c47a231-e345-4149-b785-b3bb48b6a21d)
 ![image](https://github.com/god102104/openCV_Practice/assets/43011129/2e7f547d-8e23-4f4b-9f7f-efb3bcac5ade)
 > 위와 같은 2x3 affine 행렬을 만들어서 쓰면 됨. **함수는 따로 있지 않고** warpAffine() 쓰면 됨. <br>
 
-# 전단 변환 (shear transformation)
+## 전단 변환 (shear transformation)
 > 직사각형 형태의 영상을 한쪽 방향으로 밀어서 **평행사변형 모양으로** 변형되는 변환 **(층밀림 변환)** <br>
 ![image](https://github.com/god102104/openCV_Practice/assets/43011129/4476569e-d69b-4989-8c15-6356f717cce2)
 > 따로 함수 없음, warpAffine() 쓰면 됨
 
  
-# 크기 변환 (scale transformation)
+## 크기 변환 (scale transformation)
 ![image](https://github.com/god102104/openCV_Practice/assets/43011129/c8315544-20a7-4f1b-bc5a-3d1135b66bc6)
 > **resize()** 함수 사용
 <pre>
@@ -246,10 +246,10 @@ void affine_flip()
 ![image](https://github.com/god102104/openCV_Practice/assets/43011129/9c1974d2-94d3-45ae-873d-6b250056cff8)
 
 
-# 회전 변환 (rotation transformation)
+## 회전 변환 (rotation transformation)
 ![image](https://github.com/god102104/openCV_Practice/assets/43011129/b61375f7-d6a1-4efe-8a5b-887b312b7667)
 
-# 대칭 변환 
+## 대칭 변환 
 ![image](https://github.com/god102104/openCV_Practice/assets/43011129/0b051342-7929-40c3-82bb-f7f09bf0bdd3)
 > 위 수식은 **좌우 대칭** 변환 <br>
 ![image](https://github.com/god102104/openCV_Practice/assets/43011129/3d457e68-36ff-4b73-a2c9-72e628cac1e5)
@@ -263,7 +263,7 @@ void affine_flip()
 </pre>
 >  flipCode : flipCode가 양수이면 좌우 대칭, 0이면 상하 대칭, 음수이면 상하 대칭과 좌우 대칭
 
-# 투시 변환 (perspective transform)
+## 투시 변환 (perspective transform)
 ![image](https://github.com/god102104/openCV_Practice/assets/43011129/480ba330-969c-4431-a5bf-8006645659d0)
 > 보는 시점을 옮긴다고 보면 됨 <br>
 > 보통 **3x3** 크기의 실수행렬 <br>
@@ -291,3 +291,6 @@ void warpPerspective(InputArray src, OutputArray dst,
 
 > 투시 변환 행렬 M은 CV_32FC1 또는 CV_64FC1 타입이어야. <br>
 ![image](https://github.com/god102104/openCV_Practice/assets/43011129/835576b9-4cea-4e79-b059-56ea852c2753)
+
+
+# 
