@@ -146,3 +146,29 @@ Day6
 
 ![image](https://github.com/god102104/openCV_Practice/assets/43011129/be1989a8-3583-4bfd-a62f-437528c8bd82)
 
+![image](https://github.com/god102104/openCV_Practice/assets/43011129/abdc3947-b4bd-4a71-aa07-87699e28bcea)
+
+
+## 색상 채널 나누기
+> **split()** 함수
+<pre>
+  <code>
+    void split(const Mat& src, Mat* mvbegin);
+    void split(InputArray src, OutputArrayOfArrays mv);
+  </code>
+</pre>
+
+> mv : 분리된 1 채널 행렬을 저장할 벡터 <br>
+> mvbegin : 분리된 1채널 행렬을 저장할 Mat 배열 주소. 영상 배열 개수는 src 영상 채널 수와 같아야. <br>
+
+> 합치고 싶은 경우에는 **merge()**
+<pre>
+  <code>
+    void merge(const Mat* mv, size_t count, OutputArray dst);
+    void merge(InputArrayOfArrays mv, OutputArray dst);
+  </code>
+</pre>
+
+> 분리된 각 채널은 CV_8UC1 타입의 Grayscale 임. (즉, imshow()로 볼 수 있다.) <br>
+
+![image](https://github.com/god102104/openCV_Practice/assets/43011129/202c438b-6b92-493b-9dff-120a7b44dbd4)
