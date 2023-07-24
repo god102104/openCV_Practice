@@ -295,7 +295,7 @@ void warpPerspective(InputArray src, OutputArray dst,
 
 # 에지 검출과 응용
 
-## 미분과 그래디언트를 이용한 방법
+## 미분
 ![image](https://github.com/god102104/openCV_Practice/assets/43011129/06f5109d-b89e-4d5c-a064-d7ba69330a4c)
 > 픽셀 값이 급격하게 변하는 지점 찾기 (f′(x) 값이 0보다 훨씬 크거나 또는 훨씬 작은 위치를 찾아야) <br>
 ![image](https://github.com/god102104/openCV_Practice/assets/43011129/6aaf64d9-0b6b-4969-adeb-0d97b5b21ae6)
@@ -308,4 +308,16 @@ void warpPerspective(InputArray src, OutputArray dst,
 > 위는 중앙 차분에 의한 미분 근사 Mask
 ![image](https://github.com/god102104/openCV_Practice/assets/43011129/22d1b71e-25c8-4d6f-8e28-8f9b20ae5bbd)
 
+## 그래디언트 
+![image](https://github.com/god102104/openCV_Practice/assets/43011129/d44a347a-8b61-48ad-ab7e-53005ba9ffbe)
+
+>  f(x, y)가 있을 때 이 함수의 x축 방향 미분과 y축 방향 미분을 한꺼번에 **벡터로 표현**한 것 <br>
+> 그래디언트 벡터의 **방향**은 픽셀 값이 가장 **급격하게 증가하는 방향** <br>
+> 그래디언트 벡터의 **크기**는 픽셀 값의 차이 정도, **변화량** <br>
+
+![image](https://github.com/god102104/openCV_Practice/assets/43011129/350aae51-612e-454b-a128-d8951f22e408)
+
+> 위의 그림에서 경계상의 세 점 a, b, c를 선택하고, 각 점에서의 그래디언트 벡터를 빨간색 화살표로 표현 <br>
+> 노란색으로 표시된 화살표는 **그래디언트 벡터와 수직인 방향**을 표시, **'에지의 방향'**
+> 2차원 영상에서 에지를 찾는 기본적인 방법은 **그래디언트 크기가 특정 값보다 큰 위치를 찾는 것** <br>
 
