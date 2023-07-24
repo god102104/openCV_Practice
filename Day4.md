@@ -254,4 +254,78 @@ void filter_embossing()
 >만약 sigmaY = 0이면 sigmaX와 같은 값을 사용. <br>
 >만약 sigmaX와 simgaY가 모두 0이면 ksize의 width와 height 값으로부터 표준 편차를 계산하여 사용. <br>
 >• borderType : 가장자리 픽셀 확장 방식. <br>
->
+
+### bluring 예시 코드
+<pre>
+	<code>
+		#include "opencv2/opencv.hpp"
+#include <iostream>
+
+using namespace cv;
+using namespace std;
+
+void blurring_mean();
+void blurring_gaussian();
+
+int main(void)
+{
+	blurring_mean();
+	blurring_gaussian();
+
+	return 0;
+}
+
+void blurring_mean()
+{
+	Mat src = imread("rose.bmp", IMREAD_GRAYSCALE);
+
+	if (src.empty()) {
+		cerr << "Image load failed!" << endl;
+		return;
+	}
+
+	imshow("src", src);
+
+	Mat dst;
+	for (int ksize = 3; ksize <= 7; ksize += 2) {
+		blur(src, dst, Size(ksize, ksize));
+
+		String desc = format("Mean: %dx%d", ksize, ksize);
+		putText(dst, desc, Point(10, 30), FONT_HERSHEY_SIMPLEX, 1.0, 
+				Scalar(255), 1, LINE_AA);
+
+		imshow("dst", dst);
+		waitKey();
+	}	
+
+	destroyAllWindows();
+}
+
+void blurring_gaussian()
+{
+	Mat src = imread("rose.bmp", IMREAD_GRAYSCALE);
+
+	if (src.empty()) {
+		cerr << "Image load failed!" << endl;
+		return;
+	}
+
+	imshow("src", src);
+
+	Mat dst;
+	for (int sigma = 1; sigma <= 5; sigma++) {
+		GaussianBlur(src, dst, Size(0, 0), (double)sigma);
+
+		String desc = format("Gaussian: sigma = %d", sigma);
+		putText(dst, desc, Point(10, 30), FONT_HERSHEY_SIMPLEX, 1.0, 
+				Scalar(255), 1, LINE_AA);
+
+		imshow("dst", dst);
+		waitKey();
+	}
+
+	destroyAllWindows();
+}
+	</code>
+</pre>
+![image](https://github.com/god102104/openCV_Practice/assets/43011129/835790cf-d642-47bb-9ce7-73b4baa4e472)
