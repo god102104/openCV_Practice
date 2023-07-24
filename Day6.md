@@ -1,4 +1,4 @@
-Day6
+![image](https://github.com/god102104/openCV_Practice/assets/43011129/6b5c43e6-2829-4ab4-9dc4-a2e11a833fa9)Day6
 ===
 
 # 컬러 영상의 픽셀 값 참조
@@ -183,10 +183,47 @@ Day6
 > 위는 잘못된 사용 방법 <br>
 > 원본 영상과 다른 색상의 결과 영상이 만들어진다. <br>
 
-![image](https://github.com/god102104/openCV_Practice/assets/43011129/3a883234-36b9-40d1-a289-564d8ecbffe5)
 ![image](https://github.com/god102104/openCV_Practice/assets/43011129/7f27aead-d783-4c41-a790-915599d1ce41)
+![image](https://github.com/god102104/openCV_Practice/assets/43011129/3a883234-36b9-40d1-a289-564d8ecbffe5)
 
 > 제대로 된 사용 방법 <br>
 > 색감은 변경하지 않고 명암비만 높힘 (영상의 밝기 정보만을 이용)
 > 입력 영상을 밝기와 색상으로 분리 후 히스토그램 평활화
 
+## 색상 범위 지정에 의한 영역 분할
+> 컬러 영상에서 R,G, 등의 대표적인 색상 영역을 구분할 때에는 RGB 보단 HSV 가 유리 <br>
+> **HSV**에서 녹색은 H값이 60 근방이므로, 60근처의 픽셀을 찾아 녹색 픽셀 검출 가능. <br>
+> 이 때, **inRange()** 함수를 이용 <br>
+
+<pre>
+  <code>
+      void inRange(InputArray src, InputArray lowerb,
+               InputArray upperb, OutputArray dst);
+  </code>
+</pre>
+
+> lowerb : 하한 값 (Mat or Scalar) <br>
+> upperb : 상한 값 (Mat or Scalar) <br>
+> 입력 영상 src의 픽셀 값이 지정한 밝기 또는 색상 범위에 포함되어 있으면 흰색, <br>
+> 그렇지 않으면 검은색으로 채워진 마스크 영상 dst를 반환 <br>
+
+![image](https://github.com/god102104/openCV_Practice/assets/43011129/ccd5a187-879f-4ae2-918b-f8998e917740)
+
+
+## 히스토그램 역투영 (histogram backprojection)
+> inRange() 로 영역 검출하는 방식의 한계점으로 만든 방법 <br>
+> (사람의 피부색처럼 미세한 변화가 있거나 색상 값을 수치적으로 지정하기 어려운 경우에는 적합하지 않음) <br>
+> 기준 영상으로부터 찾고자 하는 **객체의 컬러 히스토그램을 미리 구하고**, <br>
+> 주어진 입력 영상에서 **해당 히스토그램에 부합하는 영역을 찾아내는 방식** <br>
+> calcBackProject() <br>
+
+<pre>
+  <code>
+      void calcBackProject(const Mat* images, int nimages,
+       const int* channels, InputArray hist,
+       OutputArray backProject, const float** ranges,
+       double scale = 1, bool uniform = true);
+  </code>
+</pre>
+
+> backProject : 출력 히스토그램 역투영 영상. 입력 영상과 같은 크기, 같은 깊이를 갖는 1채널 행렬 <br>
