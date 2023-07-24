@@ -262,3 +262,17 @@ void affine_flip()
 	</code>
 </pre>
 >  flipCode : flipCode가 양수이면 좌우 대칭, 0이면 상하 대칭, 음수이면 상하 대칭과 좌우 대칭
+
+# 투시 변환 (perspective transform)
+![image](https://github.com/god102104/openCV_Practice/assets/43011129/480ba330-969c-4431-a5bf-8006645659d0)
+> 보는 시점을 옮긴다고 보면 됨 <br>
+> 보통 **3x3** 크기의 실수행렬 <br>
+> **getPerspectiveTransform()** <br>
+<pre>
+	<code>
+		Mat getPerspectiveTransform(const Point2f src[], const Point2f dst[], 
+                            int solveMethod = DECOMP_LU);
+		Mat getPerspectiveTransform(InputArray src, InputArray dst,
+                            int solveMethod = DECOMP_LU);
+	</code>
+</pre>
