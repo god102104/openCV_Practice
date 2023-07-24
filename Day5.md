@@ -33,7 +33,7 @@ void warpAffine(InputArray src, OutputArray dst,
 
 > • src : 입력 영상 <br>
 > • dst : 결과 영상. src와 같은 타입이고, 크기는 dsize에 의해 결정. <br>
-> • M : 2×3 어파인 변환 행렬 <br>
+> • M : 2×3 어파인 변환 행렬 (CV_32FC1 또는 CV_64FC1 타입이어야)  <br>
 > • dsize : 결과 영상 크기 <br>
 > • flags : 보간법 알고리즘. 만약 OR 연산자를 이용하여 <br>
 > WARP_INVERSE_MAP 플래그를 함께 지정하면 역방향으로 변환을 수행. <br>
