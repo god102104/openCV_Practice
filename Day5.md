@@ -603,5 +603,5 @@ void warpPerspective(InputArray src, OutputArray dst,
 		}
 	</code>
 </pre>
+![image](https://github.com/god102104/openCV_Practice/assets/43011129/722984bd-f731-43c4-b43f-0fe45553eea3)
 
-![image](https://github.com/god102104/openCV_Practice/assets/43011129/08601caa-72cc-4cd0-9b38-314874ef786a)
