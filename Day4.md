@@ -134,3 +134,25 @@ int main(void)
 ![image](https://github.com/god102104/openCV_Practice/assets/43011129/0dc4b88d-dfa1-4e94-86f9-39e801b14c8d)
 
 > 가장자리 픽셀에서는 수식을 그대로 적용하기 어려움. -> **padding** 을 이용 <br>
+> **padding : 가상의 픽셀 공간** <br>
+![image](https://github.com/god102104/openCV_Practice/assets/43011129/2151f7f3-3a86-4119-9cd3-43e1066a56f5)
+
+### 일반적인 가장자리 픽셀 처리 방법
+![image](https://github.com/god102104/openCV_Practice/assets/43011129/bccc4423-c2a8-4237-9b69-c7f39a6d1422)
+
+> 일반적인 필터링은 **filter2D()** 함수를 이용.
+<pre>
+	<code>
+		
+void filter2D(InputArray src, OutputArray dst, int ddepth,
+              InputArray kernel, Point anchor = Point(-1,-1),
+              double delta = 0, int borderType = BORDER_DEFAULT);
+	</code>
+</pre>
+> • src : 입력 영상 <br>
+> • dst : 출력 영상. src와 같은 크기, 같은 채널 수를 갖습니다. <br>
+> • ddepth : 결과 영상의 깊이 <br>
+> • kernel : 필터링 커널. 1채널 실수형 행렬 <br>
+> • anchor : 고정점 좌표. Point(-1, -1)을 지정하면 커널 중심을 고정점으로 사용합니다. <br>
+> • delta : 필터링 연산 후 추가적으로 더할 값 <br>
+> • borderType : 가장자리 픽셀 확장 방식 <br>
