@@ -76,3 +76,49 @@ int main(void)
   </code>
 </pre>
 ![image](https://github.com/god102104/openCV_Practice/assets/43011129/550c5d57-73a6-4fc5-ab16-4a21ebe04ad3)
+
+## 비트 연산 
+> bitwise_and(), bitwise_or(), bitwise_xor(), bitwise_not() 함수를 이용. <br>
+> bitwise_and(), bitwise_or(), bitwise_xor() 함수는 두 개의 영상을 입력으로 받고,<br>
+> bitwise_not() 함수는 하나의 영상을 입력. <br>
+
+### 비트 연산 예시
+<pre>
+	<code>
+		#include "opencv2/opencv.hpp"
+#include <iostream>
+
+using namespace cv;
+using namespace std;
+
+int main(void)
+{
+	Mat src1 = imread("lenna256.bmp", IMREAD_GRAYSCALE);
+	Mat src2 = imread("square.bmp", IMREAD_GRAYSCALE);
+
+	if (src1.empty() || src2.empty()) {
+		cerr << "Image load failed!" << endl;
+		return -1;
+	}
+
+	imshow("src1", src1);
+	imshow("src2", src2);
+
+	Mat dst1, dst2, dst3, dst4;
+
+	bitwise_and(src1, src2, dst1);
+	bitwise_or(src1, src2, dst2);
+	bitwise_xor(src1, src2, dst3);
+	bitwise_not(src1, dst4);
+
+	imshow("dst1", dst1);
+	imshow("dst2", dst2);
+	imshow("dst3", dst3);
+	imshow("dst4", dst4);
+	waitKey();
+
+	return 0;
+}
+	</code>
+</pre>
+![image](https://github.com/god102104/openCV_Practice/assets/43011129/39c82128-a0d6-4556-8b42-0457a3652798)
