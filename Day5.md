@@ -17,3 +17,26 @@ Day5
 > 입력 영상에서 세 점의 좌표와 <br>
 > 이 점들이 이동한 결과 영상의 좌표 세 개를 입력으로 받아 <br>
 > 2×3 어파인 변환 행렬을 계산 <br>
+
+> **warpAffine()** 함수 <br>
+> 2×3 어파인 변환 행렬을 가지고 있을 때, 영상을 **어파인 변환한 결과 영상**을 생성 <br>
+<pre>
+  <code>
+    
+void warpAffine(InputArray src, OutputArray dst,
+                InputArray M, Size dsize,
+                int flags = INTER_LINEAR,
+                int borderMode = BORDER_CONSTANT,
+                const Scalar& borderValue = Scalar());
+  </code>
+</pre>
+
+> • src : 입력 영상 <br>
+> • dst : 결과 영상. src와 같은 타입이고, 크기는 dsize에 의해 결정. <br>
+> • M : 2×3 어파인 변환 행렬 <br>
+> • dsize : 결과 영상 크기 <br>
+> • flags : 보간법 알고리즘. 만약 OR 연산자를 이용하여 <br>
+> WARP_INVERSE_MAP 플래그를 함께 지정하면 역방향으로 변환을 수행. <br>
+> • borderMode : 가장자리 픽셀 확장 방식. BorderTypes 열거형 상수 중 하나를 지정. <br>
+> 만약 BORDER_TRANSPARENT를 지정하면 입력 영상의 픽셀 값이 복사되지 않는 영역은 dst 픽셀 값을 그대로 유지.
+> • borderValue : borderMode가 BORDER_CONSTANT일 때 사용할 상수 값. 기본값으로 검은색이 지정되어 있음.
