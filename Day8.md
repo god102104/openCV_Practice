@@ -223,4 +223,16 @@ Day8
 > 매우 빠르게 동작하는 코너 검출 방법 <br>
 > 영상의 모든 픽셀에서 픽셀을 둘러싸고 있는 16개의 주변 픽셀과 밝기를 비교하여 코너 여부를 판별 <br>
 > ![image](https://github.com/god102104/openCV_Practice/assets/43011129/ed6b9948-dbc7-40b5-a7a7-448cd1d3dead)
-
+> p에서의 밝기를 Ip, 만약 주변 16개의 픽셀 중에서 그 값이 Ip+t보다 큰 픽셀이 아홉 개 이상 연속으로 나타나면 <br>
+> 점 p는 어두운 영역이 뾰족하게 돌출되어 있는 코너 <br>
+> 특정 코너 점 **주변 픽셀들도 함께 코너로 검출하는 경우가 많기 때문에** <br>
+> 주변 코너 픽셀 중에서 가장 코너에 적합한 픽셀을 선택하는 <br>
+> **비최대 억제 작업을 추가적으로** 수행하는 것이 좋음. <br>
+> **FAST()** 함수
+> <pre>
+>  <code>
+>    void FAST(InputArray image, std::vector<KeyPoint>& keypoints,
+>          int threshold, bool nonmaxSuppression = true);
+>  </code>
+> </pre>
+> **nonmaxSuppression** : 비최대 억제 수행 여부. true이면 비최대 억제를 수행. <br>
