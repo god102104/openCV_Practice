@@ -96,3 +96,21 @@ Day8
   </code>
 </pre>
 ![image](https://github.com/god102104/openCV_Practice/assets/43011129/4203b051-f18a-4b8a-98b9-f6ab09f4045f)
+
+# 코너 검출
+
+## 해리스 코너 검출 방법
+> 기하학적 변환이 있어도 효과적으로 사용할 수 있는 지역 특징점 기반 매칭 방법. <br>
+> 특징점(feature point) : 코너처럼 한 점의 형태로 표현할 수 있는 특징 <br>
+> 해리스는 E(Δx, Δy)가 모든 방향으로 그 값이 크게 나타나는지를 검사하기 위해 테일러 급수(Taylor series), <br>
+> 고윳값 분석(eigenvalue analysis) 등의 수학적 기법을 적용하여 코너 응답 함수 R을 유도 <br>
+> ![image](https://github.com/god102104/openCV_Practice/assets/43011129/1158bb37-8fad-4344-9e40-dec0cb745bb7) <br>
+> 앞 수식에서 Det()는 행렬식(determinant)을, Tr()은 대각합(trace)을 의미하고, 행렬 M은 다음과 같이 정의 <br>
+> ![image](https://github.com/god102104/openCV_Practice/assets/43011129/22d69c0d-622b-4724-9a28-1be76f2b7576) <br>
+> 앞 수식에서 Ix와 Iy는 입력 영상 I를 각각 x축 방향과 y축 방향으로 편미분한 결과입니다.<br>
+> 코너 응답 함수 정의에서 상수 k는 보통 0.04~0.06 사이의 값을 사용<br>
+> 해리스에 의해 정의된 코너 응답 함수 R은 입력 영상 각각의 픽셀에서 정의되는 실수 값이며,<br>
+> 이 값을 분석하여 코너, 에지, 평탄한 영역을 판별할 수 있다. <br>
+> R이 0보다 충분히 큰 양수이면 코너 점이라고 간주 <br>
+> R이 0에 가까운 실수이면 평탄한 영역이고, 0보다 작은 음수이면 에지라고 판별 <br>
+
