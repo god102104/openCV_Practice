@@ -1,4 +1,4 @@
-![image](https://github.com/god102104/openCV_Practice/assets/43011129/892492f7-4ee5-408c-8ee1-1071de51209e)Day7  
+
 ===
 # 레이블링
 > 레이블링(labeling) : 객체 픽셀 집합에 고유 번호를 매기는 작업. <br>
@@ -253,3 +253,101 @@ RETR_TREE로 설정하면 외곽선 전체의 계층 구조를 생성. 만약 �
   </code>
 </pre>
 > return : 입력 점들을 감싸는 최소 크기의 **회전된** 사각형<br>
+
+> 외곽선 또는 점들을 감싸는 최소 크기의 원을 구하고 싶을 때에는 **minEnclosingCircle()** 함수 <br>
+<pre>
+  <code>
+    void minEnclosingCircle(InputArray points,
+            Point2f& center, float& radius);
+  </code>
+</pre>
+
+> 임의의 곡선을 형성하는 점들의 집합을 가지고 있을 때, 해당 곡선의 길이를 구하고 싶다면 **arcLength()** 함수 <br>
+> return : 입력 곡선의 길이 <br>
+
+> 외곽선이 감싸는 영역의 면적을 알고 싶다면 **contourArea()** 함수 <br>
+<pre>
+  <code>
+    double contourArea(InputArray contour, bool oriented = false);
+  </code>
+</pre>
+> return : 입력 **곡선이 감싸는 면적** <br>
+
+> 외곽선 또는 곡선을 근사화하는 **approxPolyDP()** 함수. <br>
+> 주어진 곡선의 형태를 단순화하여 작은 개수의 점으로 구성된 곡선을 생성 <br>
+<pre>
+  <code>
+        void approxPolyDP(InputArray curve, OutputArray approxCurve,
+                      double epsilon, bool closed);
+  </code>
+</pre>
+> closed : true 면 폐곡선 <br>
+
+### 예제 코드
+<pre>
+  <code>
+    #include "opencv2/opencv.hpp"
+    #include <iostream>
+    
+    using namespace cv;
+    using namespace std;
+    
+    void setLabel(Mat& img, const vector<Point>& pts, const String& label)
+    {
+    	Rect rc = boundingRect(pts);
+    	rectangle(img, rc, Scalar(0, 0, 255), 1);
+    	putText(img, label, rc.tl(), FONT_HERSHEY_PLAIN, 1, Scalar(0, 0, 255));
+    }
+    
+    int main(int argc, char* argv[])
+    {
+    	Mat img = imread("polygon.bmp", IMREAD_COLOR);
+    
+    	if (img.empty()) {
+    		cerr << "Image load failed!" << endl;
+    		return -1;
+    	}
+    
+    	Mat gray;
+    	cvtColor(img, gray, COLOR_BGR2GRAY);
+    
+    	Mat bin;
+    	threshold(gray, bin, 200, 255, THRESH_BINARY_INV | THRESH_OTSU);
+    
+    	vector<vector<Point>> contours;
+    	findContours(bin, contours, RETR_EXTERNAL, CHAIN_APPROX_NONE);
+    
+    	for (vector<Point> pts : contours) {
+    		if (contourArea(pts) < 400)
+    			continue;
+    
+    		vector<Point> approx;
+    		approxPolyDP(pts, approx, arcLength(pts, true) * 0.02, true);
+    
+    		int vtc = (int)approx.size();
+    
+    		if (vtc == 3) {
+    			setLabel(img, pts, "TRI");
+    		}
+    		else if (vtc == 4) {
+    			setLabel(img, pts, "RECT");
+    		}
+    		else {
+    			double len = arcLength(pts, true);
+    			double area = contourArea(pts);
+    			double ratio = 4. * CV_PI * area / (len * len);
+    
+    			if (ratio > 0.85) {
+    				setLabel(img, pts, "CIR");
+    			}
+    		}
+    	}
+    
+    	imshow("img", img);
+    
+    	waitKey();
+    	return 0;
+    }
+  </code>
+</pre>
+![image](https://github.com/god102104/openCV_Practice/assets/43011129/f1a53323-51db-45bb-afd4-6ce18f1cd23f)
