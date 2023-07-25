@@ -260,10 +260,117 @@ Day6
   </code>
 </pre>
 
->  픽셀 주변의 blockSize×blockSize 영역에서 평균을 구하고, 평균에서 상수 C를 뺀 값을 해당 픽셀의 임계값으로.
+>  픽셀 주변의 blockSize×blockSize 영역에서 평균을 구하고, 평균에서 상수 C를 뺀 값을 해당 픽셀의 임계값으로. <br>
 
 
 ## 모폴로지 연산
-> 영상 내부 객체의 형태와 구조를 분석하고 처리하는 기법.
-> 주로 이진 영상에서 객체 모양 변형하는 용도로 사용
-> 
+> 영상 내부 객체의 형태와 구조를 분석하고 처리하는 기법. <br>
+> 주로 이진 영상에서 객체 모양 변형하는 용도로 사용 **(단순화 및 noise 제거)** <br>
+> "**침식(erosion)**" 과 "**팽창(dilation)**" <br>
+> 침식 : 객체 영역의 외곽을 깎아 내는 연산. 객체 영역은 축소되고 배경은 확대. <br>
+> 팽창 : 객체 외곽을 확대하는 연산. 객체 영역은 확대되고 배경은 축소. <br>
+![image](https://github.com/god102104/openCV_Practice/assets/43011129/11d0e557-8949-4f27-9f12-18dc2d30d9fe)
+
+> **getStructuringElement()** 함수를 통해 구조 요소 행렬을 구할 수 있다. <br>
+<pre>
+  <code>
+    Mat getStructuringElement(int shape, Size ksize, Point anchor = Point(-1,-1));
+  </code>
+</pre>
+> **anchor** : MORPH_CROSS 모양의 구조 요소에서 십자가 중심 좌표. Point(-1, -1)을 지정하면 구조 요소 중앙을 십자가 중심 좌표로 사용. <br>
+> 지정한 모양과 크기에 해당하는 구조 요소 행렬을 반환. <br>
+>
+> 침식 연산은 **erode() 함수** <br>
+<pre>
+  <code>
+        void erode(InputArray src, OutputArray dst, InputArray kernel,
+               Point anchor = Point(-1,-1), int iterations = 1,
+               int borderType = BORDER_CONSTANT,
+               const Scalar& borderValue = morphologyDefaultBorderValue());
+  </code>
+</pre>
+> borderType : 가장자리 픽셀 확장 방식. <br>
+> borderValue : 확장된 가장자리 픽셀을 채울 값. <br>
+>
+> 팽창 연산은 **dilate() 함수** <br>
+<pre>
+  <code>
+        void dilate(InputArray src, OutputArray dst, InputArray kernel,
+                Point anchor = Point(-1,-1), int iterations = 1,
+                int borderType = BORDER_CONSTANT,
+                const Scalar& borderValue = morphologyDefaultBorderValue());
+  </code>
+</pre>
+
+### 침식과 팽창 예시 코드 
+<pre>
+  <code>
+    #include "opencv2/opencv.hpp"
+    #include <iostream>
+    
+    using namespace cv;
+    using namespace std;
+    
+    void erode_dilate();
+    void open_close();
+    
+    int main(void)
+    {
+    	erode_dilate();
+    	open_close();
+    
+    	return 0;
+    }
+    
+    void erode_dilate()
+    {
+    	Mat src = imread("milkdrop.bmp", IMREAD_GRAYSCALE);
+    
+    	if (src.empty()) {
+    		cerr << "Image load failed!" << endl;
+    		return;
+    	}
+    
+    	Mat bin;
+    	threshold(src, bin, 0, 255, THRESH_BINARY | THRESH_OTSU);
+    
+    	Mat dst1, dst2;
+    	erode(bin, dst1, Mat());
+    	dilate(bin, dst2, Mat());
+    
+    	imshow("src", src);
+    	imshow("bin", bin);
+    	imshow("erode", dst1);
+    	imshow("dilate", dst2);
+    
+    	waitKey();
+    	destroyAllWindows();
+    }
+    
+    void open_close()
+    {
+    	Mat src = imread("milkdrop.bmp", IMREAD_GRAYSCALE);
+    
+    	if (src.empty()) {
+    		cerr << "Image load failed!" << endl;
+    		return;
+    	}
+    
+    	Mat bin;
+    	threshold(src, bin, 0, 255, THRESH_BINARY | THRESH_OTSU);
+    
+    	Mat dst1, dst2;
+    	morphologyEx(bin, dst1, MORPH_OPEN, Mat());
+    	morphologyEx(bin, dst2, MORPH_CLOSE, Mat());
+    
+    	imshow("src", src);
+    	imshow("bin", bin);
+    	imshow("opening", dst1);
+    	imshow("closing", dst2);
+    
+    	waitKey();
+    	destroyAllWindows();
+    }
+  </code>
+</pre>
+![image](https://github.com/god102104/openCV_Practice/assets/43011129/f787678e-cec7-49db-9a79-adb1400c1760)
