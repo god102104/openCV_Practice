@@ -113,4 +113,16 @@ Day8
 > 이 값을 분석하여 코너, 에지, 평탄한 영역을 판별할 수 있다. <br>
 > R이 0보다 충분히 큰 양수이면 코너 점이라고 간주 <br>
 > R이 0에 가까운 실수이면 평탄한 영역이고, 0보다 작은 음수이면 에지라고 판별 <br>
-
+>
+> 해리스 코너 응답 함수 값을 계산하는 **cornerHarris()** 함수 <br>
+<pre>
+  <code>
+    void cornerHarris(InputArray src, OutputArray dst, int blockSize,
+                  int ksize, double k, int borderType = BORDER_DEFAULT);
+  </code>
+</pre>
+> blockSize : 행렬 M 연산에 사용할 이웃 픽셀 크기. 픽셀 주변 blockSize×blockSize 윈도우를 설정하여 행렬 M을 계산 <br>
+> k : 해리스 코너 검출 상수 <br>
+![image](https://github.com/god102104/openCV_Practice/assets/43011129/c03fbf69-45b9-4536-8c9a-cbc8821e9972)
+>
+> 
