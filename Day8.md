@@ -11,13 +11,13 @@ Day8
 > 입력 영상 전체 영역에 대해 이동하면서 <br>
 > 템플릿 영상과 입력 영상 부분 영상과의 유사도(similarity) 또는 비유사도(dissimilarity)를 계산 <br>
 > **matchTemplate()** 함수
-<pre>
-  <code>
-        void matchTemplate(InputArray image, InputArray templ,
-                   OutputArray result, int method, InputArray mask = noArray());
-  </code>
-</pre>
-
+> <pre>
+>  <code>
+>        void matchTemplate(InputArray image, InputArray templ,
+>                   OutputArray result, int method, InputArray mask = noArray());
+>  </code>
+> </pre>
+>
 > templ : 템플릿 영상. 입력 영상 image보다 같거나 작아야 하며, image와 타입이 같아야 <br>
 > mask : 찾고자 하는 템플릿의 마스크 영상. mask는 templ과 같은 크기, 같은 타입이어야  <br>
 
