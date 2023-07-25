@@ -101,3 +101,5 @@ Day7
 </pre>
 
 ![image](https://github.com/god102104/openCV_Practice/assets/43011129/f61080a6-e65d-42fc-87a5-42183647b435)
+![image](https://github.com/god102104/openCV_Practice/assets/43011129/5fe51659-0ea4-4c48-b333-f9b8768d1306)
+
