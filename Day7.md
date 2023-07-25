@@ -1,4 +1,4 @@
-Day7  
+![image](https://github.com/god102104/openCV_Practice/assets/43011129/892492f7-4ee5-408c-8ee1-1071de51209e)Day7  
 ===
 # 레이블링
 > 레이블링(labeling) : 객체 픽셀 집합에 고유 번호를 매기는 작업. <br>
@@ -140,3 +140,96 @@ Day7
 > RETR_CCOMP로 설정하면 모든 흰색 객체의 바깥쪽 외곽선을 먼저 검출하고, 각 객체 안의 홀 외곽선을 자식 외곽선으로 설정<br>
 > RETR_CCOMP 모드에서는 상하 계층이 최대 두 개 층으로만 구성. 만약 흰색 객체에 여러 개의 홀이 존재할 경우, 그중 하나만 자식 외곽선으로 설정<br>
 RETR_TREE로 설정하면 외곽선 전체의 계층 구조를 생성. 만약 객체 내부에 홀이 있고, 그 홀 안에 또 다른 작은 객체가 있다면 작은 객체의 외곽선은 홀 외곽선의 자식으로 설정<br>
+
+> findContours() 함수로 검출한 외곽선 정보를 이용하여 영상 위에 외곽선을 그리고 싶다면 **drawContours()** 함수 <br>
+<pre>
+  <code>
+    void drawContours(InputOutputArray image, InputArrayOfArrays contours,
+                      int contourIdx, const Scalar& color,
+                      int thickness = 1, int lineType = LINE_8,
+                      InputArray hierarchy = noArray(),
+                      int maxLevel = INT_MAX, Point offset = Point());
+  </code>
+</pre>
+> thickness : 외곽선 두께. FILLED 또는 -1을 지정하면 외곽선 내부를 채움 <br>
+> maxLevel : 그릴 외곽선의 최대 레벨. 이 값이 0이면 지정한 번호의 외곽선만 그리고, 1보다 같거나 크면 그에 해당하는 하위 레벨의 외곽선까지<br>
+> contourIdx : 외곽선 번호. 음수를 지정하면 전체 외곽선 <br>
+
+### 외곽선 예제 코드
+<pre>
+  <code>
+    #include "opencv2/opencv.hpp"
+    #include <iostream>
+    
+    using namespace cv;
+    using namespace std;
+    
+    void contours_basic();
+    void contours_hier();
+    
+    int main(void)
+    {
+    	contours_basic();
+    	contours_hier();
+    
+    	return 0;
+    }
+    
+    void contours_basic()
+    {
+    	Mat src = imread("contours.bmp", IMREAD_GRAYSCALE);
+    
+    	if (src.empty()) {
+    		cerr << "Image load failed!" << endl;
+    		return;
+    	}
+    
+    	vector<vector<Point>> contours;
+    	findContours(src, contours, RETR_LIST, CHAIN_APPROX_NONE);
+    
+    	Mat dst;
+    	cvtColor(src, dst, COLOR_GRAY2BGR);
+    
+    	for (int i = 0; i < contours.size(); i++) {
+    		Scalar c(rand() & 255, rand() & 255, rand() & 255);
+    		drawContours(dst, contours, i, c, 2);
+    	}
+    
+    	imshow("src", src);
+    	imshow("dst", dst);
+    
+    	waitKey();
+    	destroyAllWindows();
+    }
+    
+    void contours_hier()
+    {
+    	Mat src = imread("contours.bmp", IMREAD_GRAYSCALE);
+    
+    	if (src.empty()) {
+    		cerr << "Image load failed!" << endl;
+    		return;
+    	}
+    
+    	vector<vector<Point> > contours;
+    	vector<Vec4i> hierarchy;
+    	findContours(src, contours, hierarchy, RETR_CCOMP, CHAIN_APPROX_SIMPLE);
+    
+    	Mat dst;
+    	cvtColor(src, dst, COLOR_GRAY2BGR);
+    
+    	for (int idx = 0; idx >= 0; idx = hierarchy[idx][0]) {
+    		Scalar c(rand() & 255, rand() & 255, rand() & 255);
+    		drawContours(dst, contours, idx, c, -1, LINE_8, hierarchy);
+    	}
+    
+    	imshow("src", src);
+    	imshow("dst", dst);
+    
+    	waitKey();
+    	destroyAllWindows();
+    }
+  </code>
+</pre>
+![image](https://github.com/god102104/openCV_Practice/assets/43011129/8ea67095-8324-4f90-a788-66f3325c6f58)
+
