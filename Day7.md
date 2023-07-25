@@ -233,3 +233,23 @@ RETR_TREE로 설정하면 외곽선 전체의 계층 구조를 생성. 만약 �
 </pre>
 ![image](https://github.com/god102104/openCV_Practice/assets/43011129/8ea67095-8324-4f90-a788-66f3325c6f58)
 
+
+## 외곽선 처리 함수
+> 외곽선 점들을 감싸는 가장 작은 크기의 사각형 **바운딩 박스** 구하는 함수 **boundingRect()** <br>
+<pre>
+  <code>
+    Rect boundingRect(InputArray points);
+  </code>
+</pre>
+> 특정 객체의 바운딩 박스는 connectComponentsWithStats() 함수를 이용해서도 구할 수 있음.<br>
+> 다만 이미 외곽선 정보를 가지고 있는 경우에는 boundingRect() 함수를 이용하여 바운딩 박스를 구하는 것이 효율적.<br>
+> return : 력 점들을 감싸는 최소 크기의 **사각형**<br>
+
+> 외곽선 또는 점들을 감싸는 최소 크기의 회전된 사각형을 구하고 싶을 때에는 **minAreaRect()** 함수<br>
+> RotatedRect 클래스 객체를 반환 <br>
+<pre>
+  <code>
+    RotatedRect minAreaRect(InputArray points);
+  </code>
+</pre>
+> return : 입력 점들을 감싸는 최소 크기의 **회전된** 사각형<br>
