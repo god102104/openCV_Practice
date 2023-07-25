@@ -214,3 +214,8 @@ Day8
 </pre>
 ![image](https://github.com/god102104/openCV_Practice/assets/43011129/c03fbf69-45b9-4536-8c9a-cbc8821e9972)
 
+## FAST 코너 검출 방법
+> 단순한 픽셀 값 비교 방법을 통해 코너를 검출 <br>
+> 매우 빠르게 동작하는 코너 검출 방법 <br>
+> 영상의 모든 픽셀에서 픽셀을 둘러싸고 있는 16개의 주변 픽셀과 밝기를 비교하여 코너 여부를 판별 <br>
+![image](https://github.com/god102104/openCV_Practice/assets/43011129/ed6b9948-dbc7-40b5-a7a7-448cd1d3dead)
