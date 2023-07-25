@@ -7,7 +7,7 @@ Day8
 > 템플릿(template)은 찾고자 하는 대상이 되는 작은 크기의 영상 <br>
 > 템플릿 매칭은 작은 크기의 템플릿 영상을 입력 영상 전체 영역에 대해 이동하면서 가장 비슷한 위치를 수치적으로 찾아내는 방식 <br>
 ![image](https://github.com/god102104/openCV_Practice/assets/43011129/779ce75d-61d8-46d8-b8d6-752d87f068d5)
-
+>
 > 입력 영상 전체 영역에 대해 이동하면서 <br>
 > 템플릿 영상과 입력 영상 부분 영상과의 유사도(similarity) 또는 비유사도(dissimilarity)를 계산 <br>
 > **matchTemplate()** 함수
