@@ -374,3 +374,26 @@ Day6
   </code>
 </pre>
 ![image](https://github.com/god102104/openCV_Practice/assets/43011129/f787678e-cec7-49db-9a79-adb1400c1760)
+
+## 이진 영상의 열기와 닫기
+> 침식과 팽창을 이용 <br>
+> 열기 : 침식 연산 수행 후, 팽창 연산 <br>
+> 닫기 : 팽창 연산 수행 후, 침식 연산 <br>
+> 무슨 차이인지...? → **적용하는 순서에 따라 서로다른 효과**가 발생. <br>
+> 열기 연산의 경우 침식 먼저 수행하므로 한 두 픽셀 짜리 영역이 제거된 후에 팽창 연산. <br>
+> 닫기 연산의 경우 팽창 먼저 수행하므로 객체 내부의 구멍이 메워진 후 침식 연산. <br>
+![image](https://github.com/god102104/openCV_Practice/assets/43011129/b288dd9c-47df-485e-a5ac-358d4258b6ec) <br>
+> **morphologyEx()** 함수 <br>
+<pre>
+  <code>
+    
+    void morphologyEx(InputArray src, OutputArray dst,
+                      int op, InputArray kernel,
+                      Point anchor = Point(-1,-1), int iterations = 1,
+                      int borderType = BORDER_CONSTANT,
+                      const Scalar& borderValue = morphologyDefaultBorderValue());
+  </code>
+</pre>
+> op : 모폴로지 연산 타입. <br>
+![image](https://github.com/god102104/openCV_Practice/assets/43011129/1080a122-a2ce-4753-b755-c7c7a4816682)
+![image](https://github.com/god102104/openCV_Practice/assets/43011129/c5327c4a-316e-41a7-b3f1-ce1489b221c5)
