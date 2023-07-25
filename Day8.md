@@ -31,7 +31,6 @@ Day8
 > </pre>
 > points : (출력) QR 코드를 감싸는 사각형의 네 꼭지점 좌표 <br>
 > return : QR코드 검출 성공 시 true <br>
-
 -----
 
 > QR 코드에 저장된 문자열 추출 함수 **QRCodeDetector::decode()** <br>
@@ -41,9 +40,9 @@ Day8
 >     OutputArray straight_qrcode = noArray());    
 >  </code>
 > </pre>
-
+-----
 > QR 코드 검출과 해석을 한꺼번에 **QRCodeDetector::detectAndDecode()** <br>
-
+-----
 
 ### 예제 코드
 <pre>
@@ -99,6 +98,7 @@ Day8
   </code>
 </pre>
 ![image](https://github.com/god102104/openCV_Practice/assets/43011129/4203b051-f18a-4b8a-98b9-f6ab09f4045f)
+-----
 
 # 코너 검출
 
@@ -126,6 +126,7 @@ Day8
 > </pre>
 > blockSize : 행렬 M 연산에 사용할 이웃 픽셀 크기. 픽셀 주변 blockSize×blockSize 윈도우를 설정하여 행렬 M을 계산 <br>
 > k : 해리스 코너 검출 상수 <br>
+-----
 
 ### 해리스 코너 검출 예제 코드
 <pre>
@@ -216,9 +217,11 @@ Day8
   </code>
 </pre>
 ![image](https://github.com/god102104/openCV_Practice/assets/43011129/c03fbf69-45b9-4536-8c9a-cbc8821e9972)
+-----
 
 ## FAST 코너 검출 방법
 > 단순한 픽셀 값 비교 방법을 통해 코너를 검출 <br>
 > 매우 빠르게 동작하는 코너 검출 방법 <br>
 > 영상의 모든 픽셀에서 픽셀을 둘러싸고 있는 16개의 주변 픽셀과 밝기를 비교하여 코너 여부를 판별 <br>
 > ![image](https://github.com/god102104/openCV_Practice/assets/43011129/ed6b9948-dbc7-40b5-a7a7-448cd1d3dead)
+-----
