@@ -32,6 +32,7 @@ Day8
 > points : (출력) QR 코드를 감싸는 사각형의 네 꼭지점 좌표 <br>
 > return : QR코드 검출 성공 시 true <br>
 
+-----
 
 > QR 코드에 저장된 문자열 추출 함수 **QRCodeDetector::decode()** <br>
 > <pre>
