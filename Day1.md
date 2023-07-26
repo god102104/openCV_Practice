@@ -14,16 +14,16 @@ openCV function 관련
 ### Mat imwrite(const String& filename, InputArray img, const std::vector<int>& params = std::vector<int>());
 > img 를 filename 이름으로 저장<br>
 > filename 문자열에 포함된 확장자로 결정<br>
-
-<pre>
-  <code>
-    vector<int> params;
-      params.push_back(IMWRITE_JPEG_QUALITY);
-      params.push_back(95);
-      imwrite("lena.jpg", img, params);
-  </code>
-</pre>
-
+>
+> <pre>
+>  <code>
+>    vector<int> params;
+>      params.push_back(IMWRITE_JPEG_QUALITY);
+>      params.push_back(95);
+>      imwrite("lena.jpg", img, params);
+>  </code>
+> </pre>
+>
 > IMWRITE_JPEG_QUALITY 플래그가 JPEG 압축률을 나타내는 옵션 플래그임.<br>
 > 상세한 내용은 OpenCV 문서 사이트 참조<br>
 
