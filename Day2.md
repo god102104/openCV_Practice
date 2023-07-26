@@ -379,7 +379,7 @@ Day 2
 >		Mat dst;
 >		normalize(src, dst, 0, 255, NORM_MINMAX, CV_8UC1);
 >		cout << "src:" << src << endl;
-></src>		cout << "dst:" << dst << endl;
+>		cout << "dst:" << dst << endl;
 >	</code>
 > </pre>
 > 최솟값은 0, 최대값은 255가 되도록 크기 조정 <br>
