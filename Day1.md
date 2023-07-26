@@ -52,8 +52,9 @@ openCV function 관련
 > 사각형의 위치와 크기 정보<br>
 > template class<br>
 > Rect_ Object 끼리 **&** 와 **|** 를 이용한 연산이 가능하다.<br>
-
-![Rect_example](https://postfiles.pstatic.net/MjAyMTA1MDlfMjgx/MDAxNjIwNTUwODE5NjU5.sHiYnIJZ0NA6iP4l6xQALluU8NyVVTt9-Dm5dEieT7sg.OekYqTLPwnJdYHNz2G1uGqJ3iipr6ARN_FmsOorIm-Yg.JPEG.sees111/%EC%BA%A1%EC%B2%98.JPG?type=w966)
+>
+> ![Rect_example](https://postfiles.pstatic.net/MjAyMTA1MDlfMjgx/MDAxNjIwNTUwODE5NjU5.sHiYnIJZ0NA6iP4l6xQALluU8NyVVTt9-Dm5dEieT7sg.OekYqTLPwnJdYHNz2G1uGqJ3iipr6ARN_FmsOorIm-Yg.JPEG.sees111/%EC%BA%A1%EC%B2%98.JPG?type=w966)
+>
 
 ### String class
 > std::string 이랑 똑같음
@@ -113,19 +114,19 @@ openCV function 관련
 > 2. 행렬 크기 또는 타입이 다르다면 -> 기존 **메모리 공간 해제 후** 새로운 행렬 데이터 저장을 위한 **메모리 공간 할당.** <br>
 > Mat::create() 는 새로 만든 행렬의 원소 값을 **초기화 하는 기능이 없다.** 그래서 별도의 함수를 이용해줘야 함<br>
 > 주로 **=** 연산자 또는 **setTo**(InputAraay value, InputArray masek = noArray()); 를 이용한다.<br>
-<pre>
-	<code>
-		Mat mat4, mat5;
-		mat4.create(256, 256, CV_8UC3);
-		mat5.create(4, 4, CV_32FC1);
-	
-		mat4 = Scalar(255, 0, 0);
-		mat5.setTo(1.f);
-	
-		imshow("mat4", mat4);
-		imshow("mat5", mat5);
-	</code>
-</pre>
+> <pre>
+>	<code>
+>		Mat mat4, mat5;
+>		mat4.create(256, 256, CV_8UC3);
+>		mat5.create(4, 4, CV_32FC1);
+>	
+>		mat4 = Scalar(255, 0, 0);
+>		mat5.setTo(1.f);
+>	
+>		imshow("mat4", mat4);
+>		imshow("mat5", mat5);
+>	</code>
+> </pre>
 > 이렇게 코드를 돌리면, **mat5에서 오류** 발생한다.<br>
 > imshow 는 unsigned char를 쓰기 때문인데, 이를 해결하기 위해서는 **cv2.normalize()** 함수로 Scaling 해줘야만 한다.<br>
 > **normalize(mat5, mat5, 0, 255, NORM_MINMAX, CV_8U);**
@@ -133,26 +134,27 @@ openCV function 관련
 
 ## Shallow Copy, Deep Copy
 ### 얕은 복사
-
-<pre>
-	<code>
-		Mat img1 = imread("lena.jpg"); 
-		Mat img2 = img1; //복사 생성자
-		Mait img3; 
-		img3 = img1;	//대입 연산자
-	</code>
-</pre>
+>
+> <pre>
+>	<code>
+>		Mat img1 = imread("lena.jpg"); 
+>		Mat img2 = img1; //복사 생성자
+>		Mait img3; 
+>		img3 = img1;	//대입 연산자
+>	</code>
+> </pre>
 > 얕은 복사의 경우 동일한 메모리의 픽셀 데이터를 공유하는 방식
+
 ### 깊은 복사
-<pre>
-	<code>
-		Mat img4 = img1.clone(); 
-		Mat img5;
-		img1.copyTo(img5)
-	</code>
-</pre>
+> <pre>
+>	<code>
+>		Mat img4 = img1.clone(); 
+>		Mat img5;
+>		img1.copyTo(img5)
+>	</code>
+> </pre>
 > 깊은 복사의 경우 메모리 공간을 새로 할당하여 복사하는 방식
-> 
+
 
 ### 이미지 반전
 > img = ~img;
@@ -167,19 +169,19 @@ openCV function 관련
 
 ## Mat::at(int y, int x)
 > **참조 형식**으로 반환.
-<pre>
-	<code>
-		Mat mat1 = Mat::zeros(3, 4, CV_8UC1);
-		for (int j = 0; j < mat1.rows; j++)
-		{
-			for (int i = 0; i < mat1.cols; i++)
-			{
-				mat1.at<uchar>(j, i)++;
-			}
-		}
-	</code>
-</pre>
-> 행과 열 번호를 0- 기반으로 표현한다는 점을 기억하자.
+> <pre>
+>	<code>
+>		Mat mat1 = Mat::zeros(3, 4, CV_8UC1);
+>		for (int j = 0; j < mat1.rows; j++)
+>		{
+>			for (int i = 0; i < mat1.cols; i++)
+>			{
+>				mat1.at<uchar>(j, i)++;
+>			}
+>		}
+>	</code>
+> </pre>
+> 행과 열 번호를 0- 기반으로 표현한다는 점을 기억하자.<br>
 > ![image](https://github.com/god102104/openCV_Practice/assets/43011129/85bc598f-e293-4295-9680-d8e4afd0670a)
 
 
@@ -196,7 +198,7 @@ openCV function 관련
 > (포인터는 항상 메모리에 직접 접근하는 반면, 다른 방식들은 첫 번째 주소로 가서 위치를 찾기 때문)
 
  ### Mat Class의 member function
- > 1. int Mat::channels() const; //채널 수 반환
+> 1. int Mat::channels() const; //채널 수 반환
 >  2. int Mat::depth() const;	// 행렬의 깊이 반환
 >  3. size_t Mat::elemSize() const;	// 한 개의 원소가 차지하는 메모리 크기를 byte 단위로 반환 (CV_32SC3 type의 경우 4x3 = 12)
 >  4. size_t Mat::elemSize1() const;	// 하나의 채널에서 한 개의 원소가 차지하는 메모리 크기를 byte단위로 반환 (CV_32SC3 type 의 경우 4)
@@ -223,32 +225,31 @@ openCV function 관련
 ### 크기 및 type 변환 함수
 > void Mat::converTo(OutputArray m, int rtype, double alpha = 1, double beta = 0) const;<br>
 > type을 변경하고, 추가적으로 모든 원소에 일정 값을 더하거나 곱할 수 있음. <br>
-<pre>
-	<code>
-		Mat img1 = imread("lena.jpg", IMREAD_GRAYSCALE);
-		Mat img1f;
-		img1.convertTo(img1f, CV_32FC1);
-	</code>
-</pre>
-
+> <pre>
+>	<code>
+>		Mat img1 = imread("lena.jpg", IMREAD_GRAYSCALE);
+>		Mat img1f;
+>		img1.convertTo(img1f, CV_32FC1);
+>	</code>
+> </pre>
+>
 > Mat Mat::reshape(int cn, int rows = 0) const; <br>
-> 행렬 원소데이터를 같이 **참조**하는 행렬을 반환.
-<pre>
-	<code>
-		uchar data1[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12};
-		Mat mat1(3, 4, CV_8UC1, data1);
-  		Mat mat2 = mat1.reshape(0, 1);
-		cout<< "mat 1:\n" << mat1 << endl;
-		cout<< "mat 2:\n" << mat2 << endl;
-
-		mat1.resize(5, 100);
-		cout<< "mat 1:\n" << mat1 << endl;
-	</code>
-	</code>
-</pre>
-![image](https://github.com/god102104/openCV_Practice/assets/43011129/21bb6a46-a2c8-475d-9688-f0d45abca9be)
+> 행렬 원소데이터를 같이 **참조**하는 행렬을 반환.<br>
+> <pre>
+>	<code>
+>		uchar data1[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12};
+>		Mat mat1(3, 4, CV_8UC1, data1);
+> 		Mat mat2 = mat1.reshape(0, 1);
+>		cout<< "mat 1:\n" << mat1 << endl;
+>		cout<< "mat 2:\n" << mat2 << endl;
+>
+>		mat1.resize(5, 100);
+>		cout<< "mat 1:\n" << mat1 << endl;
+>	</code>
+> </pre>
+> ![image](https://github.com/god102104/openCV_Practice/assets/43011129/21bb6a46-a2c8-475d-9688-f0d45abca9be)<br>
 > mat1.resize(5,100)을 하면 3x4 크기에서 5x4 크기로 변경되고, 새로 추가된 행의 원소는 모두 100으로 설정된다.<br>
-> ![image](https://github.com/god102104/openCV_Practice/assets/43011129/021a67ef-b73d-46c2-9b23-8f6d2997c99b)
+> ![image](https://github.com/god102104/openCV_Practice/assets/43011129/021a67ef-b73d-46c2-9b23-8f6d2997c99b)<br>
 
 
 ## Scalar Class
