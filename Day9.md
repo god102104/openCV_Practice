@@ -21,7 +21,8 @@ Day9
 
 
 ## OpenCV 머신 러닝 Class
->![image](https://github.com/god102104/openCV_Practice/assets/43011129/10bd1ee6-6424-48cb-88b3-2cf23e53a514) 
+>![image](https://github.com/god102104/openCV_Practice/assets/43011129/10bd1ee6-6424-48cb-88b3-2cf23e53a514)
+>
 > **학습**을 수행하는 **StatModel::train()** 함수 <br>
 > <pre>
 >   <code>
@@ -54,6 +55,7 @@ Day9
 > 분류 또는 회귀에 사용되는 지도 학습 알고리즘 <br>
 > ![image](https://github.com/god102104/openCV_Practice/assets/43011129/7c52669c-9e70-482e-8cfb-b72c1cf64689) <br>
 > 주변의 가장 가까운 K개의 데이터를 보고 데이터가 **속할 그룹을 판단**하는 알고리즘이 K-NN 알고리즘 <br>
+>
 > **KNearest::create()** 함수 <br>
 > <pre>
 >  <code>
