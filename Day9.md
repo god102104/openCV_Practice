@@ -77,3 +77,14 @@ Day9
 >  </code>
 > </pre>
 > neighborResponses : 예측에 사용된 k개의 최근접 이웃 클래스 정보를 담고 있는 행렬 <br>
+
+## 서포트 벡터 머신(SVM, Support Vector Machine)
+> 두 개의 클래스로 구성된 데이터를 가장 여유 있게 분리하는 초평면(hyperplane)을 찾는 머신 러닝 알고리즘 <br>
+> 초평면이란 두 클래스의 데이터를 분리하는 N차원 공간상의 평면 <br>
+> 예를 들어 2차원 공간상의 점들을 분리하는 초평면은 단순한 직선 형태로 정의되며, <br>
+> 3차원 공간상의 점들을 분리하는 초평면은 3차원 공간에서의 평면의 방정식으로 표현할 수 있음. <br>
+> VM 알고리즘은 지도 학습의 일종이며, 분류와 회귀에 사용될 수 있다.<br>
+> ![image](https://github.com/god102104/openCV_Practice/assets/43011129/6375607c-7e87-4279-b7b0-dac4f191027b)
+> ![image](https://github.com/god102104/openCV_Practice/assets/43011129/24d15abc-e9dd-4b8b-8a8e-925536426960)
+> 빨간색 또는 파란색 점과의 거리를 마진(margin)이라고 하며, SVM은 이 마진을 최대로 만드는 초평면을 구하는 알고리즘  <br>
+
