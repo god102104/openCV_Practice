@@ -46,3 +46,5 @@ Day9
 > return : 입력 벡터가 하나인 경우에 대한 응답 return. <br>
 >
 > 
+![image](https://github.com/god102104/openCV_Practice/assets/43011129/372374f9-cfed-4a45-b650-a0b8767c329c)
+![image](https://github.com/god102104/openCV_Practice/assets/43011129/6153d933-1307-4804-bd70-1e028a90bacb)
