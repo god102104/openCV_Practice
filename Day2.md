@@ -335,37 +335,37 @@ Day 2
 		}
 	</code>
 </pre>
-![image](https://github.com/god102104/openCV_Practice/assets/43011129/ad13ec14-11d7-4d9f-8351-2dbae1783e93)
-
-<pre>
-	<code>
-		void cv::Mat::copyTo(OutputArray m,InputArray mask) const
-	</code>
-</pre>
-
+> ![image](https://github.com/god102104/openCV_Practice/assets/43011129/ad13ec14-11d7-4d9f-8351-2dbae1783e93)
+>
+> <pre>
+>	<code>
+>		void cv::Mat::copyTo(OutputArray m,InputArray mask) const
+>	</code>
+> </pre>
+>
 > mask 연산을 지원하는 Mat::copyTo() 함수는 mask 영상의 pixel 값이 0이 아닌 위치에서만 *this 행렬 원소 값을 행렬 m으로 복사한다. <br>
 > *this 행렬과 m 행렬이 서로 크기와 type이 같다면, m행렬 원소 값을 그대로 유지한 상태에서 *this 행렬의 pixel 값 복사. <br>
 
 
 ### 연산 시간 측정
 > OpenCV 3.2.0 부터 TickMeter 로 쉽게 구할 수 있음.
-<pre>
-	<code>
-		TickMeter tm;
-		tm.start();
-
-		my_func();
-		tm.stop();
-		double ms = tm.getTimeMilli();
-	</code>
-</pre>
+> <pre>
+>	<code>
+>		TickMeter tm;
+>		tm.start();
+>
+>		my_func();
+>		tm.stop();
+>		double ms = tm.getTimeMilli();
+>	</code>
+></pre>
 
 ### minMaxLoc() 
-<pre>
-	<code>
-		void cv::minMaxLoc(InputArray src,double * minVal, double * maxVal = 0, Point* minLoc = 0, Point* maxLoc = 0,InputArray mask = noArray())	
-	</code>
-</pre>
+> <pre>
+>	<code>
+>		void cv::minMaxLoc(InputArray src,double * minVal, double * maxVal = 0, Point* minLoc = 0, Point* maxLoc = 0,InputArray mask = noArray())	
+>	</code>
+> </pre>
 > 행렬의 최대값, 최소값 찾는 함수 <br>
 > mask 연산을 지원하므로 일부 영역에서의 최소, 최대 구하기 가능 <br>
 > 가장 큰 원소만 알고 싶다면, maxVal 인자만 설정하고, 나머지 인자에는 0
