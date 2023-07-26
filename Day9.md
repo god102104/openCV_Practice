@@ -48,3 +48,30 @@ Day9
 > 
 ![image](https://github.com/god102104/openCV_Practice/assets/43011129/372374f9-cfed-4a45-b650-a0b8767c329c)
 ![image](https://github.com/god102104/openCV_Practice/assets/43011129/6153d933-1307-4804-bd70-1e028a90bacb)
+
+
+## k 최근접 이웃(kNN, k-Nearest Neighbor) 알고리즘
+> 분류 또는 회귀에 사용되는 지도 학습 알고리즘
+> ![image](https://github.com/god102104/openCV_Practice/assets/43011129/7c52669c-9e70-482e-8cfb-b72c1cf64689)
+> 주변의 가장 가까운 K개의 데이터를 보고 데이터가 **속할 그룹을 판단**하는 알고리즘이 K-NN 알고리즘
+> **KNearest::create()** 함수
+> <pre>
+>  <code>
+>    static Ptr<KNearest> KNearest::create();
+>  </code>
+> </pre>
+> return : KNearest 객체를 참조하는 Ptr 스마트 포인터 객체
+> 기본적으로 **k 값이 10**으로 설정되어 있으므로, 수정하려면 **KNearest:: setDefaultK()** 함수 이용.
+> KNearest 객체는 기본적으로 분류를 위한 용도로 생성.
+> KNearest 객체를 분류가 아닌 회귀에 적용하려면 **KNearest::setIsClassifier()** 멤버 함수에 **false**를 지정하여 호출
+> **예측**을 수행할 때에는 주로 **KNearest::findNearest()** 멤버 함수
+> <pre>
+>  <code>
+>        virtual float KNearest::findNearest(InputArray samples, 
+>        int k,
+>        OutputArray results,
+>        OutputArray neighborResponses = noArray(),
+>        OutputArray dist = noArray()) const;
+>  </code>
+> </pre>
+> neighborResponses : 예측에 사용된 k개의 최근접 이웃 클래스 정보를 담고 있는 행렬
