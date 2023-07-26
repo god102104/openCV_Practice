@@ -22,7 +22,7 @@ Day9
 
 ## OpenCV 머신 러닝 Class
 >![image](https://github.com/god102104/openCV_Practice/assets/43011129/10bd1ee6-6424-48cb-88b3-2cf23e53a514) 
-> **학습**을 수행하는 **StatModel::train()** 함수
+> **학습**을 수행하는 **StatModel::train()** 함수 <br>
 > <pre>
 >   <code>
 >     virtual bool StatModel::train(InputArray samples, 
@@ -30,11 +30,11 @@ Day9
 >                              InputArray responses);
 >   </code>
 > </pre>
-> responses : 각 훈련 데이터에 대응되는 응답(레이블) 행렬
-> return : 학습 완료 시 true
-> layout : 훈련 데이터 배치 방법. ROW_SAMPLE 또는 COL_SAMPLE를 지정
+> responses : 각 훈련 데이터에 대응되는 응답(레이블) 행렬 <br>
+> return : 학습 완료 시 true <br>
+> layout : 훈련 데이터 배치 방법. ROW_SAMPLE 또는 COL_SAMPLE를 지정 <br>
 >
-> 테스트 데이터의 **응답**을 얻고 싶으면 **StatModel::predict()** 함수
+> 테스트 데이터의 **응답**을 얻고 싶으면 **StatModel::predict()** 함수 <br>
 > <pre>
 >  <code>
 >    virtual float StatModel::predict(InputArray samples, 
@@ -42,7 +42,7 @@ Day9
 >                                 int flags = 0) const;
 >   </code>
 > </pre>
-> flags : StatModel::Flags 열거형 상수 중 하나를 지정할 수 있으며, 모델에 따라 사용법이 다름
-> return : 입력 벡터가 하나인 경우에 대한 응답 return.
+> flags : StatModel::Flags 열거형 상수 중 하나를 지정할 수 있으며, 모델에 따라 사용법이 다름 <br>
+> return : 입력 벡터가 하나인 경우에 대한 응답 return. <br>
 >
 > 
