@@ -30,16 +30,16 @@ openCV function 관련
 ### Point_ Class
 > Template class 이므로, 어떤 자료형으로 좌표를 표현할지를 명시해야 한다.<br>
 > int 자료형 쓰고 싶다면 Point2i, float 쓰고 싶다면 Point2f 를 쓰면 된다.<br>
-
-<pre>
-  <code>
-    Point pt1;
-    pt1.x = 5;
-    pt1.y = 10;
-    Point pt2(10, 30);
-  </code>
-</pre>
-
+>
+> <pre>
+> <code>
+>    Point pt1;
+>    pt1.x = 5;
+>    pt1.y = 10;
+>    Point pt2(10, 30);
+>  </code>
+> </pre>
+>
 > 위의 코드에서 pt1은 기본 생성자를 사용하여 생성되었으므로 처음에는 pt1.x, pt1.y 는 둘 다 0으로 만들어진다.<br>
 
 ### Size_ Class
@@ -68,32 +68,32 @@ openCV function 관련
 
 ### Mat Class 생성 시 주의 점
 > 가로- 세로 크기 순이 아니라, 세로-가로 크기 순서
-<pre>
-  <code>
-	Mat img(480, 640, CV_8UC1); //unsigned char, 1-channel
-	Mat img2(480, 640, CV_8UC3); //unsigned char, 3-channels
-	Mat img3(Size(640, 480), CV_8UC3); //Size(width, height)
-	Mat img4(480, 640, CV_8UC1, Scalar(128)); //initial values, 128
-	Mat img5(480, 640, CV_8UC3, Scalar(0, 0, 255)); //initial values, red
-  </code>
-</pre>
-
-![image](https://github.com/god102104/openCV_Practice/assets/43011129/f8080d0a-5031-4ea4-bc87-2d60e3ca38b5)
-
+> <pre>
+>  <code>
+>	Mat img(480, 640, CV_8UC1); //unsigned char, 1-channel
+>	Mat img2(480, 640, CV_8UC3); //unsigned char, 3-channels
+>	Mat img3(Size(640, 480), CV_8UC3); //Size(width, height)
+>	Mat img4(480, 640, CV_8UC1, Scalar(128)); //initial values, 128
+>	Mat img5(480, 640, CV_8UC3, Scalar(0, 0, 255)); //initial values, red
+>  </code>
+> </pre>
+>
+> ![image](https://github.com/god102104/openCV_Practice/assets/43011129/f8080d0a-5031-4ea4-bc87-2d60e3ca38b5)
+>
 > Mat::zeros(int rows, int cols, int type)
 > Mat::ones(int rows, int cols, int type)
 > Mat::eye(int rows, int cols, int type)
 
 ### 외부 배열을 행렬의 원소값으로 사용해보기
-<pre>
-	<code>
-		float data[] = { 1, 2, 3, 4, 5, 6 };
-		Mat mat(2, 3, CV_32FC1, data);
-		cout << "mat"<< endl << mat << endl;
-	</code>
-</pre>
-![image](https://github.com/god102104/openCV_Practice/assets/43011129/2ce6069a-1317-4e2b-976b-2f3083146c81)
-
+> <pre>
+>	<code>
+>		float data[] = { 1, 2, 3, 4, 5, 6 };
+>		Mat mat(2, 3, CV_32FC1, data);
+>		cout << "mat"<< endl << mat << endl;
+>	</code>
+> </pre>
+> ![image](https://github.com/god102104/openCV_Practice/assets/43011129/2ce6069a-1317-4e2b-976b-2f3083146c81)
+>
 > 외부 메모리 공간을 **참조**하여 Mat Object 를 생성하는 경우, Object의 원소 값과 외부 **메모리 값이 공유**된다는 사실은 몹시 중요하다.<br>
 > 둘 중 한 쪽을 수정하더라도 양 쪽 모두에 적용됨.<br>
 > 동적 할당 된 Memory의 경우 Mat Object가 소멸될 때 까지 남으므로, 직접 메모리 해제 해주는 것을 잊지 말자.<br>
