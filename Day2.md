@@ -186,7 +186,7 @@ Day 2
 >  </code>
 > </pre>
 > ![image](https://github.com/god102104/openCV_Practice/assets/43011129/0ea223ae-f49f-4612-863f-b90070b50aaf)
-
+>
 > 파일 이름과 열기 모드를 지정하는 생성자를 이용해서 한 번에 작업할 수 있음 <br>
 > <pre>
 >	<code>
