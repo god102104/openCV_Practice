@@ -373,14 +373,14 @@ Day 2
 ### normalize()
 > **정규화 함수**
 > 아래와 같은 경우에 유용하게 사용 가능
-<pre>
-	<code>
-		Mat src = Mat_<float>({1,5},{-1.f, -0.5f, 0.f, 0.5f, 1.f});
-		Mat dst;
-		normalize(src, dst, 0, 255, NORM_MINMAX, CV_8UC1);
-		cout << "src:" << src << endl;
-		cout << "dst:" << dst << endl;
-	</code>
-</pre>
+> <pre>
+>	<code>
+>		Mat src = Mat_<float>({1,5},{-1.f, -0.5f, 0.f, 0.5f, 1.f});
+>		Mat dst;
+>		normalize(src, dst, 0, 255, NORM_MINMAX, CV_8UC1);
+>		cout << "src:" << src << endl;
+></src>		cout << "dst:" << dst << endl;
+>	</code>
+> </pre>
 > 최솟값은 0, 최대값은 255가 되도록 크기 조정 <br>
-![image](https://github.com/god102104/openCV_Practice/assets/43011129/9db51a22-b759-4f98-9bc1-2211acb276c8)
+> ![image](https://github.com/god102104/openCV_Practice/assets/43011129/9db51a22-b759-4f98-9bc1-2211acb276c8)
