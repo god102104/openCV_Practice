@@ -87,4 +87,33 @@ Day9
 > ![image](https://github.com/god102104/openCV_Practice/assets/43011129/6375607c-7e87-4279-b7b0-dac4f191027b)
 > ![image](https://github.com/god102104/openCV_Practice/assets/43011129/24d15abc-e9dd-4b8b-8a8e-925536426960)
 > 빨간색 또는 파란색 점과의 거리를 마진(margin)이라고 하며, SVM은 이 마진을 최대로 만드는 초평면을 구하는 알고리즘  <br>
+> 기본적으로 선형으로 분리 가능한 데이터에만 적용 가능.
+> 선형으로 분리되지 않는 경우에는 커널 트릭(kernel trick)이라는 기법을 사용.
+> (커널 함수를 이용하여 입력 데이터 특징 공간 차원을 늘리는 방식)
+> ![image](https://github.com/god102104/openCV_Practice/assets/43011129/21b6bb43-37e4-450f-a781-bab1fa665dc3)
+> ![image](https://github.com/god102104/openCV_Practice/assets/43011129/7bd81946-e0a3-418d-a7ac-37ba0d051f3e)
 
+## SVM Class 사용하기
+> **SVM::create()** 함수 <br>
+<pre>
+  <code>
+    static Ptr<SVM> SVM::create();
+  </code>
+</pre>
+> return : SVM 객체를 참조하는 Ptr 스마트 포인터 객체 <br>
+>
+> SVM 알고리즘 속성 설정 → **SVM::setType()** 함수 <br>
+<pre>
+  <code>
+    virtual void SVM::setType(int val)
+  </code>
+</pre>
+> val : SVM 타입. SVM::Types 열거형 상수 중 하나를 지정 <br>
+> ![image](https://github.com/god102104/openCV_Practice/assets/43011129/cc233336-d84e-46e4-9bca-900b9f4e6534) <br>
+>
+> 커널 함수 지정 → SVM::setKernel() 멤버 함수 <br>
+<pre>
+  <code>
+    virtual void SVM::setKernel(int kernelType);    
+  </code>
+</pre>
