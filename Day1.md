@@ -139,7 +139,7 @@ openCV function 관련
 >	<code>
 >		Mat img1 = imread("lena.jpg"); 
 >		Mat img2 = img1; //복사 생성자
->		Mait img3; 
+>		Mat img3; 
 >		img3 = img1;	//대입 연산자
 >	</code>
 > </pre>
