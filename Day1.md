@@ -186,28 +186,28 @@ openCV function 관련
 
 
 ## Mat::ptr(int y)
-> 특정 행의 **첫 번째 원소 주소를 반환**
-> ![image](https://github.com/god102104/openCV_Practice/assets/43011129/cf84c628-bba6-4e5f-bac0-ae8611d2df6b)
-> for 문을 통해 행렬 **모든 원소**를 참조하는 경우, **Mat::ptr**이 Mat::at 보다 **빠르게 동작.**
+> 특정 행의 **첫 번째 원소 주소를 반환**<br>
+> ![image](https://github.com/god102104/openCV_Practice/assets/43011129/cf84c628-bba6-4e5f-bac0-ae8611d2df6b)<br>
+> for 문을 통해 행렬 **모든 원소**를 참조하는 경우, **Mat::ptr**이 Mat::at 보다 **빠르게 동작.**<br>
 
 
 ### MatIterator_ 반복자
-> Mat::begin()
-> Mat::end()
+> Mat::begin()<br>
+> Mat::end()<br>
 > 동작 속도 측면에서 Mat::ptr() 접근 방법보다 느림.<br>
-> (포인터는 항상 메모리에 직접 접근하는 반면, 다른 방식들은 첫 번째 주소로 가서 위치를 찾기 때문)
+> (포인터는 항상 메모리에 직접 접근하는 반면, 다른 방식들은 첫 번째 주소로 가서 위치를 찾기 때문)<br>
 
  ### Mat Class의 member function
-> 1. int Mat::channels() const; //채널 수 반환
->  2. int Mat::depth() const;	// 행렬의 깊이 반환
->  3. size_t Mat::elemSize() const;	// 한 개의 원소가 차지하는 메모리 크기를 byte 단위로 반환 (CV_32SC3 type의 경우 4x3 = 12)
->  4. size_t Mat::elemSize1() const;	// 하나의 채널에서 한 개의 원소가 차지하는 메모리 크기를 byte단위로 반환 (CV_32SC3 type 의 경우 4)
->  5. bool Mat::empty() const;	// 비어 있는 행렬이면 true
->  6. bool Mat::isContinuous() const;	// 각 행의 원소가 연속적으로 저장되어 있으면 true 반환
->  7. bool Mat::isSubmatrix() const;	// 행렬이 다른 행렬의 부분 행렬이면 true 반환
->  8. Size Mat::size() const;	//행렬 크기를 Size type으로 반환
->  9. size_t Mat::total() const;	//전체 원소 갯수 반환
->  10. int Mat::type() const;	// 행렬의 type 반환 (CV_32FC1, CV_8UC3 등)
+> 1. int Mat::channels() const; //채널 수 반환 <br>
+>  2. int Mat::depth() const;	// 행렬의 깊이 반환 <br>
+>  3. size_t Mat::elemSize() const;	// 한 개의 원소가 차지하는 메모리 크기를 byte 단위로 반환 (CV_32SC3 type의 경우 4x3 = 12)<br>
+>  4. size_t Mat::elemSize1() const;	// 하나의 채널에서 한 개의 원소가 차지하는 메모리 크기를 byte단위로 반환 (CV_32SC3 type 의 경우 4)<br>
+>  5. bool Mat::empty() const;	// 비어 있는 행렬이면 true<br>
+>  6. bool Mat::isContinuous() const;	// 각 행의 원소가 연속적으로 저장되어 있으면 true 반환<br>
+>  7. bool Mat::isSubmatrix() const;	// 행렬이 다른 행렬의 부분 행렬이면 true 반환<br>
+>  8. Size Mat::size() const;	//행렬 크기를 Size type으로 반환<br>
+>  9. size_t Mat::total() const;	//전체 원소 갯수 반환<br>
+>  10. int Mat::type() const;	// 행렬의 type 반환 (CV_32FC1, CV_8UC3 등)<br>
 
 ## 행렬의 연산
 ### 역행렬 
